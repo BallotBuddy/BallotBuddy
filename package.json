@@ -1,4 +1,4 @@
-
+{
   "name": "ballot-buddy",
   "version": "1.0.0",
   "description": "informed voter app leveraging Redux with React and Babel support",
@@ -31,7 +31,7 @@
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "react-redux": "^4.0.0",
-
+    "react-redux": "^4.0.0"
+    
   }
 }
