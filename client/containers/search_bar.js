@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+// importing the fetchProfile action...
+import { fetchProfile } from '../actions/index';
+// import CandidateProfile from '../components/candidateProfile';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 
@@ -19,14 +22,26 @@ export default class SearchBar extends Component {
 
 	onFormSubmit(event) {
 		event.preventDefault();
+		this.props.fetchProfile();
 		console.log("Submit clicked");
 		//call function that activates API
 		//e.g. this.props.fetchWeather(this.state.term);
 		this.setState( { searchTerm: '' } );
 	}
 
+	renderProfile(profileData){
+		console.log('renderProfile is firing: ', profileData);
+		return (
+			<div>
+				{profileData}
+			</div>
+		);
+	}
+
 	render() {
 		return(
+			<div>
+				{this.renderProfile}
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input
 					placeholder="e.g. Barack Obama"
@@ -38,9 +53,26 @@ export default class SearchBar extends Component {
 					</button>
 				</span>
 			</form>
-		)
+			</div>
+		);
 	}
 }
+
+// function mapStateToProps({ profile }){
+// 	console.log('search_bar - mapStateToProps fired', {profile: profile});
+// 	return { profile };
+// }
+
+function mapStateToProps ({ profile }){
+	console.log('mapStateToProps profile info: ', profile);
+	return { profile }
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ fetchProfile }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
 /*
 function mapDispatchToProps(dispatch) {
 	//send data to API call
