@@ -1,3 +1,6 @@
 /node_modules
 dist/bundle.js
 .DS_Store
+dummy_response.js
+client/components/candidtaeProfile.js
+clinet/reducers/profile_list.js
