@@ -6,7 +6,7 @@
 //
 var path = require('path');
 
-var config = require('./knexfile')
+var config = require('../database/knex')
 var env = process.env.NODE_ENV || 'development'
 var knex = require('knex')(config[env])
 var _ = require('underscore');
@@ -19,17 +19,26 @@ knex.ensureSchema = ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('candidate', function (table) {
           table.string('candidate_id', 30).primary();
-          table.string('candidate_firstName', 25);
+          table.string('candidate_firstlast', 25);
           table.string('candidate_lastName', 25);
-          table.string('candidate_birthDate', 40);
-          table.string('candidate_gender', 1);
-          table.string('candidate_photo', 255);
-          table.string('candidate_phone', 20);
-          table.string('candidate_office',40);
-          table.string('candidate_youtube',200);
-          table.string('candidate_website',255);
-          table.string('candidate_facebook',255);
-          table.string('candidate_office',50);
+          table.string('party',15);
+          table.string('office',25);
+          table.string('gender',1);
+          table.string('first_elected',25);
+          table.string('exit_code',15);
+          table.string('comments',255);
+          table.string('phone',20);
+          table.string('fax',20);
+          table.string('website',255);
+          table.string('webform',255);
+          table.string('congress_office',20);
+          table.string('bioguide_id',20);
+          table.string('votesmart_id',50);
+          table.string('feccandid',50);
+          table.string('twitter_id',45);
+          table.string('youtube_url',20);
+          table.string('facebook_id',50);
+          table.string('brithdate',50);
         }).then(function (table) {
           console.log('Created candidate table.');
         })
@@ -55,7 +64,7 @@ knex.queryCandidate = function() {
 };
 
 //
-// Insert all elements of a campground/campsite array into the given table name
+// Insert all elements of a candidate array into the given table name
 //
 knex.insertEverything = function(candArr, table) {
   return Promise.all(_.map(candArr, function(candidate) {
@@ -67,7 +76,7 @@ knex.insertEverything = function(candArr, table) {
         console.log("Error inserting into " + table + " table: ", err);
       })
   })).then(function() {
-    return campArr;
+    return candArr;
   });
 }
 
