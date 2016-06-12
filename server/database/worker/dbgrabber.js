@@ -63,7 +63,7 @@ var collectCandidates = function() {
       //
       // Insert candidate data into db
       //
-      return db.insertEverything(cgs, 'candidates');
+      return db.insertEverything(cgs, 'candidate');
     })
 }
 
