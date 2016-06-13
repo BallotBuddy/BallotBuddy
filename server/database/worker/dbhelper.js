@@ -48,7 +48,7 @@ var buildCandObject = function (candidate) {
 //
 
 
-Cand.fetch = function (request, cId) { 
+Cand.fetch = function (request) { 
   return rp(request)
     .then(function (res) {
       console.log("Successfully fetched candidate info");
@@ -60,8 +60,10 @@ Cand.fetch = function (request, cId) {
     .then(function (jsres) {
      console.log("Successfully parsed candidate info:");
       return jsres.response.legislator.map(function (item) {
+        
         var candidateObj = item['@attributes'];
-        candidateObj.picture = 'https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/' + candidateObj.votesmart_id + ".jpg";
+        // fixed url so that it will have a proper url for candidate photos.
+        candidateObj.picture = 'https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/' + candidateObj.cid + ".jpg";
         //grabs first two characters from the candidate.office and uses them to populate the state field
         candidateObj.state = candidateObj.office[0]+candidateObj.office[1];
         return buildCandObject(candidateObj);

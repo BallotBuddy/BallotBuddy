@@ -69,7 +69,7 @@ var collectCandidate = function (state) {
   var candidate = {
     uri: 'http://www.opensecrets.org/api/?method=getLegislators&id=' + state + '&output=json',
     qs: {
-      apikey: '31779c7d2d96d53b00c738b77b0d32a1'
+      apikey: ''
 
     },
     headers: {

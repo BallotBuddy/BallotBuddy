@@ -47,8 +47,8 @@ knex.ensureSchema = ensureSchema = function () {
           table.string('youtube_url', 20);
           table.string('facebook_id', 50);
           table.string('birthdate', 50);
-          table.string('state',5);
-          table.string('picture',255);
+          table.string('state', 5);
+          table.string('picture', 255);
         }).then(function (table) {
           console.log('Created candidate table.');
         })
@@ -56,8 +56,10 @@ knex.ensureSchema = ensureSchema = function () {
     })
   ])
 }
-
-
+// selects all candidates by state
+knex.getCandByState = function (canstate) {
+  return knex('candidate').where({ state: canstate }).select();
+}
 
 //
 // Select all candidates from candidates table
@@ -65,13 +67,17 @@ knex.ensureSchema = ensureSchema = function () {
 knex.queryCandidate = function () {
   return knex('candidate').select();
 };
+//selects a candidate by id
+knex.queryByCandId = function (id) {
+  return knex('candidate').where({ candidate_id: id }).select();
+};
 
 //
 // Insert all elements of a candidate array into the given table name
 //
 knex.insertEverything = function (candArr, table) {
   return Promise.all(_.map(candArr, function (candidate) {
-   return knex(table).insert(candidate)
+    return knex(table).insert(candidate)
       .then(function (res) {
         console.log("Added entry to " + table + " table: ", res);
       })
