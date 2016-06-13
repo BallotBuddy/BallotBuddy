@@ -16,7 +16,7 @@ var Cand = module.exports;
 var buildCandObject = function (candidate) {
   var candTemplate = {};
   candTemplate.candidate_id = candidate["cid"];
-  candTemplate.candidate_firstlast = candidate["firstlast"];
+  candTemplate.candidate_firstlast = candidate["firstlast"].toUpperCase();
   candTemplate.candidate_lastname = candidate["lastname"];
   candTemplate.party = candidate["party"]
   candTemplate.office = candidate["office"];
@@ -36,6 +36,8 @@ var buildCandObject = function (candidate) {
   candTemplate.youtube_url = candidate["youtube_url"];
   candTemplate.facebook_id = candidate["facebook_id"];
   candTemplate.birthdate = candidate["birthdate"];
+  candTemplate.state = candidate["state"];
+  candTemplate.picture = candidate['picture'];
 
   return candTemplate;
 }
@@ -44,23 +46,30 @@ var buildCandObject = function (candidate) {
 //
 // Fetch, parse, and filter candidate info
 //
+var tempstate;
+
 Cand.fetch = function (request, cId) {
+
+
+  console.log(request);
   return rp(request)
     .then(function (res) {
-      console.log(res);
       console.log("Successfully fetched candidate info");
+
       return (res);
     })
     .catch(function (err) {
-      console.log(err);
-      console.log("Failed to fetch candidate info: ");
-      // console.log("Failed to fetch candidate info: ", err);
+     console.log("Failed to fetch candidate info: ", err);
     })
     .then(function (jsres) {
+      console.log(jsres);
       console.log("Successfully parsed candidate info:");
       return jsres.response.legislator.map(function (item) {
-        console.log(item);
-        return buildCandObject(item['@attributes']);
+        var candidateObj = item['@attributes'];
+        candidateObj.picture = 'https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/' + candidateObj.votesmart_id + ".jpg";
+        //grabs first two characters from the candidate.office and uses them to populate the state field
+        candidateObj.state = candidateObj.office[0]+candidateObj.office[1];
+        return buildCandObject(candidateObj);
       });
     });
 }
