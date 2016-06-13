@@ -60,4 +60,4 @@ app.get('*', function (req, res) {
 })
 
 app.listen(8080)
-console.log("Listening on 8080\n\n GET: '/'  Get all recipes")
+console.log('listening on 8080');
