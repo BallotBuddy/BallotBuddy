@@ -13,6 +13,14 @@ var _ = require('underscore');
 
 module.exports = knex;
 
+knex.deleteEverything = function () {
+  //return knex('candidate').truncate()
+  return knex.schema.dropTableIfExists('candidate')
+    .then(function () {
+      console.log("Deleted candidate db tables")
+    })
+}
+
 knex.ensureSchema = ensureSchema = function () {
   return Promise.all([
     knex.schema.hasTable('candidate').then(function (exists) {
@@ -39,6 +47,8 @@ knex.ensureSchema = ensureSchema = function () {
           table.string('youtube_url', 20);
           table.string('facebook_id', 50);
           table.string('birthdate', 50);
+          table.string('state',5);
+          table.string('picture',255);
         }).then(function (table) {
           console.log('Created candidate table.');
         })
@@ -47,12 +57,7 @@ knex.ensureSchema = ensureSchema = function () {
   ])
 }
 
-knex.deleteEverything = function () {
-  return knex('candidate').truncate()
-    .then(function () {
-      console.log("Deleted candidate db tables")
-    })
-}
+
 
 //
 // Select all candidates from candidates table
@@ -66,7 +71,7 @@ knex.queryCandidate = function () {
 //
 knex.insertEverything = function (candArr, table) {
   return Promise.all(_.map(candArr, function (candidate) {
-    return knex(table).insert(candidate)
+   return knex(table).insert(candidate)
       .then(function (res) {
         console.log("Added entry to " + table + " table: ", res);
       })

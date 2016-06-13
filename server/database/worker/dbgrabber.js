@@ -66,7 +66,7 @@ var collectCandidate = function (state) {
   //
   // Query info for Candidate Search API
   //
-  var candidates = {
+  var candidate = {
     uri: 'http://www.opensecrets.org/api/?method=getLegislators&id=' + state + '&output=json',
     qs: {
       apikey: '31779c7d2d96d53b00c738b77b0d32a1'
@@ -75,12 +75,14 @@ var collectCandidate = function (state) {
     headers: {
       'User-Agent': 'request-promise'
     },
-    json: true
+    json: true,
+  
   };
 
-  return cand.fetch(candidates)
+  return cand.fetch(candidate)
     .then(function (cgs) {
-      console.log("Cleaned results: ", cgs);
+     
+    //  console.log("Cleaned results: ", cgs);
       //
       // Insert candidate data into db
       //
