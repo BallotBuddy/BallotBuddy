@@ -13,13 +13,13 @@ var _ = require('underscore');
 
 module.exports = knex;
 
-knex.deleteEverything = function () {
-  //return knex('candidate').truncate()
-  return knex.schema.dropTableIfExists('candidate')
-    .then(function () {
-      console.log("Deleted candidate db tables")
-    })
-}
+// knex.deleteEverything = function () {
+//   //return knex('candidate').truncate()
+//   return knex.schema.dropTableIfExists('candidate')
+//     .then(function () {
+//       console.log("Deleted candidate db tables")
+//     })
+// }
 
 knex.ensureSchema = ensureSchema = function () {
   return Promise.all([

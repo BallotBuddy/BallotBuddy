@@ -30,7 +30,7 @@ var states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", 
 
 var collectCandidates = function (states) {
   return Promise.all(_.map(states, function (state) {
-    console.log(state);
+    
     return pthrottle.add(collectCandidate.bind(this, state))
       .then(function () {
         console.log("Candidate queried");

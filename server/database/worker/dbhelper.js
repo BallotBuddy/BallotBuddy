@@ -46,24 +46,19 @@ var buildCandObject = function (candidate) {
 //
 // Fetch, parse, and filter candidate info
 //
-var tempstate;
-
-Cand.fetch = function (request, cId) {
 
 
-  console.log(request);
+Cand.fetch = function (request, cId) { 
   return rp(request)
     .then(function (res) {
       console.log("Successfully fetched candidate info");
-
       return (res);
     })
     .catch(function (err) {
      console.log("Failed to fetch candidate info: ", err);
     })
     .then(function (jsres) {
-      console.log(jsres);
-      console.log("Successfully parsed candidate info:");
+     console.log("Successfully parsed candidate info:");
       return jsres.response.legislator.map(function (item) {
         var candidateObj = item['@attributes'];
         candidateObj.picture = 'https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/' + candidateObj.votesmart_id + ".jpg";
