@@ -48,7 +48,8 @@ var buildCandObject = function (candidate) {
 //
 
 
-Cand.fetch = function (request) { 
+
+Cand.fetch = function (request) {
   return rp(request)
     .then(function (res) {
       console.log("Successfully fetched candidate info");
@@ -70,5 +71,3 @@ Cand.fetch = function (request) {
       });
     });
 }
-
-
