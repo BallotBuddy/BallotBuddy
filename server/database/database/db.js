@@ -35,12 +35,12 @@ knex.ensureSchema = ensureSchema = function () {
           table.string('first_elected', 25);
           table.string('exit_code', 15);
           table.string('comments', 255);
-          table.string('phone', 20);
-          table.string('fax', 20);
+          table.string('phone', 255);
+          table.string('fax', 255);
           table.string('website', 255);
           table.string('webform', 255);
-          table.string('congress_office', 20);
-          table.string('bioguide_id', 20);
+          table.string('congress_office', 255);
+          table.string('bioguide_id', 255);
           table.string('votesmart_id', 50);
           table.string('feccandid', 50);
           table.string('twitter_id', 45);
