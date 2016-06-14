@@ -24,10 +24,7 @@ class SearchBar extends Component {
 
 	onFormSubmit(event) {
 		event.preventDefault();
-		this.props.fetchProfile();
-		console.log("Submit clicked");
-		//call function that activates API
-		//e.g. this.props.fetchWeather(this.state.term);
+		this.props.fetchProfile( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}
 

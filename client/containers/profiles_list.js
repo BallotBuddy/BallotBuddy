@@ -6,16 +6,15 @@ import { connect } from 'react-redux';
 class ProfileList extends Component {
   
   renderProfile(profileData){
-    console.log('renderProfile is firiing: ', profileData);
-    const name = profileData.firstlast;
-    const photo = profileData.photo;
+    const name = profileData.candidate_firstlast;
+    const picture = profileData.picture;
     const affiliation = profileData.party + ', ' + profileData.office.slice(0, 2);
     let divStyles = {
-      backgroundImage: 'url(' + photo + ')'
+      backgroundImage: 'url(' + picture + ')'
     };
-    
+
     return (
-      <div className="profile-tile" key={profileData.cid}>
+      <div className="profile-tile" key={profileData.candidate_id}>
         <div className="profile-tile-image" style={divStyles} >
         </div>
         <div className="tile-detail">
