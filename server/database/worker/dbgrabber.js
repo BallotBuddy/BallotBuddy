@@ -64,7 +64,7 @@ var worker = function () {
 //
 var collectCandidate = function (state) {
   //
-  // Query info for Candidate Search API
+  // Query info for Candidate Search API.
   //
   var candidate = {
     uri: 'http://www.opensecrets.org/api/?method=getLegislators&id=' + state + '&output=json',
