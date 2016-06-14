@@ -63,22 +63,14 @@ class SearchBar extends Component {
 // 	return { profile };
 // }
 
-function mapStateToProps ({ profile }){
-	console.log('mapStateToProps profile info: ', profile);
-	return { profile }
-}
+// function mapStateToProps ({ profile }){
+// 	console.log('mapStateToProps profile info: ', profile);
+// 	return { profile }
+// }
 
 function mapDispatchToProps(dispatch) {
+	console.log('dispatching from search_bar.js: ', dispatch);
 	return bindActionCreators({ fetchProfile }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
-/*
-function mapDispatchToProps(dispatch) {
-	//send data to API call
-	//e.g. return bindActionCreators({ **fill me in** }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(SearchBar);
-
-*/
