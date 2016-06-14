@@ -14,12 +14,13 @@ class ProfileList extends Component {
     const state = profileData.state;
     const title = profileData.office[2] === 'S' ? 'Sen.' : 'Rep.';
     const partyStyle = {};
+    let color = ''
     if (profileData.party === 'R') {
-      partyStyle['backgroundColor'] = 'rgba(141,0,36, .8)';
+      partyStyle['borderColor'] = 'rgb(222,1,0)';
       logo = rep;
     }
     if (profileData.party === 'D') {
-      partyStyle['backgroundColor'] = 'rgba(0,32,70, .8)';
+      partyStyle['borderColor'] = 'rgb(33,18,192)';
       logo = dem;
     }
 
@@ -28,8 +29,9 @@ class ProfileList extends Component {
         <div>
           <img className="profile-picture" src={picture} />
         </div>
-        <div className="tile-detail" style={partyStyle}>
-          <div className="candidate-name">{name}</div>
+        <div className="party-bar" style={partyStyle}></div>
+        <div className="tile-detail">
+          <div className="candidate-name" style={partyStyle}>{name}</div>
           <div className="candidate-affiliation">
             <img className="party-logo" src={logo} />
             {title} {state}
