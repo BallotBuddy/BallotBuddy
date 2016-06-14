@@ -1,8 +1,10 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchProfile } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 
@@ -12,21 +14,23 @@ export default class SearchBar extends Component {
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
+	// gets candidate data based on search term
 	onInputChange(event) {
-		console.log( event.target.value );
 		this.setState( { searchTerm: event.target.value });
+		this.props.fetchProfile( event.target.value );
 	}
 
+	// updates search results when user clicks 'submit' button
 	onFormSubmit(event) {
 		event.preventDefault();
-		console.log("Submit clicked");
-		//call function that activates API
-		//e.g. this.props.fetchWeather(this.state.term);
+		this.props.fetchProfile( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}
 
-	render() {
+	// builds search bar elements (input & button)
+	render() {		
 		return(
+			<div>
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input
 					placeholder="e.g. Barack Obama"
@@ -38,15 +42,13 @@ export default class SearchBar extends Component {
 					</button>
 				</span>
 			</form>
-		)
+			</div>
+		);
 	}
 }
-/*
+
 function mapDispatchToProps(dispatch) {
-	//send data to API call
-	//e.g. return bindActionCreators({ **fill me in** }, dispatch);
+	return bindActionCreators({ fetchProfile }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
-
-*/

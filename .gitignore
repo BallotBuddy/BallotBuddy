@@ -1,3 +1,5 @@
 /node_modules
 dist/bundle.js
 .DS_Store
+dummy_response.js
+client/components/profile_tile.js

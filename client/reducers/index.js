@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
+import ProfileReducer from './profile_reducer';
 
+// aggregates all individual reducers
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  profile: ProfileReducer
 });
 
 export default rootReducer;
