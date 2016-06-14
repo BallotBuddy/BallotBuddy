@@ -1,10 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-console.log('candidateProfile.js engaged');
-
+//To be implemented (not in use)
 export default (props) => {
-  console.log('props in profile-tile', props);
   return(
     <div>
       <h1>{props.data.cand_name}</h1>

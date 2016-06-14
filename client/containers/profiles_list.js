@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import ProfileTile from '../components/profile_tile';
 
 class ProfileList extends Component {
   
+  // builds the individual candidate tile (photo + name + party)
   renderProfile(profileData){
     const name = profileData.candidate_firstlast;
     const picture = profileData.picture;
@@ -24,8 +24,8 @@ class ProfileList extends Component {
     );
   }
 
+  // displays all candidates meeting search criteria
   render() {
-    console.log('this.props.profile in profiles_list :', this.props.profile);
     return(
       <div>
          {this.props.profile.map(this.renderProfile)}
@@ -36,7 +36,6 @@ class ProfileList extends Component {
 
 function mapStateToProps( state ){
   const profile = state.profile;
-  console.log('profiles_list.js - mapStateToProps fired', { profile });
   return { profile: state.profile };
 }
 

@@ -4,7 +4,7 @@ import App from './components/app';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
-import '../dist/style.css'
+import '../dist/style.css';
 import ReduxPromise from 'redux-promise';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -14,5 +14,4 @@ ReactDOM.render(
     <App />
   </Provider>
   , document.getElementById('app')
-  );
-
+);
