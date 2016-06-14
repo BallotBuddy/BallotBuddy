@@ -5,7 +5,7 @@
 // filepath of local database
 //
 //
-var path = require('path');
+var path = require('path')
 
 module.exports = {
 
@@ -24,7 +24,7 @@ module.exports = {
       filename: path.join(__dirname, '/database.db')
     }
   },
-    production: {
+  production: {
     client: 'pg',
     connection: process.env.DATABASE_URL
   }
