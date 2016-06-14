@@ -1,0 +1,25 @@
+.profiles-list {
+  margin: 1em;
+}
+
+.profile-tile {
+  float: left;
+  display: inline-block;
+  color: white;
+  margin: 1em;
+  width: 10em;
+  height: 14em;
+  border: 1px solid red;
+}
+
+.profile-tile-image {
+  height: 100%;
+  background-size: 100%;
+}
+
+.tile-detail {
+  color: white;
+  background-color: rgba(206,0,21, .6);
+  margin: 0;
+  text-align: center;
+}
