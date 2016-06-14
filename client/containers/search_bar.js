@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,6 +19,7 @@ class SearchBar extends Component {
 	onInputChange(event) {
 		console.log( event.target.value );
 		this.setState( { searchTerm: event.target.value });
+		this.props.fetchProfile( event.target.value );
 	}
 
 	onFormSubmit(event) {
@@ -38,7 +40,7 @@ class SearchBar extends Component {
 		);
 	}
 
-	render() {
+	render() {		
 		return(
 			<div>
 				{this.renderProfile}
