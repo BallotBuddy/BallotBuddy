@@ -86,7 +86,9 @@ var collectCandidate = function (state) {
       //
       // Insert candidate data into db
       //
-      return db.insertEverything(cgs, 'candidate');
+      return db.insertEverything(cgs, 'candidate').then(function(){
+       return db.closeDb();
+      });
     })
 }
 
