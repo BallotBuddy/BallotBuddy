@@ -1,5 +1,5 @@
 html {
-  background-color: rgb(242,230,206);
+  background-color: rgb(253,250,244);
 }
 
 .app {
@@ -15,28 +15,50 @@ html {
   float: left;
   display: inline-block;
   color: white;
-  margin: 1em;
+  margin: 1.5em;
   width: 10em;
-  height: 14em;
-  border: 1px solid red;
+  height: 15.53em;
   border-radius: 5px;
   z-index: 1;
-}
-
-.profile-tile-image {
-  height: 100%;
-  background-size: 100%;
-  position: absolute;
+  align-content: bottom;
+  position: relative;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
 }
 
 .tile-detail {
   color: white;
-/*  background-color: rgba(206,0,21, .6);
-*/  margin: 0;
+  margin: 0;
   text-align: center;
   z-index: 2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 15%;
+  display: block;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
 }
 
+.candidate-name {
+  font-weight: bold;
+}
+
+.candidate-affiliation {
+  font-size: .8em;
+  border-bottom-radius: 5%;
+  border-bottom-right-radius: 5%;
+}
+
+.party-logo{
+  width: 20%;
+  height: 20%;
+}
+
+.profile-picture{
+  width: 100%;
+  border-top-left-radius: .3em;
+  border-top-right-radius: .3em;
+}
 .search-box {
   background-image: url('http://media-2.web.britannica.com/eb-media/33/4833-004-EB8E7F6C.jpg');
   width: 100%;
