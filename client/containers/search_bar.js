@@ -2,9 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// importing the fetchProfile action...
 import { fetchProfile } from '../actions/index';
-// import CandidateProfile from '../components/candidateProfile';
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -16,31 +14,23 @@ class SearchBar extends Component {
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
+	// gets candidate data based on search term
 	onInputChange(event) {
-		console.log( event.target.value );
 		this.setState( { searchTerm: event.target.value });
 		this.props.fetchProfile( event.target.value );
 	}
 
+	// updates search results when user clicks 'submit' button
 	onFormSubmit(event) {
 		event.preventDefault();
 		this.props.fetchProfile( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}
 
-	renderProfile(profileData){
-		console.log('renderProfile is firing: ', profileData);
-		return (
-			<div>
-				{profileData}
-			</div>
-		);
-	}
-
+	// builds search bar elements (input & button)
 	render() {		
 		return(
 			<div>
-				{this.renderProfile}
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input
 					placeholder="e.g. Barack Obama"
@@ -57,18 +47,7 @@ class SearchBar extends Component {
 	}
 }
 
-// function mapStateToProps({ profile }){
-// 	console.log('search_bar - mapStateToProps fired', {profile: profile});
-// 	return { profile };
-// }
-
-// function mapStateToProps ({ profile }){
-// 	console.log('mapStateToProps profile info: ', profile);
-// 	return { profile }
-// }
-
 function mapDispatchToProps(dispatch) {
-	console.log('dispatching from search_bar.js: ', dispatch);
 	return bindActionCreators({ fetchProfile }, dispatch);
 }
 

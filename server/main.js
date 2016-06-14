@@ -23,7 +23,7 @@ app.route('/candname')
     db.queryCandidate()
       .then(function (results) {
         var newArray = results.filter(function (candidate) {
-          console.log(candidate.candidate_firstlast);
+          //console.log(candidate.candidate_firstlast);
           return candidate.candidate_firstlast.includes(searchString);
         })
 
