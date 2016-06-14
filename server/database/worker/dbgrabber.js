@@ -42,7 +42,7 @@ var collectCandidates = function (states) {
 }
 
 var worker = function () {
-  db.deleteEverything();
+ // db.deleteEverything();
   db.ensureSchema()
     .then(function () {
 
@@ -69,7 +69,7 @@ var collectCandidate = function (state) {
   var candidate = {
     uri: 'http://www.opensecrets.org/api/?method=getLegislators&id=' + state + '&output=json',
     qs: {
-      apikey: ''
+      apikey: process.env.Candidate_key
 
     },
     headers: {

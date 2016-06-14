@@ -7,19 +7,19 @@
 var path = require('path');
 
 var config = require('../database/knex')
-var env = process.env.NODE_ENV || 'development'
+var env = process.env.NODE_ENV || 'production'
 var knex = require('knex')(config[env])
 var _ = require('underscore');
 
 module.exports = knex;
 
-// knex.deleteEverything = function () {
-//   //return knex('candidate').truncate()
-//   return knex.schema.dropTableIfExists('candidate')
-//     .then(function () {
-//       console.log("Deleted candidate db tables")
-//     })
-// }
+knex.deleteEverything = function () {
+  //return knex('candidate').truncate()
+  return knex.schema.dropTableIfExists('candidate')
+    .then(function () {
+      console.log("Deleted candidate db tables")
+    })
+}
 
 knex.ensureSchema = ensureSchema = function () {
   return Promise.all([

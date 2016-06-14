@@ -23,5 +23,9 @@ module.exports = {
     connection: {
       filename: path.join(__dirname, '/database.db')
     }
+  },
+    production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL
   }
 };
