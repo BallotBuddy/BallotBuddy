@@ -30,7 +30,7 @@ var states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", 
 
 var collectCandidates = function (states) {
   return Promise.all(_.map(states, function (state) {
-    
+
     return pthrottle.add(collectCandidate.bind(this, state))
       .then(function () {
         console.log("Candidate queried");
@@ -42,7 +42,7 @@ var collectCandidates = function (states) {
 }
 
 var worker = function () {
- // db.deleteEverything();
+  // db.deleteEverything();
   db.ensureSchema()
     .then(function () {
 
@@ -76,17 +76,20 @@ var collectCandidate = function (state) {
       'User-Agent': 'request-promise'
     },
     json: true,
-  
+
   };
 
   return cand.fetch(candidate)
     .then(function (cgs) {
-     
-    //  console.log("Cleaned results: ", cgs);
+
+      //  console.log("Cleaned results: ", cgs);
       //
       // Insert candidate data into db
       //
-      return db.insertEverything(cgs, 'candidate');
+      return db.insertEverything(cgs, 'candidate')
+        .then(function () {
+          return db.closeDb();
+        })
     })
 }
 
