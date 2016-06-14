@@ -7,9 +7,11 @@ import ProfilesList from '../containers/profiles_list';
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
       	<div>BallotBuddy</div>
-	      <SearchBar />
+        <div className="search-box">
+          <SearchBar />
+        </div>
         <ProfilesList />
       </div>
     );
