@@ -7,17 +7,15 @@ class ProfileList extends Component {
   
   renderProfile(profileData){
     console.log('renderProfile is firiing: ', profileData);
-    const data = profileData['@attributes'];
-    // const data = profileData;
-    const name = data.firstlast;
-    const photo = data.photo;
-    const affiliation = data.party + ', ' + data.office.slice(0, 2);
+    const name = profileData.firstlast;
+    const photo = profileData.photo;
+    const affiliation = profileData.party + ', ' + profileData.office.slice(0, 2);
     let divStyles = {
       backgroundImage: 'url(' + photo + ')'
     };
     
     return (
-      <div className="profile-tile" key={data.cid}>
+      <div className="profile-tile" key={profileData.cid}>
         <div className="profile-tile-image" style={divStyles} >
         </div>
         <div className="tile-detail">
