@@ -1,3 +1,12 @@
+html {
+  background-color: rgb(242,230,206);
+}
+
+.app {
+  font-family: 'Open Sans', sans-serif;
+  size: 100%;
+}
+
 .profiles-list {
   margin: 1em;
 }
@@ -10,16 +19,26 @@
   width: 10em;
   height: 14em;
   border: 1px solid red;
+  border-radius: 5px;
+  z-index: 1;
 }
 
 .profile-tile-image {
   height: 100%;
   background-size: 100%;
+  position: absolute;
 }
 
 .tile-detail {
   color: white;
-  background-color: rgba(206,0,21, .6);
-  margin: 0;
+/*  background-color: rgba(206,0,21, .6);
+*/  margin: 0;
   text-align: center;
+  z-index: 2;
+}
+
+.search-box {
+  background-image: url('http://media-2.web.britannica.com/eb-media/33/4833-004-EB8E7F6C.jpg');
+  width: 100%;
+  height: 10em;
 }
