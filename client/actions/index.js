@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const URL_NAME = 'http://localhost:8080/candname?name=';
 // const API_KEY = '31779c7d2d96d53b00c738b77b0d32a1';
 // const CID_URL = 'http://www.opensecrets.org/api/?method=candSummary&';
 
@@ -9,7 +10,11 @@ import axios from 'axios';
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
 // // fetch profile given candidate ID:
-export function fetchProfile(){
+export function fetchProfile(term){
+  const name = term.toUpperCase();
+  console.log('actions/index.js - fetchProfile(name) - name: ', name);
+  const url = `${URL_NAME}${name}`;
+  console.log('actions/index.js - fetchProfile full url: ', url);
   // const url = `${CID_URL}&cid=${TEMPID}&apikey=${API_KEY}&output=json`;
   // const request = axios.get(url);
 
