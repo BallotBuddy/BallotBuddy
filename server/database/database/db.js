@@ -44,7 +44,7 @@ knex.ensureSchema = ensureSchema = function () {
           table.string('votesmart_id', 50);
           table.string('feccandid', 50);
           table.string('twitter_id', 45);
-          table.string('youtube_url', 20);
+          table.string('youtube_url', 255);
           table.string('facebook_id', 50);
           table.string('birthdate', 50);
           table.string('state', 5);
