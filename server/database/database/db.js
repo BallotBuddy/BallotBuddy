@@ -28,7 +28,7 @@ knex.ensureSchema = ensureSchema = function () {
         knex.schema.createTable('candidate', function (table) {
           table.string('candidate_id', 30).primary();
           table.string('candidate_firstlast', 25);
-          table.string('candidate_lastName', 25);
+          table.string('candidate_lastname', 25);
           table.string('party', 15);
           table.string('office', 25);
           table.string('gender', 1);
