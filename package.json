@@ -19,6 +19,7 @@
     "css-loader": "^0.23.1",
     "express": "^4.13.4",
     "jquery": "^2.2.4",
+    "knex": "^0.11.5",
     "lodash": "^3.10.1",
     "nodemon": "^1.9.2",
     "promise-throttle": "^0.2.0",
@@ -33,6 +34,7 @@
     "request-promise": "^3.0.0",
     "sqlite3": "^3.1.4",
     "style-loader": "^0.13.1",
+    "underscore": "^1.8.3",
     "webpack": "^1.13.1"
   }
 }
