@@ -56,7 +56,7 @@ knex.ensureSchema = ensureSchema = function () {
     })
   ])
 }
-// selects all candidates by state
+// selects all candidates by state.
 knex.getCandByState = function (canstate) {
   return knex('candidate').where({ state: canstate }).select();
 }
