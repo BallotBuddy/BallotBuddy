@@ -8,6 +8,7 @@ var path = require('path');
 
 var config = require('../database/knex')
 var env = process.env.NODE_ENV || 'production'
+console.log(env);
 var knex = require('knex')(config[env])
 var _ = require('underscore');
 
