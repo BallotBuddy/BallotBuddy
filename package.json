@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/main.js",
-    "build": "node_modules/webpack/bin/webpack.js -w -c",
+    "build": "webpack --config ./webpack.config.js --progress",
     "postinstall": "node server/database/worker/dbgrabber.js",
     "test": "echo \"Error: no test specified\" && exit 1"   
   },
