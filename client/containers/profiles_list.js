@@ -16,11 +16,6 @@ class ProfileList extends Component {
     const title = profileData.office[2] === 'S' ? 'Sen.' : 'Rep.';
     const partyStyle = {};
     const party = profileData.party;
-    // const date = new Date();
-    // const year = date.getFullYear();
-    // const service = year - profileData.first_elected;
-    // console.log(service);
-    // console.log(new Date());
     let color = ''
     if (profileData.party === 'R') {
       partyStyle['borderColor'] = 'rgb(222,1,0)';
