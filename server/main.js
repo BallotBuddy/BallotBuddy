@@ -1,8 +1,8 @@
 'use strict'
-
+let Server = require('./client/server.js')
 let express = require('express')
 let path = require('path')
-let app = express()
+let app = Server.app();
 let db = require('./database/database/db')
 
 app.use(express.static(path.join(__dirname, "../dist")))
