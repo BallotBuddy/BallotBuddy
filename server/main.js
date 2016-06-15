@@ -1,5 +1,5 @@
 'use strict'
-let Server = require('./client/server.js')
+let Server = require('../client/server.js')
 let express = require('express')
 let path = require('path')
 let app = Server.app();
