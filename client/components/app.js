@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-      	<div>BallotBuddy</div>
+        <div className="ballot-buddy">BallotBuddy</div>
         <div className="search-box">
           <SearchBar />
         </div>
