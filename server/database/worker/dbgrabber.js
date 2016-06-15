@@ -42,6 +42,9 @@ var collectCandidates = function (states) {
     .then(function () {
       console.log("All candidates queried");
     })
+    .then(function(){
+       return db.closeDb();
+      });
 }
 
 var worker = function () {
@@ -91,8 +94,10 @@ var collectCandidate = function (state) {
       //
       return db.insertEverything(cgs, 'candidate')
     })
-}.then(function(){
+    .then(function(){
        return db.closeDb();
       });
+  }
+
 
 
