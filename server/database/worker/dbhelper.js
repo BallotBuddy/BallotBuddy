@@ -56,7 +56,7 @@ Cand.fetch = function (request) {
       return (res);
     })
     .catch(function (err) {
-     console.log("Failed to fetch candidate info: ", err);
+     console.log("Failed to fetch candidate info: ", err.message);
     })
     .then(function (jsres) {
      console.log("Successfully parsed candidate info:");
