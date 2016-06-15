@@ -32,6 +32,9 @@ var collectCandidates = function (states) {
   return Promise.all(_.map(states, function (state) {
     
     return pthrottle.add(collectCandidate.bind(this, state))
+    .catch(function (err) {
+     console.log("Errors on api call ", err);
+    })
       .then(function () {
         console.log("Candidate queried");
       })
@@ -39,6 +42,9 @@ var collectCandidates = function (states) {
     .then(function () {
       console.log("All candidates queried");
     })
+    .then(function(){
+       return db.closeDb();
+      });
 }
 
 var worker = function () {
@@ -86,8 +92,12 @@ var collectCandidate = function (state) {
       //
       // Insert candidate data into db
       //
-      return db.insertEverything(cgs, 'candidate');
+      return db.insertEverything(cgs, 'candidate')
     })
-}
+    .then(function(){
+       return db.closeDb();
+      });
+  }
+
 
 
