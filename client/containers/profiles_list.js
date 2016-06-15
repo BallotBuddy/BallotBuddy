@@ -14,6 +14,7 @@ class ProfileList extends Component {
     const state = profileData.state;
     const title = profileData.office[2] === 'S' ? 'Sen.' : 'Rep.';
     const partyStyle = {};
+    const party = profileData.party;
     let color = ''
     if (profileData.party === 'R') {
       partyStyle['borderColor'] = 'rgb(222,1,0)';
@@ -25,7 +26,7 @@ class ProfileList extends Component {
     }
 
     return (
-      <div className="profile-tile" key={profileData.candidate_id}>
+      <div className={`profile-tile profile-tile-${party}`} key={profileData.candidate_id}>
         <div>
           <img className="profile-picture" src={picture} />
         </div>
