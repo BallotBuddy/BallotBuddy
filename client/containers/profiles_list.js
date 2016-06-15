@@ -11,10 +11,16 @@ class ProfileList extends Component {
     const picture = profileData.picture;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
     const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
+    const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
     const state = profileData.state;
     const title = profileData.office[2] === 'S' ? 'Sen.' : 'Rep.';
     const partyStyle = {};
     const party = profileData.party;
+    // const date = new Date();
+    // const year = date.getFullYear();
+    // const service = year - profileData.first_elected;
+    // console.log(service);
+    // console.log(new Date());
     let color = ''
     if (profileData.party === 'R') {
       partyStyle['borderColor'] = 'rgb(222,1,0)';
@@ -23,6 +29,10 @@ class ProfileList extends Component {
     if (profileData.party === 'D') {
       partyStyle['borderColor'] = 'rgb(33,18,192)';
       logo = dem;
+    }
+    if (profileData.party === 'I') {
+      partyStyle['borderColor'] = 'rgb(216,164,3)';
+      logo = ind;
     }
 
     return (

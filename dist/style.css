@@ -1,5 +1,6 @@
 html {
-  background-color: rgb(253,250,244);
+  background-color: rgb(250,250,250);
+  /*background-color: rgb(245,245,245);*/
 }
 
 form {
@@ -49,8 +50,14 @@ form {
   box-shadow: 0 7px 20px rgba(0,77,171,0.6);
 }
 
+.profile-tile-I:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(216,164,3,0.6);
+}
+
 .tile-detail {
   color: rgb(71,71,71);
+  background-color: white;
   margin: 0;
   text-align: center;
   z-index: 2;
@@ -79,8 +86,9 @@ form {
 .party-logo{
   width: 15%;
   height: 15%;
-  left: 1em;
+  left: -1em;
   margin: .25em;
+  position: relative;
 }
 
 .profile-picture{
@@ -88,6 +96,14 @@ form {
   height: 12em;
   border-top-left-radius: .3em;
   border-top-right-radius: .3em;
+}
+
+input {
+  margin: 0;
+  line-height: inherit;
+  border-radius: .3em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .search-box {
@@ -100,14 +116,21 @@ form {
 }
 
 .ballot-buddy {
+  font-family: Courier;
   text-align: center;
   color: white;
   font-size: 3em;
-  font-weight: bold;
   background-color: rgb(159,0,40);
   border-bottom: .1em solid white;
   z-index: 1;
 }
+
+.ballot-box{
+  height: .8em;
+  position: relative;
+  top: -12px;
+}
+
 /*
 .party-bar{
   padding: .5em;
