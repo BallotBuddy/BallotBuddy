@@ -30,22 +30,25 @@ class SearchBar extends Component {
 	// builds search bar elements (input & button)
 	render() {		
 		return(
-			<div>
-			<form onSubmit={this.onFormSubmit} className="input-group">
+			<div className="search-input">
+			<form onSubmit={this.onFormSubmit}>
 				<input
 					placeholder="e.g. Barack Obama"
 					value={this.state.searchTerm}
 					onChange={this.onInputChange} />
-				<span className="input-group-btn">
-					<button	type="submit" className="btn btn-secondary">
-						Submit
-					</button>
-				</span>
 			</form>
 			</div>
 		);
 	}
 }
+
+// let button ={
+// 				<span className="input-group-btn">
+// 					<button	type="submit" className="btn btn-secondary">
+// 						Submit
+// 					</button>
+// 				</span>
+// }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ fetchProfile }, dispatch);

@@ -2,6 +2,19 @@ html {
   background-color: rgb(253,250,244);
 }
 
+form {
+  display: inline-block;
+  text-align: center;
+  align: center;
+}
+
+.search-input {
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding-top: 1em;
+}
+
 .app {
   font-family: 'Open Sans', sans-serif;
   size: 100%;
@@ -22,7 +35,12 @@ html {
   z-index: 1;
   align-content: bottom;
   position: relative;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all .3s ease-in-out;
+}
+
+.profile-tile:hover {
+  transform: scale(1.05);
 }
 
 .tile-detail {
@@ -38,10 +56,11 @@ html {
   border-bottom-left-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
 }
-
+  
 .candidate-name {
   border-top: .6em solid;
   font-weight: bold;
+  font-size: .85em;
 }
 
 .candidate-affiliation {
@@ -60,15 +79,28 @@ html {
 
 .profile-picture{
   width: 100%;
-  height: 11.5em;
+  height: 12em;
   border-top-left-radius: .3em;
   border-top-right-radius: .3em;
 }
 
 .search-box {
-  background-image: url('http://media-2.web.britannica.com/eb-media/33/4833-004-EB8E7F6C.jpg');
-  width: 100%;
-  height: 10em;
+  background-color: rgb(1,33,72);
+  align-content: center;
+/*  background-image: url('http://media-2.web.britannica.com/eb-media/33/4833-004-EB8E7F6C.jpg');
+*/  width: 100%;
+  height: 4em;
+  box-shadow: 0 4px 20px 0px #464242;
+}
+
+.ballot-buddy {
+  text-align: center;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  background-color: rgb(159,0,40);
+  border-bottom: .1em solid white;
+  z-index: 1;
 }
 /*
 .party-bar{
