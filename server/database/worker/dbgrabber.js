@@ -4,7 +4,7 @@
 // candidate grabber queries the candidate API
 // and regenerates the candidate database.
 //
-//var cfg = require('../config');
+
 var db = require('../database/db');
 var _ = require('underscore');
 var cand = require('./dbhelper');
@@ -42,7 +42,7 @@ var collectCandidates = function (states) {
 }
 
 var worker = function () {
-  // db.deleteEverything();
+   db.deleteEverything();
   db.ensureSchema()
     .then(function () {
 
