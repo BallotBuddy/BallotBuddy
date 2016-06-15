@@ -25,8 +25,8 @@ var pthrottle = new PromiseThrottle({
 // Main worker function collects candidates
 // then stores them in the database
 //
-var states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE",
-  "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
+var states = ["AL"];//, "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE",
+  //"NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
 var collectCandidates = function (states) {
   return Promise.all(_.map(states, function (state) {
@@ -47,7 +47,7 @@ var worker = function () {
     .then(function () {
 
       console.log("Regenerated candidate tables");
-      return collectCandidates(states);
+      return collectCandidates(states).then(db.closeDb);
     })
     .catch(function (err) {
       console.log("Worker failed: ", err);
@@ -87,9 +87,7 @@ var collectCandidate = function (state) {
       // Insert candidate data into db
       //
       return db.insertEverything(cgs, 'candidate')
-        .then(function () {
-          return db.closeDb();
-        })
+       
     })
 }
 
