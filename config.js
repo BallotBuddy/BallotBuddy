@@ -3,10 +3,10 @@ var path = require('path')
 
 exports.configuration = function ()
 {
+// p for production, d for development
+var switcher = 'p';
 
-var environment = 'p';
-
-if (environment = 'development') {
+if (switcher === 'd') {
 
     var config = {
         client: 'localhost:8080',
@@ -22,7 +22,7 @@ if (environment = 'development') {
     return config;
 }
 
-if (environment = 'p') {
+if ( switcher === 'p') {
 
 
     var config = {
