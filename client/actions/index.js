@@ -1,7 +1,7 @@
 import axios from 'axios';
 var env = process.env.DOMAIN || 'localhost:8080';
 // request URL for candidate search
-const URL_NAME = 'http://'+env +'/candname?name=';
+const URL_NAME = 'http://ballotbuddy.herokuapp.com/candname?name=';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
