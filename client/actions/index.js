@@ -1,7 +1,16 @@
 import axios from 'axios';
-var env = process.env.DOMAIN || 'localhost:8080';
+
+
+var configuration = require('../../config.js');
+
+ var config = configuration.configuration();
+
+
+var env =config.client;
+console.log('index.js in actions',env);
+
 // request URL for candidate search
-const URL_NAME = 'http://ballotbuddy.herokuapp.com/candname?name=';
+const URL_NAME = 'http://'+env +'/candname?name=';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
@@ -16,4 +25,4 @@ export function fetchProfile(term){
     type: FETCH_PROFILE,
     payload: request
   };
-}
+} 

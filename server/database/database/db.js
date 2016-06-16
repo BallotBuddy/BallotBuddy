@@ -6,10 +6,15 @@
 //
 var path = require('path');
 
-var config = require('./knex')
-var env = process.env.NODE_ENV || 'development'
-console.log(env);
-var knex = require('knex')(config[env])
+var configuration = require('../../../config.js');
+var config = configuration.configuration();
+ 
+
+
+//console.log('is this undefined?',config.database);
+var env = config.database;
+console.log('database environment',env);
+var knex = require('knex')(env)
 var _ = require('underscore');
 
 module.exports = knex;
