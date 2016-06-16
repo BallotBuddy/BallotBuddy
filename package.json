@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/main.js",
-    "build": "webpack --config ./webpack.config.js --progress && node server/main.js",
-    "postinstall": "node server/database/worker/dbgrabber.js",
+    "build": "webpack --config ./webpack.config.js --progress",
+    "postinstall": "node server/database/worker/dbgrabber.js && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"   
   },
   "engines": {
