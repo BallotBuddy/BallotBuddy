@@ -4,7 +4,7 @@ var path = require('path')
 exports.configuration = function ()
 {
 
-var environment = 'production';
+var environment = 'p';
 
 if (environment = 'development') {
 
@@ -22,14 +22,15 @@ if (environment = 'development') {
     return config;
 }
 
-if (environment = 'production') {
+if (environment = 'p') {
 
 
     var config = {
         client: 'ballotbuddy.herokuapp.com',
-        database: process.env.DATABASE_URL
-
-    }
+        database:  { client: 'pg',
+         connection: process.env.DATABASE_URL
+        }
+      }
     return config;
 }
 
