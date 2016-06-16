@@ -5,7 +5,7 @@ let path = require('path')
 let app = Server.app();
 let db = require('./database/database/db')
 
-app.use(express.static(path.join(__dirname, "../dist")))
+app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
 app.route('/candid')
