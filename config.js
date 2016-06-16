@@ -26,7 +26,7 @@ if ( switcher === 'p') {
 
 
     var config = {
-        client: 'ballotbuddy.herokuapp.com',
+        client: 'www.ballotbuddy.co',
         database:  { client: 'pg',
          connection: process.env.DATABASE_URL
         }
