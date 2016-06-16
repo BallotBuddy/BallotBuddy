@@ -7,7 +7,7 @@
 var path = require('path');
 
 var config = require('./knex')
-var env = process.env.NODE_ENV || 'production'
+var env = process.env.NODE_ENV || 'development'
 console.log(env);
 var knex = require('knex')(config[env])
 var _ = require('underscore');

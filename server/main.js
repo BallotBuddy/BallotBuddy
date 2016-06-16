@@ -55,9 +55,9 @@ app.route('/searches')
     res.send("Try using GET instead of POST")
   })
 
-app.get('*', function (req, res) {
-  res.redirect('/')
-})
+// app.get('*', function (req, res) {
+//   res.redirect('/')
+// })
 
 app.listen(process.env.PORT||8080)
-console.log('listening on 8080');
+console.log('app started... 8080 if localhost');
