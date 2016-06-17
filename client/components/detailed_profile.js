@@ -29,10 +29,11 @@ class DetailedProfile extends Component {
       <div className="single-profile">
         <div className="single-profile-header">
           <img className="single-logo" src={logo} />
-          <Link to="/" className="btn btn-danger">Back to search results</Link>
-          <img className="single-pic" src={pic} />
+          <Link to="/" className="back-button">Back to search results</Link>
+          <div className="detail-color-bar"></div>
         </div>
           <div className="single-profile-info">
+            <img className="single-pic" src={pic} />
             <h3>{singleProfile.candidate_firstlast}</h3>
             <h4>{singleProfile.twitter_id}</h4>
             <h4>{singleProfile.webform}</h4>
