@@ -7,7 +7,7 @@ var Cand = module.exports;
 //
 // Promisify the xml2js XML parse function
 //
-
+// new commit stuff
 
 //
 // Build a candidate element with property names matching
@@ -56,7 +56,7 @@ Cand.fetch = function (request) {
       return (res);
     })
     .catch(function (err) {
-     console.log("Failed to fetch candidate info: ", err);
+     console.log("Failed to fetch candidate info: ", err.message);
     })
     .then(function (jsres) {
      console.log("Successfully parsed candidate info:");

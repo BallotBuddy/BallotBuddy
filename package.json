@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server/main.js",
-    "build": "./node_modules/webpack/bin/webpack.js -w -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/main.js",
+    "build": "webpack --config ./webpack.config.js --progress",
+    "postinstall": "node server/database/worker/dbgrabber.js && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"   
   },
-  "author": "Nathan Schwartz <Nathan.Schwartz95@gmail.com>",
+  "engines": {
+    "node": "6.2.1"
+  },
+  "author": "snowman",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.12.0",
@@ -23,6 +27,7 @@
     "knex": "^0.11.5",
     "lodash": "^3.10.1",
     "nodemon": "^1.9.2",
+    "pg": "^5.1.0",
     "promise-throttle": "^0.2.0",
     "react": "^15.0.2",
     "react-addons-test-utils": "^0.14.7",

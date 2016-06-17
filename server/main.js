@@ -1,11 +1,11 @@
 'use strict'
-
+let Server = require('../client/server.js')
 let express = require('express')
 let path = require('path')
-let app = express()
+let app = Server.app();
 let db = require('./database/database/db')
 
-app.use(express.static(path.join(__dirname, "../dist")))
+app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
 app.route('/candid')
@@ -55,9 +55,9 @@ app.route('/searches')
     res.send("Try using GET instead of POST")
   })
 
-app.get('*', function (req, res) {
-  res.redirect('/')
-})
+// app.get('*', function (req, res) {
+//   res.redirect('/')
+// })
 
-app.listen(8080)
-console.log('listening on 8080');
+app.listen(process.env.PORT||8080)
+console.log('app started... 8080 if localhost');
