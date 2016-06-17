@@ -1,6 +1,16 @@
 import axios from 'axios';
+
+
+var configuration = require('../../config.js');
+
+ var config = configuration.configuration();
+
+
+var env =config.client;
+console.log('index.js in actions',env);
+
 // request URL for candidate search
-const URL = 'http://localhost:8080/cand';
+const URL_NAME = 'http://'+env +'/cand';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
