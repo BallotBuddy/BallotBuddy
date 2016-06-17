@@ -7,7 +7,7 @@
     "start": "node server/main.js",
     "build": "webpack --config ./webpack.config.js --progress",
     "postinstall": "node server/database/worker/dbgrabber.js && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"   
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "6.2.1"
