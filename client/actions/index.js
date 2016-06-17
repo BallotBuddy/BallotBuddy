@@ -10,7 +10,7 @@ var env =config.client;
 console.log('index.js in actions',env);
 
 // request URL for candidate search
-const URL_NAME = 'http://'+env +'/cand';
+const URL = 'http://'+env +'/cand';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
@@ -27,7 +27,7 @@ export function fetchProfile(term){
     type: FETCH_PROFILE,
     payload: request
   };
-}
+} 
 
 // fetch single candidate's information
 export function fetchCandidate(cid) {
