@@ -12,94 +12,15 @@ input{
   text-align: center;
 }
 
-.search-input {
-  display: block;
-  margin: auto;
-  text-align: center;
-  padding-top: 1em;
-}
 
 .app {
   font-family: 'Open Sans', sans-serif;
   size: 100%;
 }
 
-.profiles-list {
-  margin: 1em;
-}
-
-.profile-tile {
-  float: left;
-  display: inline-block;
-  color: white;
-  margin: 1.5em;
-  width: 10em;
-  height: 15.53em;
-  border-radius: 5px;
-  z-index: 5;
-  align-content: bottom;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: all .3s ease-in-out;
-}
-
-.profile-tile-R:hover {
-  transform: scale(1.05);
-  box-shadow: 0 7px 20px rgba(188,19,62,0.6);
-}
-
-.profile-tile-D:hover {
-  transform: scale(1.05);
-  box-shadow: 0 7px 20px rgba(0,77,171,0.6);
-}
-
-.profile-tile-I:hover {
-  transform: scale(1.05);
-  box-shadow: 0 7px 20px rgba(178,134,0,0.6);
-}
-
-.tile-detail {
-  color: rgb(71,71,71);
-  background-color: white;
-  margin: 0;
-  text-align: center;
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  min-height: 15%;
-  display: block;
-  border-bottom-left-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;
-}
-  
-.candidate-name {
-  border-top: .6em solid;
-  font-weight: bold;
-  font-size: .85em;
-}
-
-.candidate-affiliation {
-  font-size: .8em;
-  border-bottom-radius: 5%;
-  border-bottom-right-radius: 5%;
-  margin: .25em;
-}
-
-.party-logo{
-  width: 15%;
-  height: 15%;
-  left: -1em;
-  margin: .25em;
-  position: relative;
-}
-
-.profile-picture{
-  width: 100%;
-  height: 12em;
-  border-top-left-radius: .3em;
-  border-top-right-radius: .3em;
-}
+/* ---------------- */
+/* Main Page Search */
+/* ---------------- */
 
 .search-box {
   background-color: rgb(1,33,72);
@@ -107,6 +28,13 @@ input{
   width: 100%;
   height: 4em;
   box-shadow: 0 4px 20px 0px #464242;
+}
+
+.search-input {
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding-top: 1em;
 }
 
 .ballot-buddy {
@@ -124,6 +52,94 @@ input{
   position: relative;
   top: -12px;
 }
+
+/* --------------------------- */
+/* Profile Tile / List Styling */
+/* --------------------------- */
+
+.profiles-list {
+  margin: 1em;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-tile {
+  float: left;
+  display: flex;
+  flex-direction: row;
+  color: rgb(50,50,50);
+  width: 30%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all .3s ease-in-out;
+  border-bottom: 1em solid;
+  margin: 1.5%;
+}
+
+.profile-picture-box {
+  background-color: white;
+  flex-grow: 1;
+  margin: 1%;
+/*  flex-basis: 100%;
+*/  width: 44%
+}
+
+.profile-picture {
+  width: 100%;
+}
+
+.profile-tile-detail {
+  color: rgb(50,50,50);
+  text-align: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.candidate-name {
+  margin: 2%;
+  font-size: 100%;
+  font-weight: bold;
+  flex-grow: 2
+}
+
+.election-office { 
+  margin: 2%;
+  font-size: 82%;
+  flex-grow: 1
+}
+
+.party-logo-box {
+  margin: 2%;
+  float: left;
+  flex-grow: 1
+}
+
+.party-logo {
+  width: 24%;
+}
+
+
+.profile-tile-Republican:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(188,19,62,0.6);
+}
+
+.profile-tile-Democratic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(0,77,171,0.6);
+}
+
+.profile-tile-Independent:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(178,134,0,0.6);
+}
+
+
+/* --------------------- */
+/* DETAILED PROFILE PAGE */
+/* --------------------- */
 
 .single-logo {
   display: block;
@@ -154,7 +170,8 @@ input{
   float: left;
   margin-left: 4%;
   width: 20%;
-  box-shadow: 4px 6px 9px rgba(0,0,0,0.3);}
+  box-shadow: 4px 6px 9px rgba(0,0,0,0.3);
+  }
 
 .back-button {
   background-color: rgba(208,0,53,.8);

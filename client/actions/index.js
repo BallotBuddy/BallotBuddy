@@ -42,14 +42,15 @@ export function fetchCandidate(cid) {
   };
 }
 
-export function fetchByZip(zipCode) {
+// Fetch candidates via zip code:
+export function fetchByZip(zip) {
   const route = 'zip?zip=';
-  const url = `${URL}${route}${zipCode}`;
+  const url = `${URL}${route}${zip}`;
   const request = axios.get(url);
 
-  console.log('LOG 3: fetchByZip in actions fired.');
+  console.log('LOG 3 action: fetchByZip in actions fired.');
   request.then(function(data) {
-    console.log('LOG 4: fetchByZip data following api call!', data);
+    console.log('LOG 4 action: fetchByZip data following api call!', data);
   })
 
   return {
