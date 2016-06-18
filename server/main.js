@@ -39,7 +39,7 @@ app.route('/candstate')
     })
   })
 
-//http://locahost:8080/candzip?zip='888888'
+//http://localhost:8080/candzip?zip=96007
 
 app.route('/candzip').get(function (req, res) {
   var canzip = req.query.zip;
@@ -49,7 +49,7 @@ app.route('/candzip').get(function (req, res) {
 })
 
 
-//http://localhost:8080/candbio?candId='15723'
+//http://localhost:8080/candbio?candId=15723
 app.route('/candbio').get(function(req,res){
   var candbio = req.query.candId;
   vs.collectCandidateDetails(candbio).then(function(results){
