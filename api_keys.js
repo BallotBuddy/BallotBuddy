@@ -1,0 +1,1 @@
+VOTESMART_API = " "
