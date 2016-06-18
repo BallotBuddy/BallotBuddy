@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchProfile, fetchByZip } from '../actions/index';
+import { fetchProfile, fetchCandidateVideo } from '../actions/index';
 import ProfilesList from '../containers/profiles_list';
+import { Link } from 'react-router'
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -46,6 +48,9 @@ class SearchBar extends Component {
 								onChange={this.onInputChange} />
 						</form>
 					</div>
+					<Link to="jack/">
+						<button className="btn btn-warning">Jacks button!</button>
+					</Link>
 				</header>
 				<ProfilesList />
 			</div>
@@ -54,7 +59,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ fetchProfile, fetchByZip }, dispatch);
+	return bindActionCreators({ fetchProfile, fetchByZip, fetchCandidateVideo }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
