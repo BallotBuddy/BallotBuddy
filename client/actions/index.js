@@ -38,7 +38,6 @@ export function fetchCandidate(cid) {
   };
 }
 
-
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
   const route = 'zip?zip=';

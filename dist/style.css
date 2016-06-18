@@ -125,19 +125,34 @@ input{
 }
 
 
-.profile-tile-Republican:hover {
+.profile-tile-R:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(188,19,62,0.6);
 }
 
-.profile-tile-Democratic:hover {
+.profile-tile-D:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(0,77,171,0.6);
 }
 
-.profile-tile-Independent:hover {
+.profile-tile-I:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(178,134,0,0.6);
+}
+
+.profile-tile-L:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(248,199,1,0.6);
+}
+
+.profile-tile-G:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(0,100,50,0.6);
+}
+
+.profile-tile-N:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(64,24,144,0.6);
 }
 
 

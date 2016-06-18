@@ -16,8 +16,11 @@ class ProfileList extends Component {
       const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
       const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
       const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
+      const lib = 'https://qph.is.quoracdn.net/main-qimg-a4c6d6da0a974033606804c7f42c1355?convert_to_webp=true';
+      const green = 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/Green_Party_of_England_and_Wales_logo.svg/974px-Green_Party_of_England_and_Wales_logo.svg.png';
+      const none = 'http://www.uk-road-signs.com/wp-content/uploads/2014/09/No-Parking.jpg';
       const currentOffice = profile.officeName;
-      const party = profile.electionParties;
+      const party = profile.electionParties[0];
       const id = profile.candidateId;
       const runningIn = profile.electionStateId;
       let selectOffice = function(electionOffice) {
@@ -42,17 +45,28 @@ class ProfileList extends Component {
         }
       }
       let partyStyle = {};
-      if ( party === 'Republican' ) {
+      if ( party === 'R' ) {
         partyStyle['borderColor'] = 'rgb(222,1,0)';
         logo = rep;
       } else
-      if (party === 'Democratic') {
+      if (party === 'D') {
         partyStyle['borderColor'] = 'rgb(33,18,192)';
         logo = dem;
       } else
-      if (party === 'Independent') {
+      if (party === 'I') {
         partyStyle['borderColor'] = 'rgb(216,164,3)';
         logo = ind;
+      }
+      if (party === 'L') {
+        partyStyle['borderColor'] = 'rgb(213,182,0)';
+        logo = lib;
+      }
+      if (party === 'G') {
+        partyStyle['borderColor'] = 'rgb(23,170,92)';
+        logo = green;
+      }
+      if (party === 'N') {
+        logo = none;
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
