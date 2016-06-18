@@ -1,22 +1,17 @@
 var rp = require('request-promise');
 var _ = require('underscore');
 var Promise = require("bluebird");
-
-
 var votesmart = module.exports;
 
 
 votesmart.checkPhoto = function (url) {
   var photo = {
     uri: url,
-    qs: {
-
-    },
+    qs: {},
     headers: { 'User-Agent': 'request-promise' },
 
   };
   return votesmart.checkPhotoStatus(photo);
-
 }
 
 votesmart.checkPhotoStatus = function (photo) {
@@ -39,13 +34,14 @@ console.log ('Called getCandidatesByLastName');
     headers: { 'User-Agent': 'request-promise' },
     json: true,
   };
-
   return votesmart.fetch(candidates);
 }
 
 //
 // Query info for Votesmart API = get candidates by zip
 //
+
+
 votesmart.collectCandidatesByZip = function (zip) {
 
   var candidates = {
@@ -69,11 +65,15 @@ votesmart.fetch = function (request) {
       console.log("Failed to fetch candidate info: ", err.message);
     })
     .then(function (jsres) {
+      if (jsres.candidateList.candidate === undefined){
+        throw new Error("ZIP CODE NOT FOUND");
+      }
       var candidateList = jsres.candidateList.candidate;
        candidateList = Promise.map(candidateList, function (candidate) {
         var pictureUrl = 'http://d229l5sflpl9cp.cloudfront.net/canphoto/' + candidate.candidateId + '.jpg';
         return votesmart.checkPhoto(pictureUrl)
           .then(function (result) {
+          
             if (result) {
               candidate.picture = pictureUrl;
             }
@@ -82,8 +82,12 @@ votesmart.fetch = function (request) {
             }
             return candidate;
           })
+        
       });
       return candidateList;
+    })
+    .catch(function(err){
+      return;
     });
 }
 
@@ -115,7 +119,7 @@ votesmart.fetchBio = function (request) {
       var returnedCandidate = {};
       returnedCandidate.candidate = candidate.candidate;
       returnedCandidate.election = candidate.election;
-      //  console.log(returnedCandidate);
+    
       return returnedCandidate;
     });
 }
