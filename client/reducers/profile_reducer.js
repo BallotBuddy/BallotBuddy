@@ -1,6 +1,6 @@
-import { FETCH_PROFILE, FETCH_CANDIDATE, FETCH_BY_ZIP } from '../actions/index';
+import { FETCH_PROFILE, FETCH_CANDIDATE, FETCH_BY_ZIP, FETCH_VOTE_SMART_BIO } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [] };
+const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -14,6 +14,10 @@ export default function( state = INITIAL_STATE, action) {
   //search by zipcode:
   case FETCH_BY_ZIP:
     return {...state, zipResponse: action.payload.data};
+  // grab candidate bio from votesmart's api
+  case FETCH_VOTE_SMART_BIO:
+    console.log('action in reducer!: ', action.payload.data);
+    return {...state, voteSmartBio: action.payload.data};
   //default:
   default:
     return state;

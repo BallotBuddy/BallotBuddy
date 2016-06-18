@@ -7,7 +7,6 @@ class ProfileList extends Component {
   
   // builds the individual candidate tile (photo + name + party)
   renderProfile(){
-    // return this.props.profiles.map((profile) => {
     return this.props.zipResponse.map((profile) => {
       let logo = '';
       let state = profile.officeStateId;
@@ -22,24 +21,19 @@ class ProfileList extends Component {
       const currentOffice = profile.officeName;
       const party = profile.electionParties[0];
       const id = profile.candidateId;
-      const runningIn = profile.electionStateId;
+      const electionState = profile.electionStateId;
       let selectOffice = function(electionOffice) {
         switch(electionOffice) {
           case "President":
             return "U.S. Presidential Candidate"
-            break;
           case "U.S. House":
             return "U.S. Congressional Candidate"
-            break;
           case "U.S. Senate":
             return "U.S. Senate Candidate"
-            break;
           case "State House":
             return "State Congressional Candidate"
-            break;
           case "State Senate":
             return "State Senatorial Candidate"
-            break;
           default:
             return "Candidacy not Listed";
         }
@@ -70,6 +64,7 @@ class ProfileList extends Component {
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
+          <Link to={"profile/" + id}>
           <div className="profile-picture-box">
             <img className="profile-picture" src={picture} />
           </div>
@@ -80,6 +75,7 @@ class ProfileList extends Component {
               <img className="party-logo"src={logo} />
             </div>
           </div>
+          </Link>
         </div>
       );
     });

@@ -9,7 +9,7 @@ const URL = 'http://'+env +'/cand';
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
-
+export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
 
 // fetch profiles based on name search
 export function fetchProfile(term){
@@ -38,6 +38,7 @@ export function fetchCandidate(cid) {
   };
 }
 
+
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
   const route = 'zip?zip=';
@@ -46,6 +47,22 @@ export function fetchByZip(zip) {
 
   return {
     type: FETCH_BY_ZIP,
+    payload: request
+  }
+}
+
+//http://localhost:8080/candbio?candId=15723
+export function fetchVoteSmartBio(cid) {
+  const route = 'candbio?candId=';
+  const url = `${URL}${route}${cid}`;
+  const request = axios.get(`http://localhost:8080/candbio?candId=${cid}`);
+
+  request.then(function(data) {
+    console.log('data from the fetchCandidateBio axios call: ', data);
+  })
+
+  return {
+    type: FETCH_VOTE_SMART_BIO,
     payload: request
   }
 }
