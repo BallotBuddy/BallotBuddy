@@ -10,6 +10,7 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
 export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
+export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
 
 // fetch top candidate industry contributors
@@ -52,7 +53,6 @@ export function fetchCandidate(cid) {
   };
 }
 
-
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
   const route = 'zip?zip=';
@@ -76,3 +76,18 @@ export function fetchVoteSmartBio(cid) {
     payload: request
   }
 }
+
+export function fetchCandidateVideo(){
+  // const video = "I'm a video";
+  const request = { vid: "I'm a Great Video" };
+  // const request = axios.get(url);
+
+  console.log('fetchCandidateVideo action: ', request);
+  return {
+    type: FETCH_CANDIDATE_VIDEO,
+    payload: request
+  };
+}
+
+
+
