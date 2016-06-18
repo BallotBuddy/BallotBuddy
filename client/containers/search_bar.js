@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchProfile } from '../actions/index';
+import { fetchProfile, fetchByZip } from '../actions/index';
 import ProfilesList from '../containers/profiles_list';
 
 class SearchBar extends Component {
@@ -18,18 +18,22 @@ class SearchBar extends Component {
 	// gets candidate data based on search term
 	onInputChange(event) {
 		this.setState( { searchTerm: event.target.value });
-		this.props.fetchProfile( event.target.value );
+		console.log('LOG 1: this.setState called with: ', event.target.value);
+		// this.props.fetchByZip( event.target.value );
+		// this.props.fetchProfile( event.target.value );
 	}
 
 	// updates search results when user clicks 'submit' button
 	onFormSubmit(event) {
 		event.preventDefault();
-		this.props.fetchProfile( this.state.searchTerm );
+		// this.props.fetchProfile( this.state.searchTerm );
+		console.log('LOG 2: argument passed for this.props.fetchByZip: ', this.state.searchTerm);
+		this.props.fetchByZip( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}
 
 	// builds search bar elements (input & button)
-	render() {	
+	render() {
 		return(
 			<div className="header">
 	      <div className="ballot-buddy">
@@ -39,9 +43,12 @@ class SearchBar extends Component {
 				<div className="search-box search-input">
 					<form onSubmit={this.onFormSubmit}>
 						<input
-							placeholder="e.g. Barack Obama"
+							placeholder="enter your zipcode"
 							value={this.state.searchTerm}
 							onChange={this.onInputChange} />
+						<span className="input-group-btn">
+						<button type="submit" className="btn btn-secondary">Submit</button>
+						</span>
 					</form>
 				</div>
 				<ProfilesList />
@@ -51,7 +58,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ fetchProfile }, dispatch);
+	return bindActionCreators({ fetchProfile, fetchByZip }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
