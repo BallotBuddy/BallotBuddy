@@ -1,6 +1,10 @@
 var rp = require('request-promise');
 var _ = require('underscore');
 var Promise = require("bluebird");
+
+
+var api_keys = require('../../api_keys');
+
 var votesmart = module.exports;
 
 
@@ -29,7 +33,7 @@ console.log ('Called getCandidatesByLastName');
  var candidates = {
     uri: 'http://api.votesmart.org/Candidates.getByLastname?lastName=' + name + '&o=JSON',
     qs: {
-      key: 'f4f8f4595fdf4d3773aee9e02da81f2b'                      //process.env.Candidate_key
+      key: api_keys.VOTESMART_API || process.env.VOTESMART
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -47,7 +51,7 @@ votesmart.collectCandidatesByZip = function (zip) {
   var candidates = {
     uri: 'http://api.votesmart.org/Candidates.getByZip?zip5=' + zip + '&o=JSON',
     qs: {
-      key: 'f4f8f4595fdf4d3773aee9e02da81f2b'                      //process.env.Candidate_key
+      key: api_keys.VOTESMART_API || process.env.VOTESMART                   //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -96,7 +100,7 @@ votesmart.collectCandidateDetails = function (candid) {
   var options = {
     uri: 'http://api.votesmart.org/CandidateBio.getBio?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: 'f4f8f4595fdf4d3773aee9e02da81f2b',  //process.env.Candidate_key
+      key: api_keys.VOTESMART_API || process.env.VOTESMART   //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -129,7 +133,7 @@ votesmart.getCandidateCampaignAddress = function (candid) {
   var options = {
     uri: 'http://api.votesmart.org/Address.getCampaign?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: 'f4f8f4595fdf4d3773aee9e02da81f2b',  //process.env.Candidate_key
+      key: api_keys.VOTESMART_API || process.env.VOTESMART  //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -154,7 +158,7 @@ votesmart.getCandidateWebAddress = function(candid){
   var options = {
     uri: 'http://api.votesmart.org/Address.getOfficeWebAddress?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: 'f4f8f4595fdf4d3773aee9e02da81f2b',  //process.env.Candidate_key
+      key: api_keys.VOTESMART_API || process.env.VOTESMART  //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
