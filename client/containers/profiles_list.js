@@ -7,45 +7,65 @@ class ProfileList extends Component {
   
   // builds the individual candidate tile (photo + name + party)
   renderProfile(){
-    return this.props.profiles.map((profile) => {
+    // return this.props.profiles.map((profile) => {
+    return this.props.zipResponse.map((profile) => {
       let logo = '';
-      const name = profile.candidate_firstlast;
+      let state = profile.officeStateId;
+      const name = profile.firstName + " " + profile.lastName;
       const picture = profile.picture;
       const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
       const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
       const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
-      const state = profile.state;
-      const title = profile.office[2] === 'S' ? 'Sen.' : 'Rep.';
-      const partyStyle = {};
-      const party = profile.party;
-      let color = ''
-      if (profile.party === 'R') {
+      const currentOffice = profile.officeName;
+      const party = profile.electionParties;
+      const id = profile.candidateId;
+      const runningIn = profile.electionStateId;
+      let selectOffice = function(electionOffice) {
+        switch(electionOffice) {
+          case "President":
+            return "U.S. Presidential Candidate"
+            break;
+          case "U.S. House":
+            return "U.S. Congressional Candidate"
+            break;
+          case "U.S. Senate":
+            return "U.S. Senate Candidate"
+            break;
+          case "State House":
+            return "State Congressional Candidate"
+            break;
+          case "State Senate":
+            return "State Senatorial Candidate"
+            break;
+          default:
+            return "Candidacy not Listed";
+        }
+      }
+      let partyStyle = {};
+      if ( party === 'Republican' ) {
         partyStyle['borderColor'] = 'rgb(222,1,0)';
         logo = rep;
-      }
-      if (profile.party === 'D') {
+      } else
+      if (party === 'Democratic') {
         partyStyle['borderColor'] = 'rgb(33,18,192)';
         logo = dem;
-      }
-      if (profile.party === 'I') {
+      } else
+      if (party === 'Independent') {
         partyStyle['borderColor'] = 'rgb(216,164,3)';
         logo = ind;
       }
       return (
-        <div className={`profile-tile profile-tile-${party}`} key={profile.candidate_id}>
-          <Link to={"profile/" + profile.candidate_id}>
-            <div>
-              <img className="profile-picture" src={picture} />
+        <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
+          <div className="profile-picture-box">
+            <img className="profile-picture" src={picture} />
+          </div>
+          <div className="profile-tile-detail">
+            <div className="candidate-name">{name}</div>
+            <div className="election-office">{ selectOffice(profile.electionOffice) }</div>
+            <div className="party-logo-box">
+              <img className="party-logo"src={logo} />
             </div>
-            <div className="party-bar" style={partyStyle}></div>
-            <div className="tile-detail">
-              <div className="candidate-name" style={partyStyle}>{name}</div>
-              <div className="candidate-affiliation">
-                <img className="party-logo" src={logo} />
-                {title} {state}
-              </div>
-            </div>
-          </Link>
+          </div>
         </div>
       );
     });
@@ -54,7 +74,7 @@ class ProfileList extends Component {
   // displays all candidates meeting search criteria
   render() {
     return(
-      <div>
+      <div className="profile-tile-list">
         {this.renderProfile()}
       </div>
     );
@@ -62,7 +82,11 @@ class ProfileList extends Component {
 }
 
 function mapStateToProps( state ){
-  return { profiles: state.profiles.profiles };
+  return { 
+    profiles: state.profiles.profiles,
+    zipResponse: state.profiles.zipResponse
+  };
 }
 
 export default connect(mapStateToProps)(ProfileList);
+
