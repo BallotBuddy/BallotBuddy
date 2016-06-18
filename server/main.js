@@ -4,7 +4,7 @@ let express = require('express')
 let path = require('path')
 let app = Server.app();
 let db = require('./database/database/db')
-
+let vs = require('./apicalls/votesmart');
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
@@ -39,7 +39,23 @@ app.route('/candstate')
     })
   })
 
+//http://locahost:8080/candzip?zip='888888'
 
+app.route('/candzip').get(function (req, res) {
+  var canzip = req.query.zip;
+  vs.collectCandidatesByZip(canzip).then(function (results) {
+    res.status(200).send(results);
+  })
+})
+
+
+//http://localhost:8080/candbio?candId='15723'
+app.route('/candbio').get(function(req,res){
+  var candbio = req.query.candId;
+  vs.collectCandidateDetails(candbio).then(function(results){
+    res.status(200).send(results);
+  })
+})
 
 
 //http://localhost:8080/searches - returns them all
@@ -59,5 +75,5 @@ app.route('/searches')
 //   res.redirect('/')
 // })
 
-app.listen(process.env.PORT||8080)
+app.listen(process.env.PORT || 8080)
 console.log('app started... 8080 if localhost');
