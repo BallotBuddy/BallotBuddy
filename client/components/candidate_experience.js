@@ -3,16 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { fetchCandidate } from '../actions/index';
 
-class CandidateExperience extends Component {
-	
-	renderExperienceSection(sectionObj) {
-		return (
-			<div className={sectionObj.section}>
-				<h3>{sectionObj.section}</h3>
-				<div>{sectionObj.data}<div>
-			</div>
-		)
-	}
+export default class CandidateExperience extends Component {
 
 	renderCandidateExperience() {
 		const sectionObjs = [
@@ -34,16 +25,26 @@ class CandidateExperience extends Component {
 			}
 		];
 
-		<div className="candidate-experience">
-			{sectionObjs.map((section) => renderExperienceSection(section))}
-		</div>
+		return (
+			<div className="candidate-experience">
+				{ sectionObjs.map((obj) => {
+					return (
+						<div className={obj.section}>
+							<h3>{obj.section}</h3>
+							<div>{obj.data}</div>
+						</div>
+					)
+				}) }
+			</div>
+		)
 	}
 
 	render() {
 		return (
-      <div>
-      	{this.renderCandidateExperience()}
-    	</div>
-    );
+			<div>
+				<div>Candidate Experience</div>
+				{this.renderCandidateExperience()}
+			</div>
+		);
 	}
 }
