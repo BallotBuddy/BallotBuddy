@@ -15,5 +15,7 @@ export default (
     <Route path="profile/:cid" component={DetailedProfile}>
     </Route>
     <Route path="aboutus" component={AboutUs}></Route>
+    <Route path="jack" component={CandidateVideo}>
+    </Route>
   </Route>
 );
