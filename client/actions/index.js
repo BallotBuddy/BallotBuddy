@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const configuration = require('../../config.js');
 const config = configuration.configuration();
-const env = config.client;
+let env = config.client;
 // request URL for candidate search
 const URL = 'http://'+env +'/cand';
 
@@ -45,6 +45,7 @@ export function fetchByZip(zip) {
   const url = `${URL}${route}${zip}`;
   const request = axios.get(url);
 
+  console.log('url for fetchByZip', url);
   return {
     type: FETCH_BY_ZIP,
     payload: request
@@ -53,10 +54,12 @@ export function fetchByZip(zip) {
 
 //http://localhost:8080/candbio?candId=15723
 export function fetchVoteSmartBio(cid) {
-  const route = 'candbio?candId=';
+  const route = 'bio?candId=';
   const url = `${URL}${route}${cid}`;
-  const request = axios.get(`http://localhost:8080/candbio?candId=${cid}`);
+  const request = axios.get(url);
+  // const request = axios.get(`http://localhost:8080/candbio?candId=${cid}`);
 
+  console.log('url for fetchbio ', url);
   request.then(function(data) {
     console.log('data from the fetchCandidateBio axios call: ', data);
   })
