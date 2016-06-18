@@ -8,9 +8,9 @@ class ProfileList extends Component {
   // builds the individual candidate tile (photo + name + party)
   renderProfile(){
     // return this.props.profiles.map((profile) => {
-    console.log('LOG 7 profiles_list: renderProfile data:', this.props.zipResponse);
     return this.props.zipResponse.map((profile) => {
       let logo = '';
+      let state = profile.officeStateId;
       const name = profile.firstName + " " + profile.lastName;
       const picture = profile.picture;
       const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
@@ -18,7 +18,6 @@ class ProfileList extends Component {
       const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
       const currentOffice = profile.officeName;
       const party = profile.electionParties;
-      let state = profile.officeStateId;
       const id = profile.candidateId;
       const runningIn = profile.electionStateId;
       let selectOffice = function(electionOffice) {
@@ -39,16 +38,10 @@ class ProfileList extends Component {
             return "State Senatorial Candidate"
             break;
           default:
-            return "Not Listed";
+            return "Candidacy not Listed";
         }
       }
       let partyStyle = {};
-            // let imageStyle = {
-      //   backgroundImage:`url(${picture})`,
-      //   backgroundImageSize: 'cover',
-      //   backgroundImageRepeat: 'no-repeat',
-      //   backgroundImagePosition: '50% 50%'
-      // }
       if ( party === 'Republican' ) {
         partyStyle['borderColor'] = 'rgb(222,1,0)';
         logo = rep;

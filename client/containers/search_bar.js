@@ -15,24 +15,20 @@ class SearchBar extends Component {
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
-	// gets candidate data based on search term
+	// two-way binds the search input value to this.state.searchTerm
 	onInputChange(event) {
 		this.setState( { searchTerm: event.target.value });
-		console.log('LOG 1: this.setState called with: ', event.target.value);
-		// this.props.fetchByZip( event.target.value );
-		// this.props.fetchProfile( event.target.value );
 	}
 
-	// updates search results when user clicks 'submit' button
+	// initiates the fetchByZip action to perform the search.
 	onFormSubmit(event) {
 		event.preventDefault();
-		// this.props.fetchProfile( this.state.searchTerm );
-		console.log('LOG 2: argument passed for this.props.fetchByZip: ', this.state.searchTerm);
+
 		this.props.fetchByZip( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}
 
-	// builds search bar elements (input & button)
+	// builds search bar elements
 	render() {
 		return(
 			<div className="header">
@@ -46,9 +42,6 @@ class SearchBar extends Component {
 							placeholder="enter your zipcode"
 							value={this.state.searchTerm}
 							onChange={this.onInputChange} />
-						<span className="input-group-btn">
-							<button type="submit" className="btn btn-secondary">Submit</button>
-						</span>
 					</form>
 				</div>
 				<ProfilesList />

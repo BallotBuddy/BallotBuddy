@@ -13,8 +13,6 @@ export default function( state = INITIAL_STATE, action) {
     return {...state, profiles: action.payload.data};
   //search by zipcode:
   case FETCH_BY_ZIP:
-    console.log('LOG 5 reducer: this.state', state);
-    console.log('LOG 6 reducer: profile_reducer FETCH_BY_ZIP action: ', action);
     return {...state, zipResponse: action.payload.data};
   //default:
   default:
