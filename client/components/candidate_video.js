@@ -19,7 +19,7 @@ class CandidateVideo extends Component {
 	
 			this.videoSearch('Bernie Sanders Official Presidental Campaign Ad');
 	}
-
+	
 	componentWillMount(){
 		this.props.fetchCandidateVideo();
 	}
@@ -44,7 +44,6 @@ class CandidateVideo extends Component {
 	}
 
 	render() {
-
 		return (
 			<div className = "video">
 				<div>{this.renderSingleVideo()}</div>
