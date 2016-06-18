@@ -27,6 +27,9 @@ export default function( state = INITIAL_STATE, action) {
   case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
     return {...state, contributors: action.payload.data || [] };
   //default:
+  case FETCH_CANDIDATE_VIDEO:
+    console.log('fetch candidate from reducer : action', action);
+    return {...state, candidateVideo: action.payload.vid};
   default:
     return state;
   }
