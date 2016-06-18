@@ -64,10 +64,11 @@ class ProfileList extends Component {
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
-          <Link to={"profile/" + id}>
+        <Link to={"profile/" + id}>
           <div className="profile-picture-box">
             <img className="profile-picture" src={picture} />
           </div>
+        </Link>
           <div className="profile-tile-detail">
             <div className="candidate-name">{name}</div>
             <div className="election-office">{ selectOffice(profile.electionOffice) }</div>
@@ -75,7 +76,6 @@ class ProfileList extends Component {
               <img className="party-logo"src={logo} />
             </div>
           </div>
-          </Link>
         </div>
       );
     });
