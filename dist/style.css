@@ -18,6 +18,10 @@ input{
   size: 100%;
 }
 
+.input-group-btn {
+  float: right;
+}
+
 /* ---------------- */
 /* Main Page Search */
 /* ---------------- */
@@ -57,27 +61,26 @@ input{
 /* Profile Tile / List Styling */
 /* --------------------------- */
 
-.profiles-list {
-  margin: 1em;
-  height: 100%;
+.profile-tile-list {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .profile-tile {
+  background-color: white;
   float: left;
   display: flex;
   flex-direction: row;
   color: rgb(50,50,50);
-  width: 30%;
+  width: 25%;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: all .3s ease-in-out;
   border-bottom: 1em solid;
-  margin: 1.5%;
+  margin: 1%;
 }
 
 .profile-picture-box {
-  background-color: white;
   flex-grow: 1;
   margin: 1%;
 /*  flex-basis: 100%;
@@ -91,7 +94,6 @@ input{
 .profile-tile-detail {
   color: rgb(50,50,50);
   text-align: center;
-  background-color: white;
   display: flex;
   flex-direction: column;
   width: 70%;

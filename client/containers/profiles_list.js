@@ -81,7 +81,7 @@ class ProfileList extends Component {
   // displays all candidates meeting search criteria
   render() {
     return(
-      <div>
+      <div className="profile-tile-list">
         {this.renderProfile()}
       </div>
     );
