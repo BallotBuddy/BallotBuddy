@@ -53,12 +53,20 @@ class DetailedProfile extends Component {
           <Link to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
-          <div className="single-profile-info">
-            <img className="single-pic" src={pic} />
-            <h3>{name}</h3>
-            <h4>{bio.political}</h4>
-            <h4>{bio.religion}</h4>
+        <div className="single-profile-info">
+        <img className="single-pic" src={pic} />
+        <div className="info">
+          <div>
+            <h2>{name}</h2>
+          </div>
+          <div>
+            <h4>{bio.homeState}</h4>
+          </div>
+          <div>
+            <h4>{bio.education}</h4>
+          </div>
         </div>
+      </div>
       </div>
     );
   }
@@ -69,7 +77,10 @@ class DetailedProfile extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>{this.renderSingleProfile()}</div>
+      <div>
+      {this.renderSingleProfile()}
+      <div className="candidate-components">To Be Filled!</div>
+      </div>
     );
   }
 }

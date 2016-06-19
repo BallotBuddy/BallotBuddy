@@ -4,10 +4,48 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 class ProfileList extends Component {
-  
+
+  filterByDate(data){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+
+    if(dd<10) {
+      dd='0'+dd
+    }
+
+    if(mm<10) {
+      mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    let filteredData = [];
+
+    for(var prop in data) {
+        let obj = data[prop];
+        let date = parseDate(obj.electionDate);
+        let todayParsed = parseDate(today);
+
+        //Filter dates from today moving forward or President...
+        if (obj.electionOffice == 'President' || date > todayParsed){
+          filteredData.push(obj);
+        }
+    }
+
+    function parseDate(dateStr) {
+        let date = dateStr.split('-');
+        let day = date[2];
+        let month = date[1] - 1; //January = 0
+        let year = date[0];
+        return new Date(year, month, day);
+    }
+    return filteredData;
+  }
+
   // builds the individual candidate tile (photo + name + party)
   renderProfile(){
-    return this.props.zipResponse.map((profile) => {
+    return this.filterByDate(this.props.zipResponse).map((profile) => {
       let logo = '';
       let state = profile.officeStateId;
       const name = profile.firstName + " " + profile.lastName;
@@ -29,13 +67,13 @@ class ProfileList extends Component {
           case "U.S. House":
             return "U.S. Congressional Candidate"
           case "U.S. Senate":
-            return "U.S. Senate Candidate"
+            return "U.S. Senatorial Candidate"
           case "State House":
             return "State Congressional Candidate"
           case "State Senate":
             return "State Senatorial Candidate"
           default:
-            return "Candidacy not Listed";
+            return `Candidate for: ${electionOffice}`;
         }
       }
       let partyStyle = {};
@@ -68,7 +106,6 @@ class ProfileList extends Component {
           <div className="profile-picture-box">
             <img className="profile-picture" src={picture} />
           </div>
-        </Link>
           <div className="profile-tile-detail">
             <div className="candidate-name">{name}</div>
             <div className="election-office">{ selectOffice(profile.electionOffice) }</div>
@@ -76,6 +113,7 @@ class ProfileList extends Component {
               <img className="party-logo"src={logo} />
             </div>
           </div>
+        </Link>
         </div>
       );
     });
