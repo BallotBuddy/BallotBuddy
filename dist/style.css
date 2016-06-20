@@ -85,7 +85,7 @@ a {
   color: rgb(50,50,50);
   width: 25%;
   min-width: 16em;
-  box-shadow: 8px 8px 15px rgba(0,0,0,0.4);
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
   transition: all .3s ease-in-out;
   border-bottom: 1em solid;
   margin: 2%;
