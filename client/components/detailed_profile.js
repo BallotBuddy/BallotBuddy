@@ -6,19 +6,14 @@ import { Link } from 'react-router';
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    // this.props.fetchCandidate(this.props.params.cid);
     console.log('component will mount is firing!!!');
     this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
   renderSingleProfile(){
-    // const { singleProfile } = this.props;
     const { voteSmartBio } = this.props;
-    console.log('voteSmartBio in DetailedProfile: ', this.props.voteSmartBio);
     const bio = voteSmartBio.candidate;
     const election = voteSmartBio.election;
-    console.log('bio :', bio);
-    console.log('election :', election);
     const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
     const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
@@ -87,7 +82,6 @@ class DetailedProfile extends Component {
 
 function mapStateToProps(state) {
   return { 
-    // singleProfile: state.profiles.singleProfile,
     voteSmartBio: state.profiles.voteSmartBio
   };
 }
