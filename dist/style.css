@@ -240,7 +240,6 @@ a {
   box-shadow: 4px 6px 9px;
 }
 
-
 .candidate-components {
   display: flex;
   flex-direction: row;
@@ -251,7 +250,14 @@ a {
   position: absolute;
 }
 
-.experience-category {
+
+.video {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.experience-section {
   vertical-align: text-top;
   font-weight: bold;
   padding-top: 1px;
