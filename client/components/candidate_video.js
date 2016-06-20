@@ -44,6 +44,7 @@ class CandidateVideo extends Component {
 	}
 
 	render() {
+
 		return (
 			<div className = "video">
 				<div>{this.renderSingleVideo()}</div>
