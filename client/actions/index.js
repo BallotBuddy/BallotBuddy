@@ -2,14 +2,14 @@ import axios from 'axios';
 
 const configuration = require('../../config.js');
 const config = configuration.configuration();
-const env = config.client;
+let env = config.client;
 // request URL for candidate search
 const URL = 'http://'+env +'/cand';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
-
+export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
 
 // fetch profiles based on name search
 export function fetchProfile(term){
@@ -47,6 +47,18 @@ export function fetchByZip(zip) {
 
   return {
     type: FETCH_BY_ZIP,
+    payload: request
+  }
+}
+
+//http://localhost:8080/candbio?candId=15723
+export function fetchVoteSmartBio(cid) {
+  const route = 'bio?candId=';
+  const url = `${URL}${route}${cid}`;
+  const request = axios.get(url);
+
+  return {
+    type: FETCH_VOTE_SMART_BIO,
     payload: request
   }
 }

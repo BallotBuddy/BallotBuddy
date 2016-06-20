@@ -1,17 +1,6 @@
 html {
-  background-color: rgb(250,250,250);
+  background-color: rgb(235,235,235);
 }
-
-form {
-  display: inline-block;
-  text-align: center;
-  align: center;
-}
-
-input{
-  text-align: center;
-}
-
 
 .app {
   font-family: 'Open Sans', sans-serif;
@@ -22,50 +11,71 @@ input{
 /* Main Page Search */
 /* ---------------- */
 
-.search-box {
-  background-color: rgb(1,33,72);
-  align-content: center;
+.header {
+  position: fixed;
   width: 100%;
-  height: 4em;
+  display: flex;
+  flex-direction: column;
+  height: 10em;
   box-shadow: 0 4px 20px 0px #464242;
+  z-index: 2;
 }
 
-.search-input {
-  display: block;
-  margin: auto;
-  text-align: center;
-  padding-top: 1em;
-}
-
-.ballot-buddy {
+.ballot-buddy-logo {
   font-family: Courier;
   text-align: center;
   color: white;
   font-size: 3em;
   background-color: rgb(159,0,40);
   border-bottom: .1em solid white;
-  z-index: 1;
 }
 
-.ballot-box{
-  height: .8em;
-  position: relative;
-  top: -12px;
+.ballot-buddy-image {
+  height: .5em;
+  position: relative; 
+  top: -12px; 
 }
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(1,33,72);
+  justify-content: center;
+  height: 3em;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.search-input {
+  width: 9em;
+  height: 2em;
+  text-align: center;
+}
+
+
 
 /* --------------------------- */
 /* Profile Tile / List Styling */
 /* --------------------------- */
 
 .profile-tile-list {
+  position: absolute;
+  top: 11em;
   background-color: rgb(235,235,235);
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-around;
   align-content: space-around;
-/*  flex-wrap: wrap;
-*/}
+  overflow-y: scroll;
+}
+
+/* <Link tag styling>*/
+a {
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: row;
+}
 
 .profile-tile {
   background-color: white;
@@ -75,7 +85,7 @@ input{
   color: rgb(50,50,50);
   width: 25%;
   min-width: 16em;
-  box-shadow: 8px 8px 15px rgba(0,0,0,0.4);
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
   transition: all .3s ease-in-out;
   border-bottom: 1em solid;
   margin: 2%;
@@ -124,58 +134,65 @@ input{
   width: 24%;
 }
 
-
-.profile-tile-Republican:hover {
+.profile-tile-R:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(188,19,62,0.6);
 }
 
-.profile-tile-Democratic:hover {
+.profile-tile-D:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(0,77,171,0.6);
 }
 
-.profile-tile-Independent:hover {
+.profile-tile-I:hover {
   transform: scale(1.05);
   box-shadow: 0 7px 20px rgba(178,134,0,0.6);
+}
+
+.profile-tile-L:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(248,199,1,0.6);
+}
+
+.profile-tile-G:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(0,100,50,0.6);
+}
+
+.profile-tile-N:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 20px rgba(64,24,144,0.6);
 }
 
 
 /* --------------------- */
 /* DETAILED PROFILE PAGE */
 /* --------------------- */
-
-.single-logo {
-  display: block;
-  float: left;
-  margin: 3%;
-  width: 10%;
-}
-
-.single-profile-header {
-  text-align: center;
-  background-color: rgba(1,33,72,1);
-  width: 100%;
-  box-shadow: 0 4px 20px 0px #464242;
-  padding-bottom: 14%;
-  border-bottom: 7px solid rgba(208,0,53,1);
-}
-
 .single-profile {
   text-align: center;
   background-color: rgb(250,250,250);
 }
 
-.single-profile-info {
-  margin-top: 4%;
+
+.single-profile-header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: space-around;
+  background-color: rgba(1,33,72,1);
+  height: 7em;
+  box-shadow: 0 4px 20px 0px #464242;
+  border-bottom: 7px solid rgba(208,0,53,1);
+  z-index: 2;
 }
 
-.single-pic {
+.single-logo {
   float: left;
-  margin-left: 4%;
-  width: 20%;
-  box-shadow: 4px 6px 9px rgba(0,0,0,0.3);
-  }
+  margin: 2%;
+  width: 5em;
+}
 
 .back-button {
   background-color: rgba(208,0,53,.8);
@@ -184,15 +201,41 @@ input{
   border-radius: .3em;
   color: white;
   padding: 1%;
-  top: 6%;
-  left: center;
-  left: 40.5%;
+  float: right;
+  margin-left: 30%;
+  margin-right: 30%;
   text-align: center;
-  position: absolute;
 }
 
 .back-button:hover {
   background-color: rgba(208,0,53,1);
   text-decoration: none;
   color: white;
+}
+
+.single-profile-info {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 10em;
+  margin-right: 1em;
+}
+
+.info {
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em;
+  flex-grow: 1;
+}
+
+.single-pic {
+  float: left;
+  margin-left: 2em;
+  margin-right: 2em;
+  width: 15%;
+  box-shadow: 4px 6px 9px;
 }

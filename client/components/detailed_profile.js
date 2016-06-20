@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCandidate } from '../actions/index';
+import { fetchVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
 
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    this.props.fetchCandidate(this.props.params.cid);
+    console.log('component will mount is firing!!!');
+    this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
   renderSingleProfile(){
-    const { singleProfile } = this.props;
+    const { voteSmartBio } = this.props;
+    const bio = voteSmartBio.candidate;
+    const election = voteSmartBio.election;
+    const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
     const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
     const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
-    const pic = singleProfile.picture;
+    const lib = 'https://qph.is.quoracdn.net/main-qimg-a4c6d6da0a974033606804c7f42c1355?convert_to_webp=true';
+    const green = 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/Green_Party_of_England_and_Wales_logo.svg/974px-Green_Party_of_England_and_Wales_logo.svg.png';
+    const none = 'http://www.uk-road-signs.com/wp-content/uploads/2014/09/No-Parking.jpg';
+    const pic = bio.photo;
     let logo = '';
-    if (singleProfile.party === 'R') {
+    if (election.parties[0] === 'R') {
       logo = rep;
     }
-    if (singleProfile.party === 'D') {
+    if (election.parties[0] === 'D') {
       logo = dem;
     }
-    if (singleProfile.party === 'I') {
+    if (election.parties[0] === 'I') {
       logo = ind;
+    }
+    if (election.parties[0] === 'L') {
+      logo = lib;
+    }
+    if (election.parties[0] === 'G') {
+      logo = green;
+    }
+    if (election.parties[0] === 'N') {
+      logo = none;
     }
     return (
       <div className="single-profile">
@@ -32,30 +48,42 @@ class DetailedProfile extends Component {
           <Link to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
-          <div className="single-profile-info">
-            <img className="single-pic" src={pic} />
-            <h3>{singleProfile.candidate_firstlast}</h3>
-            <h4>{singleProfile.twitter_id}</h4>
-            <h4>{singleProfile.webform}</h4>
-            <h4>{singleProfile.website}</h4>
+        <div className="single-profile-info">
+        <img className="single-pic" src={pic} />
+        <div className="info">
+          <div>
+            <h2>{name}</h2>
+          </div>
+          <div>
+            <h4>{bio.homeState}</h4>
+          </div>
+          <div>
+            <h4>{bio.education}</h4>
+          </div>
         </div>
+      </div>
       </div>
     );
   }
 
   render() {
-    const { singleProfile } = this.props;
-    if (!singleProfile){
+    const { voteSmartBio } = this.props;
+    if (!voteSmartBio){
       return <div>Loading...</div>;
     }
     return (
-      <div>{this.renderSingleProfile()}</div>
+      <div>
+      {this.renderSingleProfile()}
+      <div className="candidate-components">To Be Filled!</div>
+      </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { singleProfile: state.profiles.singleProfile };
+  return { 
+    voteSmartBio: state.profiles.voteSmartBio
+  };
 }
 
-export default connect(mapStateToProps, { fetchCandidate })(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio })(DetailedProfile);
