@@ -4,11 +4,13 @@ var Promise = require("bluebird");
 
 
 var api_keys = require('../../api_keys');
-
+var api_key = api_keys.VOTESMART_API;
+console.log(api_keys.VOTESMART_API,'Vote smart');
 var votesmart = module.exports;
 
 
 votesmart.checkPhoto = function (url) {
+  console.log('checking photo');
   var photo = {
     uri: url,
     qs: {},
@@ -21,9 +23,11 @@ votesmart.checkPhoto = function (url) {
 votesmart.checkPhotoStatus = function (photo) {
   return rp(photo)
     .then(function (res) {
+      console.log('Photo result = true');
       return true;
     })
     .catch(function (err) {
+        console.log('Photo result = false');
       return false;
     })
 }
@@ -33,7 +37,7 @@ console.log ('Called getCandidatesByLastName');
  var candidates = {
     uri: 'http://api.votesmart.org/Candidates.getByLastname?lastName=' + name + '&o=JSON',
     qs: {
-      key: api_keys.VOTESMART_API || process.env.VOTESMART
+      key: api_key || process.env.VOTESMART
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -51,7 +55,7 @@ votesmart.collectCandidatesByZip = function (zip) {
   var candidates = {
     uri: 'http://api.votesmart.org/Candidates.getByZip?zip5=' + zip + '&o=JSON',
     qs: {
-      key: api_keys.VOTESMART_API || process.env.VOTESMART                   //process.env.Candidate_key
+      key: api_key || process.env.VOTESMART                   //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -98,20 +102,24 @@ votesmart.fetch = function (request) {
 
 votesmart.collectCandidateDetails = function (candid) {
   var options = {
+ 
     uri: 'http://api.votesmart.org/CandidateBio.getBio?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: api_keys.VOTESMART_API || process.env.VOTESMART   //process.env.Candidate_key
+    key: api_key|| process.env.VOTESMART     //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
   };
+  console.log(options.uri);
   return votesmart.fetchBio(options);
 }
 
 votesmart.fetchBio = function (request) {
+  console.log('fetching bio');
   return rp(request)
     .then(function (res) {
       console.log("Successfully fetched candidate bio info");
+      console.log(res);
       return (res);
     })
     .catch(function (err) {
@@ -133,7 +141,7 @@ votesmart.getCandidateCampaignAddress = function (candid) {
   var options = {
     uri: 'http://api.votesmart.org/Address.getCampaign?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: api_keys.VOTESMART_API || process.env.VOTESMART  //process.env.Candidate_key
+      key: api_key || process.env.VOTESMART  //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
@@ -158,7 +166,7 @@ votesmart.getCandidateWebAddress = function(candid){
   var options = {
     uri: 'http://api.votesmart.org/Address.getOfficeWebAddress?candidateId=' + candid + '&o=JSON',
     qs: {
-      key: api_keys.VOTESMART_API || process.env.VOTESMART  //process.env.Candidate_key
+      key: api_key || process.env.VOTESMART  //process.env.Candidate_key
     },
     headers: { 'User-Agent': 'request-promise' },
     json: true,
