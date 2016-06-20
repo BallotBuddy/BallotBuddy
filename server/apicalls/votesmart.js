@@ -84,7 +84,7 @@ votesmart.fetch = function (request) {
       return candidateList;
     })
     .catch(function (err) {
-      return { data: [] };
+      return  [] ;
     });
 }
 
