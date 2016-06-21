@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio } from '../actions/index';
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
+import CandidateCampaignFinance from '../containers/candidate_campaign_finance';
 
 class DetailedProfile extends Component {
 
@@ -10,9 +11,15 @@ class DetailedProfile extends Component {
     this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
+  getIndustry(id){
+    this.props.fetchCandidateIndustryContributors(id);
+  }
+
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
+    console.log(bio);
+    const crpId = bio.crpId;
     const election = voteSmartBio.election;
     const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
@@ -68,6 +75,7 @@ class DetailedProfile extends Component {
 
   render() {
     const { voteSmartBio } = this.props;
+    // const { contributors } = this.props.contributors;
     if (!voteSmartBio){
       return <div>Loading...</div>;
     }
@@ -76,6 +84,7 @@ class DetailedProfile extends Component {
         {this.renderSingleProfile()}
         <div className="candidate-components">
           <CandidateExperience candInfo={voteSmartBio.candidate} />
+          <CandidateCampaignFinance />
         </div>
       </div>
     );
@@ -84,8 +93,9 @@ class DetailedProfile extends Component {
 
 function mapStateToProps(state) {
   return { 
-    voteSmartBio: state.profiles.voteSmartBio
+    voteSmartBio: state.profiles.voteSmartBio,
+    contributors: state.profiles.contributors
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio })(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors })(DetailedProfile);

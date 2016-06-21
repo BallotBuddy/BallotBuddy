@@ -132,7 +132,7 @@ class ProfileList extends Component {
 function mapStateToProps( state ){
   return { 
     profiles: state.profiles.profiles,
-    zipResponse: state.profiles.zipResponse
+    zipResponse: state.profiles.zipResponse,
   };
 }
 

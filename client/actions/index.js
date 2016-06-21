@@ -10,6 +10,23 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
 export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
+export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
+
+// fetch top candidate industry contributors
+export function fetchCandidateIndustryContributors(crpid){
+  const route = 'IndustryContributors?candId=';
+  const url = `${URL}${route}${crpid}`;
+  const request = axios.get(url);
+  console.log('fetchCand industry response: ', request);
+  request.then(function(data) {
+    console.log('resolved fetchCand promise: ',data);
+  })
+  return {
+    type: FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
+    payload: request
+  }
+}
+
 
 // fetch profiles based on name search
 export function fetchProfile(term){
