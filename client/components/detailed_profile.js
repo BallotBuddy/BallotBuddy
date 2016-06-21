@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
+import CandidateExperience from './candidate_experience';
 
 class DetailedProfile extends Component {
 
@@ -48,20 +49,20 @@ class DetailedProfile extends Component {
           <Link to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
-        <div className="single-profile-info">
-        <img className="single-pic" src={pic} />
-        <div className="info">
-          <div>
-            <h2>{name}</h2>
-          </div>
-          <div>
-            <h4>{bio.homeState}</h4>
-          </div>
-          <div>
-            <h4>{bio.education}</h4>
+          <div className="single-profile-info">
+          <img className="single-pic" src={pic} />
+          <div className="info">
+            <div>
+              <h2>{name}</h2>
+            </div>
+            <div>
+              <h4>{bio.homeState}</h4>
+            </div>
+            <div>
+              <h4>{bio.education}</h4>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
@@ -73,8 +74,10 @@ class DetailedProfile extends Component {
     }
     return (
       <div>
-      {this.renderSingleProfile()}
-      <div className="candidate-components">To Be Filled!</div>
+        {this.renderSingleProfile()}
+        <div className="candidate-components">
+          <CandidateExperience candInfo={voteSmartBio.candidate} />
+        </div>
       </div>
     );
   }

@@ -239,3 +239,32 @@ a {
   width: 15%;
   box-shadow: 4px 6px 9px;
 }
+
+.candidate-components {
+  display: flex-direction-column;
+  width: 100%;
+  background-color: white;
+  top: 64%;
+  position: absolute;
+}
+
+.experience-section {
+  vertical-align: text-top;
+  font-weight: bold;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.experience-details {
+  font-size: 85%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+ul {
+  margin: 2px;
+}
