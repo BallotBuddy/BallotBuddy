@@ -76,7 +76,7 @@ class DetailedProfile extends Component {
       <div>
         {this.renderSingleProfile()}
         <div className="candidate-components">
-          <CandidateExperience />
+          <CandidateExperience candInfo={voteSmartBio.candidate} />
         </div>
       </div>
     );
