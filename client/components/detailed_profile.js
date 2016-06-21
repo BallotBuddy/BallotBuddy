@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
+import CandidateExperience from './candidate_experience';
 
 class DetailedProfile extends Component {
 
@@ -73,8 +74,10 @@ class DetailedProfile extends Component {
     }
     return (
       <div>
-      {this.renderSingleProfile()}
-      <div className="candidate-components">To Be Filled!</div>
+        {this.renderSingleProfile()}
+        <div className="candidate-components">
+          <CandidateExperience />
+        </div>
       </div>
     );
   }

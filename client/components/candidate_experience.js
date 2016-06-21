@@ -26,7 +26,7 @@ export default class CandidateExperience extends Component {
 		];
 
 		return (
-			<div className="candidate-experience">
+			<div>
 				{ sectionObjs.map((obj) => {
 					return (
 						<div className={obj.section}>
@@ -41,7 +41,7 @@ export default class CandidateExperience extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="candidate-experience">
 				<div>Candidate Experience</div>
 				{this.renderCandidateExperience()}
 			</div>
