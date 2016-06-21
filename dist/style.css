@@ -239,3 +239,11 @@ a {
   width: 15%;
   box-shadow: 4px 6px 9px;
 }
+
+.candidate-components {
+  display: flex-direction-column;
+  width: 100%;
+  background-color: white;
+  top: 64%;
+  position: absolute;
+}
