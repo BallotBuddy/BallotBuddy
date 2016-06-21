@@ -34,8 +34,8 @@ export default class CandidateExperience extends Component {
 
 	render() {
 		return (
-			<div className="candidate-experience">
-				<div>Candidate Experience</div>
+			<div className="candidate-experience col-sx-12 col-sm-6">
+				<div className="text-center">Candidate Experience</div>
 				{this.renderCandidateExperience()}
 			</div>
 		);
