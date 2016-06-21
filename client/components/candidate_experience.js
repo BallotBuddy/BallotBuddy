@@ -14,16 +14,21 @@ export default class CandidateExperience extends Component {
 		sectionObjs.push({section: "Other", data:this.props.candInfo.orgMembership});
 
 		return (
-			<div>
+			<table>
 				{ sectionObjs.map((obj) => {
 					return (
-						<div className={obj.section}>
-							<h3>{obj.section}</h3>
-							<div>{obj.data}</div>
-						</div>
+						<tr className={obj.section}>
+							<td className="experience-section">{obj.section}:</td>
+							<td className="experience-details">
+								<ul className="list-unstyled">
+									{/*Puts each newline on it's own bullet*/}
+									{ obj.data.split('\n').map(line => { return <li>{line}</li> }) }
+								</ul>
+							</td>
+						</tr>
 					)
 				}) }
-			</div>
+			</table>
 		)
 	}
 
