@@ -49,20 +49,20 @@ class DetailedProfile extends Component {
           <Link to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
-        <div className="single-profile-info">
-        <img className="single-pic" src={pic} />
-        <div className="info">
-          <div>
-            <h2>{name}</h2>
-          </div>
-          <div>
-            <h4>{bio.homeState}</h4>
-          </div>
-          <div>
-            <h4>{bio.education}</h4>
+          <div className="single-profile-info">
+          <img className="single-pic" src={pic} />
+          <div className="info">
+            <div>
+              <h2>{name}</h2>
+            </div>
+            <div>
+              <h4>{bio.homeState}</h4>
+            </div>
+            <div>
+              <h4>{bio.education}</h4>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
