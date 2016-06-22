@@ -77,17 +77,7 @@ export function fetchVoteSmartBio(cid) {
   }
 }
 
-export function fetchCandidateVideo(){
-  // const video = "I'm a video";
-  const request = { vid: "I'm a Great Video" };
-  // const request = axios.get(url);
 
-  console.log('fetchCandidateVideo action: ', request);
-  return {
-    type: FETCH_CANDIDATE_VIDEO,
-    payload: request
-  };
-}
 
 
 
