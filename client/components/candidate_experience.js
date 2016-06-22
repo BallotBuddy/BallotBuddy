@@ -15,19 +15,21 @@ export default class CandidateExperience extends Component {
 
 		return (
 			<table>
-				{ sectionObjs.map((obj) => {
-					return (
-						<tr className={obj.category} key={obj.category}>
-							<td className="experience-cagtegory">{obj.category}:</td>
-							<td className="experience-details">
-								<ul className="list-unstyled">
-									{/*Puts each newline on it's own bullet*/}
-									{ obj.data.split('\n').map(line => { return <li>{line}</li> }) }
-								</ul>
-							</td>
-						</tr>
-					)
-				}) }
+				<tbody>
+					{ sectionObjs.map((obj) => {
+						return (
+							<tr className={obj.category} key={obj.category}>
+								<td className="experience-category">{obj.category}:</td>
+								<td className="experience-details">
+									<ul className="list-unstyled">
+										{/*Puts each newline on it's own bullet*/}
+										{ obj.data.split('\n').map(line => { return <li key={line}>{line}</li> }) }
+									</ul>
+								</td>
+							</tr>
+						)
+					}) }
+				</tbody>
 			</table>
 		)
 	}
