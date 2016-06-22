@@ -1,17 +1,8 @@
 import axios from 'axios';
-const API_KEY = 'AIzaSyDkPDfoyJbl4EvNTTQUg8EbXJM-rFGjCF8';
+
 const configuration = require('../../config.js');
 const config = configuration.configuration();
 let env = config.client;
-
-var configuration = require('../../config.js');
-
-var config = configuration.configuration();
-
-
-var env =config.client;
-console.log('index.js in actions',env);
-
 // request URL for candidate search
 const URL = 'http://'+env +'/cand';
 
