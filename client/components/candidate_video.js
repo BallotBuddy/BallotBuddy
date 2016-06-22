@@ -1,10 +1,8 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCandidateVideo } from '../actions/index';
 import { Link } from 'react-router';
+import DetailedProfile from './detailed_profile'
 import YTSearch from 'youtube-api-search';
-import CandidateVideoList from './candidate_video_list';
 import CandidatePlayer from './candidate_player';
 const API_KEY = 'AIzaSyDkPDfoyJbl4EvNTTQUg8EbXJM-rFGjCF8';
 
@@ -16,51 +14,41 @@ class CandidateVideo extends Component {
 			videos: [],
 			selectedVideo: null
 			 };
-	
-			this.videoSearch('Bernie Sanders Official Presidental Campaign Ad');
-	}
-	
-	componentWillMount(){
-		this.props.fetchCandidateVideo();
-	}
 
-	videoSearch(term) {
-		YTSearch({key: API_KEY, term: term}, (videos) => {
-			this.setState({ 
-				videos:videos,
+		this.CandidateVideofetch('Bernie Sanders Official Campaign Video')
+	
+	}
+	
+	CandidateVideofetch() {
+	const name = this.props.candInfo.ballotName
+	console.log("name", name)
+		YTSearch({key: API_KEY, term: name+" Official Campaign Video" }, (videos) => {
+			console.log(videos)
+			this.setState({
+				videos: videos,
 				selectedVideo: videos[0]
-			 });
-			this.setState({videos: videos})
-		});
+			});
+		})
+		
 	}
 
-	renderSingleVideo(){
-		const { candidateVideo } = this.props;
-		return (
-			<div>
-				<h3>{candidateVideo}</h3>
-			</div>	
-		);
-	}
 
 	render() {
-
+	this.CandidateVideofetch();
 		return (
 			<div className = "video">
-				<div>{this.renderSingleVideo()}</div>
 					<div>
 						<CandidatePlayer video={this.state.selectedVideo} />				
-						<CandidateVideoList
-							onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-							videos={this.state.videos} />
 					</div>
 			</div>
 		);
 	}
 }
 
+
+// export default CandidateVideo;
 function mapStateToProps(state) {
-	return { candidateVideo: state.profiles.candidateVideo };
+	return { voteSmartBio: state.profiles.voteSmartBio };
 }
 
-export default connect(mapStateToProps, { fetchCandidateVideo })(CandidateVideo);
+export default connect(mapStateToProps )(CandidateVideo);

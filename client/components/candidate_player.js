@@ -14,11 +14,10 @@ const CandidatePlayer = ({video}) => {
 	return (
 		<div className="video-player">
 			<div>
-				<iframe className="embed-responsive-item" src={url}></iframe>
+				<iframe src={url}></iframe>
 			</div>
 			<div className= "details">
 				<div>{video.snippet.title}</div>
-				<div>{video.snippet.description}</div>
 			</div>
 		</div>
 	);

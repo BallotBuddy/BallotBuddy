@@ -4,6 +4,7 @@ import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../action
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
+import CandidateVideo from './candidate_video';
 
 class DetailedProfile extends Component {
 
@@ -13,7 +14,6 @@ class DetailedProfile extends Component {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
       });
   }
-
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
@@ -61,6 +61,9 @@ class DetailedProfile extends Component {
             <div>
               <h4>{bio.homeState}</h4>
             </div>
+          </div>
+          <div>
+            <CandidateVideo candInfo = {voteSmartBio.election}/>
           </div>
         </div>
       </div>
