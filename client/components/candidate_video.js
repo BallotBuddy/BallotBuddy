@@ -4,7 +4,9 @@ import { Link } from 'react-router';
 import DetailedProfile from './detailed_profile'
 import YTSearch from 'youtube-api-search';
 import CandidatePlayer from './candidate_player';
-const API_KEY = 'AIzaSyDkPDfoyJbl4EvNTTQUg8EbXJM-rFGjCF8';
+var api_keys = require('../../api_keys');
+var api_key = api_keys.YOUTUBE_API;
+const API_KEY = process.env.Youtube_Key || api_key;
 
 class CandidateVideo extends Component {
 	constructor(props) {

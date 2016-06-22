@@ -1,4 +1,3 @@
-<<<<<<< b69a2f27aeeb38dd2fb773231fb323b37ca4c187
 import { 
   FETCH_PROFILE,
   FETCH_CANDIDATE,
@@ -7,11 +6,7 @@ import {
   FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS
   } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null, contributors: [] };
-=======
-import { FETCH_PROFILE, FETCH_CANDIDATE, FETCH_BY_ZIP, FETCH_VOTE_SMART_BIO} from '../actions/index';
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null };
->>>>>>> refactor to display just the video player
+const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null, contributors: [] };=======
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
