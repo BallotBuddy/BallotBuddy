@@ -16,7 +16,6 @@ export default function( state = INITIAL_STATE, action) {
     return {...state, zipResponse: action.payload.data};
   // grab candidate bio from votesmart's api
   case FETCH_VOTE_SMART_BIO:
-    console.log('action in reducer!: ', action.payload.data);
     return {...state, voteSmartBio: action.payload.data};
   //default:
   default:

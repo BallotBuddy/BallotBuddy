@@ -7,7 +7,6 @@ import CandidateExperience from './candidate_experience';
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    console.log('component will mount is firing!!!');
     this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
