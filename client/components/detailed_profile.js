@@ -8,11 +8,6 @@ import CandidateFinance from '../containers/candidate_finance';
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid);
-  }
-
-  getIndustry(id){
-
     this.props.fetchVoteSmartBio(this.props.params.cid)
       .then( (data)=> {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
