@@ -36,7 +36,7 @@ class CandidateFinance extends Component {
     const { contributors } = this.props;
     return (
       <div className='candidate-finance-container'>
-        Top 10 Contributors
+        Top Campaign Contributors
         <div className="candidate-finance-title">{this.renderCandidateFinance()}</div>
       </div>
     );

@@ -7,7 +7,6 @@ var api_key = api_Keys.OPENSECRETS_API;
 var opensecrets = module.exports;
 
 opensecrets.candIndustry = function(cid) {
-  console.log(cid);
   var industries = {
     uri: 'http://www.opensecrets.org/api/?method=candIndustry&cid=' + cid + '&cycle=2016&output=json',
     qs: {

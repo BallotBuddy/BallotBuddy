@@ -49,7 +49,9 @@ class DetailedProfile extends Component {
       <div className="single-profile">
         <div className="single-profile-header">
           <img className="single-logo" src={logo} />
-          <Link to="/" className="back-button">Back to search results</Link>
+          <Link to="/" className="back-button">Back to search results
+            {this.resetState}
+          </Link>
           <div className="detail-color-bar"></div>
         </div>
           <div className="single-profile-info">
@@ -61,9 +63,6 @@ class DetailedProfile extends Component {
             <div>
               <h4>{bio.homeState}</h4>
             </div>
-            <div>
-              <h4>{bio.education}</h4>
-            </div>
           </div>
         </div>
       </div>
@@ -74,9 +73,6 @@ class DetailedProfile extends Component {
     const { voteSmartBio } = this.props;
     const { contributors } = this.props;
     if (!voteSmartBio){
-      return <div>Loading...</div>;
-    }
-    if (!contributors) {
       return <div>Loading...</div>;
     }
     return (
