@@ -4,10 +4,11 @@ import {
   FETCH_BY_ZIP,
   FETCH_VOTE_SMART_BIO,
   FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
-  CLEAR_VOTE_SMART_BIO
+  CLEAR_VOTE_SMART_BIO,
+  FETCH_COURAGE_SCORE
   } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: '', contributors: [] };
+const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: '', contributors: [], courage: [] };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -30,6 +31,11 @@ export default function( state = INITIAL_STATE, action) {
   // clears vote smart bio state
   case CLEAR_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data};
+  // courage test results
+  case FETCH_COURAGE_SCORE:
+    console.log('courage action: ', action);
+    return {...state, courage: action.payload.data}
+  //default:
   default:
     return state;
   }

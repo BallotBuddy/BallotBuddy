@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } from '../actions/index';
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio, fetchCourageScore } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
@@ -18,6 +18,7 @@ class DetailedProfile extends Component {
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
+    console.log(bio);
     const election = voteSmartBio.election;
     const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
@@ -56,6 +57,7 @@ class DetailedProfile extends Component {
           <div className="single-profile-info">
           <img className="single-pic" src={pic} />
           <div className="info">
+            <button onClick={()=> {this.props.fetchCourageScore(bio.candidateId)}}>click for score</button>
             <div>
               <h2>{name}</h2>
             </div>
@@ -97,4 +99,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile)
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio, fetchCourageScore } )(DetailedProfile);
