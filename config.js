@@ -4,9 +4,9 @@ var path = require('path')
 exports.configuration = function ()
 {
 // p for production, d for development
-var switcher = 'd';
+var switcher = 'p';
 
-if (switcher === 'p') {
+if (switcher === 'd') {
 
     var config = {
         client: 'localhost:8080',
