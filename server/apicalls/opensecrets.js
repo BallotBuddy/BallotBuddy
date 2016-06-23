@@ -25,11 +25,9 @@ opensecrets.fetch = function (request) {
       return (res);
     })
     .then(function (jsres) {
-     console.log("Successfully parsed industry contributor data:");
-     console.log(jsres.response.industries.industry);
+     console.log("Successfully parsed industry contributor data");
       return jsres.response.industries.industry.map(function (item) {
         var contributor = item['@attributes'];
-        console.log('contributor object', contributor);
         return contributor;
       });
     })
