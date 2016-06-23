@@ -25,40 +25,24 @@ opensecrets.fetch = function (request) {
       console.log("Successfully fetched candidate's top contributors by industry");
       return (res);
     })
-    .catch(function (err) {
-     console.log("Failed to fetch candidate's industry contributor info: ", err.message);
-      return (err);
-    })
     .then(function (jsres) {
      console.log("Successfully parsed industry contributor data:");
      console.log(jsres.response.industries.industry);
-      
       return jsres.response.industries.industry.map(function (item) {
-          var contributor = item['@attributes'];
-          return contributor;
+        var contributor = item['@attributes'];
+        console.log('contributor object', contributor);
+        return contributor;
       });
     })
+    .catch(function (err) {
+     console.log("Failed to fetch candidate's industry contributor info: ", err.message);
+      var obj = [{
+        industry_code: '',
+        industry_name: '',
+        indivs: '',
+        pacs: '',
+        total: ''
+      }];
+      return (obj);
+    })
 };
-
-// { response: { industries: { '@attributes': [Object], industry: [Object] } } }
-
-// { '@attributes':
-//    { cand_name: 'Mark Pocan (D)',
-//      cid: 'N00033549',
-//      cycle: '2016',
-//      origin: 'Center for Responsive Politics',
-//      source: 'http://www.opensecrets.org/politicians/industries.php?cid=N00033549&cycle=2016',
-//      last_updated: '05/23/2016' },
-//   industry:
-//    [ { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] },
-//      { '@attributes': [Object] } ] }
-
-

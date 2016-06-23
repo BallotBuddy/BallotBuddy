@@ -6,7 +6,7 @@ import {
   FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS
   } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null, contributors: null };
+const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null, contributors: [] };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -25,7 +25,7 @@ export default function( state = INITIAL_STATE, action) {
     return {...state, voteSmartBio: action.payload.data};
   // grab contributors via opensecrets api
   case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
-    return {...state, contributors: action.payload.data};
+    return {...state, contributors: action.payload.data || [] };
   //default:
   default:
     return state;

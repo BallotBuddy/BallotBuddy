@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
-import CandidateCampaignFinance from '../containers/candidate_campaign_finance';
+import CandidateFinance from '../containers/candidate_finance';
 
 class DetailedProfile extends Component {
 
@@ -12,14 +12,16 @@ class DetailedProfile extends Component {
   }
 
   getIndustry(id){
-    this.props.fetchCandidateIndustryContributors(id);
+
+    this.props.fetchVoteSmartBio(this.props.params.cid)
+      .then( (data)=> {
+        this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
+      });
   }
 
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
-    console.log(bio);
-    const crpId = bio.crpId;
     const election = voteSmartBio.election;
     const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
@@ -75,8 +77,11 @@ class DetailedProfile extends Component {
 
   render() {
     const { voteSmartBio } = this.props;
-    // const { contributors } = this.props.contributors;
+    const { contributors } = this.props;
     if (!voteSmartBio){
+      return <div>Loading...</div>;
+    }
+    if (!contributors) {
       return <div>Loading...</div>;
     }
     return (
@@ -84,7 +89,7 @@ class DetailedProfile extends Component {
         {this.renderSingleProfile()}
         <div className="candidate-components">
           <CandidateExperience candInfo={voteSmartBio.candidate} />
-          <CandidateCampaignFinance />
+          <CandidateFinance financeInfo={ contributors } />
         </div>
       </div>
     );
@@ -98,4 +103,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors })(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors } )(DetailedProfile);

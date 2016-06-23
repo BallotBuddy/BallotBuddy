@@ -17,16 +17,13 @@ export function fetchCandidateIndustryContributors(crpid){
   const route = 'IndustryContributors?candId=';
   const url = `${URL}${route}${crpid}`;
   const request = axios.get(url);
-  console.log('fetchCand industry response: ', request);
   request.then(function(data) {
-    console.log('resolved fetchCand promise: ',data);
   })
   return {
     type: FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
     payload: request
   }
 }
-
 
 // fetch profiles based on name search
 export function fetchProfile(term){

@@ -92,6 +92,7 @@ app.route('/candVoteSmartId').get(function(req, res) {
 app.route('/candIndustryContributors').get(function(req, res){
   var candId = req.query.candId;
   os.candIndustry(candId).then(function(results) {
+    console.log('results in main.js', results);
     res.status(200).send(results);
   })
 })
