@@ -241,14 +241,22 @@ a {
 }
 
 .candidate-components {
-  display: flex-direction-column;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   background-color: white;
   top: 64%;
   position: absolute;
 }
 
-.experience-category {
+.col-sm-6 {
+  flex-grow: 1;
+}
+
+.experience-section {
+  margin: 1em;
+  flex-grow: 3;
   vertical-align: text-top;
   font-weight: bold;
   padding-top: 1px;
@@ -267,4 +275,80 @@ a {
 
 ul {
   margin: 2px;
+}
+
+/* --------------------------- */
+/* Candidate Finance Component */
+/* --------------------------- */
+
+.candidate-finance-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
+  background-color: rgb(230,230,230);
+  margin: 1em;
+}
+
+.donor-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  margin: .2em;
+  box-shadow: 2px 2px 7px rgba(0,0,0,.4);
+  background-color: white;
+}
+
+.donor-industry {
+  background-color: rgba(0,144,39, .8);
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.donor-type {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.type {
+  flex-grow: 1;
+  text-align: center;
+  width: 33.33%;
+  font-size: 75%;
+}
+
+.donation-amounts {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-weight: bold;
+  justify-content: space-around;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.amount {
+  flex-grow: 1;
+  width: 33.33%;
+}
+
+.total-amount {
+  flex-grow: 1;
+  font-weight: bold;
+  width: 33.33%;
+}
+
+.no-data {
+  width: 10em;
+  height: 10em;
 }

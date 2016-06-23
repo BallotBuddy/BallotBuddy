@@ -5,6 +5,7 @@ let path = require('path')
 let app = Server.app();
 let db = require('./database/database/db')
 let vs = require('./apicalls/votesmart');
+let os = require('./apicalls/opensecrets');
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
@@ -75,6 +76,23 @@ app.route('/candwebaddress').get(function (req, res) {
 app.route('/candlastname').get(function (req, res) {
   var candname = req.query.lastname;
   vs.getCandidatesByLastName(candname).then(function (results) {
+    res.status(200).send(results);
+  })
+})
+
+//http://localhost:8080/candVoteSmartId?votesmart_id=...
+app.route('/candVoteSmartId').get(function(req, res) {
+  var candId = req.query.votesmart_id;
+  db.queryByVoteSmartId(candId).then(function(results) {
+    res.status(200).send(results);
+  })
+})
+
+//http://localhost:8080/candIndustryContributors?candId=
+app.route('/candIndustryContributors').get(function(req, res){
+  var candId = req.query.candId;
+  os.candIndustry(candId).then(function(results) {
+    console.log('results in main.js', results);
     res.status(200).send(results);
   })
 })
