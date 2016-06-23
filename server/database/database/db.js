@@ -78,6 +78,12 @@ knex.queryByCandId = function (id) {
   return knex('candidate').where({ candidate_id: id }).select();
 };
 
+
+// selects candidate by votesmart_id
+knex.queryByVoteSmartId = function(id) {
+  return knex('candidate').where({ votesmart_id: id }).select();
+}
+
 //
 // Insert all elements of a candidate array into the given table name
 //

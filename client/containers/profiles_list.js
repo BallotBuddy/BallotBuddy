@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { bindActionCreators } from 'redux';
 
 class ProfileList extends Component {
 
@@ -136,5 +137,8 @@ function mapStateToProps( state ){
   };
 }
 
+function mapDispatchToProps( state ){
+  return bindActionCreators( { renderCandidateExperience }, dispatch)
+}
 export default connect(mapStateToProps)(ProfileList);
 

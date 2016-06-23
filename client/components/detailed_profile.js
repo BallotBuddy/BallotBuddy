@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio } from '../actions/index';
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
+import CandidateFinance from '../containers/candidate_finance';
 
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid);
+    this.props.fetchVoteSmartBio(this.props.params.cid)
+      .then( (data)=> {
+        this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
+      });
   }
 
   renderSingleProfile(){
@@ -57,9 +61,6 @@ class DetailedProfile extends Component {
             <div>
               <h4>{bio.homeState}</h4>
             </div>
-            <div>
-              <h4>{bio.education}</h4>
-            </div>
           </div>
         </div>
       </div>
@@ -68,6 +69,7 @@ class DetailedProfile extends Component {
 
   render() {
     const { voteSmartBio } = this.props;
+    const { contributors } = this.props;
     if (!voteSmartBio){
       return <div>Loading...</div>;
     }
@@ -76,6 +78,7 @@ class DetailedProfile extends Component {
         {this.renderSingleProfile()}
         <div className="candidate-components">
           <CandidateExperience candInfo={voteSmartBio.candidate} />
+          <CandidateFinance financeInfo={ contributors } />
         </div>
       </div>
     );
@@ -84,8 +87,9 @@ class DetailedProfile extends Component {
 
 function mapStateToProps(state) {
   return { 
-    voteSmartBio: state.profiles.voteSmartBio
+    voteSmartBio: state.profiles.voteSmartBio,
+    contributors: state.profiles.contributors
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio })(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors } )(DetailedProfile);
