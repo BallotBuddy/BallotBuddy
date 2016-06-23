@@ -49,9 +49,7 @@ class DetailedProfile extends Component {
       <div className="single-profile">
         <div className="single-profile-header">
           <img className="single-logo" src={logo} />
-          <Link to="/" className="back-button">Back to search results
-            {this.resetState}
-          </Link>
+          <Link to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
           <div className="single-profile-info">
