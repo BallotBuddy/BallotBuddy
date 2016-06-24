@@ -3,10 +3,11 @@ import {
   FETCH_CANDIDATE,
   FETCH_BY_ZIP,
   FETCH_VOTE_SMART_BIO,
-  FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS
+  FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
+  CLEAR_VOTE_SMART_BIO
   } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: null, contributors: [] };
+const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: '', contributors: [] };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -26,7 +27,9 @@ export default function( state = INITIAL_STATE, action) {
   // grab contributors via opensecrets api
   case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
     return {...state, contributors: action.payload.data || [] };
-  //default:
+  // clears vote smart bio state
+  case CLEAR_VOTE_SMART_BIO:
+    return {...state, voteSmartBio: action.payload.data};
   default:
     return state;
   }

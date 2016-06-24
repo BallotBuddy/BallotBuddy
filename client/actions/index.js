@@ -4,13 +4,15 @@ const configuration = require('../../config.js');
 const config = configuration.configuration();
 let env = config.client;
 // request URL for candidate search
-const URL = 'http://'+env +'/cand';
+const URL = 'http://' + env + '/cand';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
 export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
+export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
+export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -26,7 +28,7 @@ export function fetchCandidateIndustryContributors(crpid){
 }
 
 // fetch profiles based on name search
-export function fetchProfile(term){
+export function fetchProfile(term) {
   const route = 'name?name=';
   //convert to uppercase to avoid case sensitivity
   const name = term.toUpperCase();
@@ -37,8 +39,7 @@ export function fetchProfile(term){
     type: FETCH_PROFILE,
     payload: request
   };
-} 
-
+}
 
 // fetch single candidate's information
 export function fetchCandidate(cid) {
@@ -51,7 +52,6 @@ export function fetchCandidate(cid) {
     payload: request
   };
 }
-
 
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
@@ -76,3 +76,13 @@ export function fetchVoteSmartBio(cid) {
     payload: request
   }
 }
+
+// clears the VoteSmartBio state when the back button is clicked
+export function clearVoteSmartBio() {
+
+  return {
+    type: CLEAR_VOTE_SMART_BIO,
+    payload: ''
+  }
+}
+

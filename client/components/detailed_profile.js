@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../actions/index';
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
+import CandidateVideo from './candidate_video';
 
 class DetailedProfile extends Component {
 
@@ -13,7 +14,7 @@ class DetailedProfile extends Component {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
       });
   }
-
+      
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
@@ -49,7 +50,7 @@ class DetailedProfile extends Component {
       <div className="single-profile">
         <div className="single-profile-header">
           <img className="single-logo" src={logo} />
-          <Link to="/" className="back-button">Back to search results</Link>
+          <Link onClick = {()=>{this.props.clearVoteSmartBio()}}to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
           <div className="single-profile-info">
@@ -60,6 +61,9 @@ class DetailedProfile extends Component {
             </div>
             <div>
               <h4>{bio.homeState}</h4>
+            </div>
+            <div>
+            <CandidateVideo candInfo = {voteSmartBio.election}/>
             </div>
           </div>
         </div>
@@ -85,6 +89,7 @@ class DetailedProfile extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
@@ -92,4 +97,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors } )(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile)
+
