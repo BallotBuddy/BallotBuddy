@@ -13,9 +13,8 @@ class DetailedProfile extends Component {
       .then( (data)=> {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
       });
-  componentDidMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid);
   }
+      
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
@@ -66,9 +65,6 @@ class DetailedProfile extends Component {
             <div>
             <CandidateVideo candInfo = {voteSmartBio.election}/>
             </div>
-            <div>
-              <CandidateVideo candInfo = {voteSmartBio.election}/>
-            </div>
           </div>
         </div>
       </div>
@@ -93,6 +89,7 @@ class DetailedProfile extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
@@ -100,8 +97,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile);
-    zipResponse: state.profiles.zipResponse
-  };
-}
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile)
 
