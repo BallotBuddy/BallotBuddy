@@ -14,6 +14,7 @@ export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
 export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
 export const FETCH_COURAGE_SCORE = 'FETCH_COURAGE_SCORE';
+export const FETCH_TWITTER = 'FETCH_TWITTER';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -27,6 +28,19 @@ export function fetchCandidateIndustryContributors(crpid){
     payload: request
   }
 }
+// fetch twitter data based on twitter candidate nickname
+export function fetchTwitter(){
+  
+
+  return {
+    type: FETCH_TWITTER,
+    payload: { data:"Hi, I'm listening to Jack"}
+  };
+} 
+
+
+
+
 
 // fetch profiles based on name search
 export function fetchProfile(term) {

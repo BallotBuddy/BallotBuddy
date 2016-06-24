@@ -11,19 +11,12 @@ var accessTokenSecrets = api_keys.accessTokenSecret;
 var twit = module.exports;
 
 twit.gettweets = function (tweetnickname) {
-
-    // function readFilePromise() {
-    //     return new Promise(function(fulfill, reject) {
-    //         fs.readFile(path, function(error, content) {
-    //             if (error) reject(error)
-    //             else fulfill(content);
-    //         })
-    //     })
-    // }   
-
     return new Promise(function (fulfill, reject) {
 
-
+ if (tweetnickname==='')
+ { var err ="Twitter nickname does not exist";
+     throw "Twitter nickname does not exist";
+ }
         var twitter = OAuth({
             consumer: {
                 public: consumer_public,
@@ -37,7 +30,7 @@ twit.gettweets = function (tweetnickname) {
         });
 
         twitter.get({
-            url: 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=RepPaulCook',
+            url: 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name='+tweetnickname,
             qs: {
                 count: 5
             },
@@ -48,6 +41,7 @@ twit.gettweets = function (tweetnickname) {
                 var returnedtweets = tweets.map(function (element) {
                     var obj = {};
                     obj.created_at = element.created_at;
+                    obj.text = element.text;
                     obj.user = element.user.name;
                     obj.location = element.user.location;
                     obj.followers = element.user.followers_count;

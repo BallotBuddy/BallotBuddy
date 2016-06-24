@@ -6,6 +6,7 @@ import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
 import CandidateVideo from './candidate_video';
 import CandidateCourage from '../containers/candidate_courage';
+import Twitter from '../containers/twitter';
 
 class DetailedProfile extends Component {
 
@@ -81,6 +82,8 @@ class DetailedProfile extends Component {
           <CandidateExperience candInfo={voteSmartBio.candidate} />
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
+          <CandidateFinance financeInfo={ contributors } />
+          <Twitter />
         </div>
       </div>
     );

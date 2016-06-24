@@ -8,12 +8,6 @@ let vs = require('./apicalls/votesmart');
 let os = require('./apicalls/opensecrets');
 let twit = require('./apicalls/twitter');
 
- var error = function (err, response, body) {
-        console.log('ERROR [%s]', err);
-    };
-var success = function (data) {
-        console.log('Data [%s]', data);
-    };
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
@@ -46,6 +40,19 @@ app.route('/candtwitter')
   var candidatenickname =req.query.candtwitternickname;
     twit.gettweets(candidatenickname).then(function(results){
       res.status(200).send(results);
+    }).catch(function(error){
+      console.log(error);
+       var obj = {};
+                    obj.created_at = '';
+                    obj.text = '';
+                    obj.user = '';
+                    obj.location = '';
+                    obj.followers = '';
+                    obj.url = '';
+
+                    var array=[];
+                    array.push(obj);
+                  res.status(200).send(array);
     })
 
 //twit.getCandTwitterPosts 
