@@ -6,6 +6,14 @@ let app = Server.app();
 let db = require('./database/database/db')
 let vs = require('./apicalls/votesmart');
 let os = require('./apicalls/opensecrets');
+let twit = require('./apicalls/twitter');
+
+ var error = function (err, response, body) {
+        console.log('ERROR [%s]', err);
+    };
+var success = function (data) {
+        console.log('Data [%s]', data);
+    };
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
@@ -32,6 +40,17 @@ app.route('/candname')
       })
   })
 
+  //http://localhost:8080/candtwitter?candtwitternickname=RepByrne
+app.route('/candtwitter')
+.get(function(req,res){
+  var candidatenickname =req.query.candtwitternickname;
+    twit.gettweets(candidatenickname).then(function(results){
+      res.status(200).send(results);
+    })
+
+//twit.getCandTwitterPosts 
+
+})
 //http://localhost:8080/candstate?state=TX
 app.route('/candstate')
   .get(function (req, res) {
