@@ -26,10 +26,9 @@ export default function( state = INITIAL_STATE, action) {
   // grab contributors via opensecrets api
   case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
     return {...state, contributors: action.payload.data || [] };
-  //default:
-  // case FETCH_CANDIDATE_VIDEO:
-  //   console.log('fetch candidate from reducer : action', action);
-  //   return {...state, candidateVideo: action.payload.data};
+  // clears vote smart bio state
+  case CLEAR_VOTE_SMART_BIO:
+    return {...state, voteSmartBio: action.payload.data};
   default:
     return state;
   }

@@ -13,7 +13,5 @@ export default (
     <IndexRoute component={SearchBar} />
     <Route path="profile/:cid" component={DetailedProfile}>
     </Route>
-    <Route path="profile/:cid" component={CandidateVideo}>
-    </Route>
   </Route>
 );

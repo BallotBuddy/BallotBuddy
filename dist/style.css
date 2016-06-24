@@ -52,8 +52,6 @@ html {
   text-align: center;
 }
 
-
-
 /* --------------------------- */
 /* Profile Tile / List Styling */
 /* --------------------------- */
@@ -164,7 +162,6 @@ a {
   box-shadow: 0 7px 20px rgba(64,24,144,0.6);
 }
 
-
 /* --------------------- */
 /* DETAILED PROFILE PAGE */
 /* --------------------- */
@@ -172,7 +169,6 @@ a {
   text-align: center;
   background-color: rgb(250,250,250);
 }
-
 
 .single-profile-header {
   position: fixed;
@@ -250,12 +246,10 @@ a {
   position: absolute;
 }
 
-
 .video {
   display: flex;
   flex-direction: column;
 }
-
 
 .experience-section {
   vertical-align: text-top;
