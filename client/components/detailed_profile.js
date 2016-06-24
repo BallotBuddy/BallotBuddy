@@ -61,6 +61,9 @@ class DetailedProfile extends Component {
             <div>
               <h4>{bio.homeState}</h4>
             </div>
+            <div>
+            <CandidateVideo candInfo = {voteSmartBio.election}/>
+            </div>
           </div>
         </div>
       </div>
