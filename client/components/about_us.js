@@ -9,36 +9,36 @@ export default const AboutUs = () => {
 		</div>
 		<div className="about_team">
 			<h2>Team</h2>
-			<div className="profile jack">
-				<h3>Jack Hall</h3>
-				<img src="https://c8.staticflickr.com/8/7406/27786958311_ec67890a0f_m.jpg" alt="Jack Hall">
+			<div className="profile matt">
+				<h3>Matt Dubose</h3>
+				<img src="https://c4.staticflickr.com/8/7641/27786959651_c378e65eb3_m.jpg" alt="Matt Dubose" />
 				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 				<ul className="contact_info list-unstyled list-inline">
-					<li><a href="https://www.linkedin.com/in/rynewton">LinkedIn</a></li>
-					<li><a href="https://github.com/ryannewton/">Github</a></li>
+					<li><a href="https://www.linkedin.com/in/matthew-dubose-732029b">LinkedIn</a></li>
+					<li><a href="https://github.com/mjdubose/">Github</a></li>
 				</ul>
 			</div>
 			<div className="profile james">
 				<h3>James Lee</h3>
-				<img src="https://c6.staticflickr.com/8/7354/27786959261_924e6e9214.jpg" alt="James Lee">
+				<img src="https://c6.staticflickr.com/8/7354/27786959261_924e6e9214.jpg" alt="James Lee" />
 				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 				<ul className="contact_info list-unstyled list-inline">
-					<li><a href="https://www.linkedin.com/in/rynewton">LinkedIn</a></li>
-					<li><a href="https://github.com/ryannewton/">Github</a></li>
+					<li><a href="https://www.linkedin.com/in/james-lee-atx">LinkedIn</a></li>
+					<li><a href="https://github.com/JimmyLee87/">Github</a></li>
 				</ul>
 			</div>
-			<div className="profile matt">
-				<h3>Matt Dubose</h3>
-				<img src="https://c4.staticflickr.com/8/7641/27786959651_c378e65eb3_m.jpg" alt="Matt Dubose">
+			<div className="profile jack">
+				<h3>Jack Hall</h3>
+				<img src="https://c8.staticflickr.com/8/7406/27786958311_ec67890a0f_m.jpg" alt="Jack Hall" />
 				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 				<ul className="contact_info list-unstyled list-inline">
-					<li><a href="https://www.linkedin.com/in/rynewton">LinkedIn</a></li>
-					<li><a href="https://github.com/ryannewton/">Github</a></li>
+					<li><a href="https://www.linkedin.com/in/jackjhall">LinkedIn</a></li>
+					<li><a href="https://github.com/jackjhall22/">Github</a></li>
 				</ul>
 			</div>
 			<div className="profile ryan">
 				<h3>Ryan Newton</h3>
-				<img src="https://c4.staticflickr.com/8/7056/27786958611_00789dc993_z.jpg" alt="Ryan Newton">
+				<img src="https://c4.staticflickr.com/8/7056/27786958611_00789dc993_z.jpg" alt="Ryan Newton" />
 				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 				<ul className="contact_info list-unstyled list-inline">
 					<li><a href="https://www.linkedin.com/in/rynewton">LinkedIn</a></li>
@@ -48,8 +48,9 @@ export default const AboutUs = () => {
 		</div>
 		<div className="about_sources">
 			<h2>Sources</h2>
-			<div>VoteSmart API</div>
-			<div>OpenSecrets API</div>
+			<a href="http://www.votesmart.org">VoteSmart API</a>
+			<a href="http://www.opensecrets.org">OpenSecrets API</a>
 		</div>
 	</div>
+	)}
 }
