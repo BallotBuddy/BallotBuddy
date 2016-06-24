@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "start": "node server/main.js",
-  "build": "./node_modules/webpack/bin/webpack.js -w -c",
-  "postinstall": "npm run build",
-  "test": "echo \"Error: no test specified\" && exit 1"   
+    "start": "node server/main.js",
+    "build": "./node_modules/webpack/bin/webpack.js -w -c",
+    "postinstall": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "6.2.1"
@@ -41,6 +41,7 @@
     "sqlite3": "^3.1.4",
     "style-loader": "^0.13.1",
     "underscore": "^1.8.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "youtube-api-search": "0.0.5"
   }
 }
