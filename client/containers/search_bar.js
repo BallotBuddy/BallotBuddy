@@ -2,7 +2,11 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+<<<<<<< 5c8e6a22d6bb2c9565330fd953fe8475637141e2
 import { fetchProfile, fetchByZip, fetchCandidateVideo  } from '../actions/index';
+=======
+import { fetchByZip } from '../actions/index';
+>>>>>>> search reducer implemented - candidate courage component implemented (v1) - clean up on superfluous code
 import ProfilesList from '../containers/profiles_list';
 import { Link } from 'react-router'
 
@@ -58,7 +62,11 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
+<<<<<<< 5c8e6a22d6bb2c9565330fd953fe8475637141e2
 	return bindActionCreators({ fetchProfile, fetchByZip, }, dispatch);
+=======
+	return bindActionCreators({ fetchByZip }, dispatch);
+>>>>>>> search reducer implemented - candidate courage component implemented (v1) - clean up on superfluous code
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);

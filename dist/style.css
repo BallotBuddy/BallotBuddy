@@ -372,3 +372,29 @@ ul {
   text-decoration: none;
   color: white;
 }
+/* --------------------------- */
+/* Candidate Courage Component */
+/* --------------------------- */
+
+.candidate-courage-container {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background-color: rgb(230,230,230);
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
+}
+
+.courage-issue {
+  background-color: white;
+  margin: .8em;
+  padding: .2em;
+  font-weight: bold;
+  display: flex;
+  flex-grow: column;
+  flex-grow: 1;
+  text-align: center;
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
+}

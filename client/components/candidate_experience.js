@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { fetchCandidate } from '../actions/index';
-
 export default class CandidateExperience extends Component {
 
 	renderCandidateExperience() {

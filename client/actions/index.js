@@ -89,7 +89,7 @@ export function clearVoteSmartBio() {
 
 //http://localhost:8080/candCourageScore?candId=....
 export function fetchCourageScore(cid) {
-  const route = 'CourgeScore?candId=';
+  const route = 'CourageScore?candId=';
   const url = `${URL}${route}${cid}`;
   const request = axios.get(url);
 

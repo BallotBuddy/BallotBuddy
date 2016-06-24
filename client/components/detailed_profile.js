@@ -4,7 +4,11 @@ import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBi
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
+<<<<<<< 5c8e6a22d6bb2c9565330fd953fe8475637141e2
 import CandidateVideo from './candidate_video';
+=======
+import CandidateCourage from '../containers/candidate_courage';
+>>>>>>> search reducer implemented - candidate courage component implemented (v1) - clean up on superfluous code
 
 class DetailedProfile extends Component {
 
@@ -12,13 +16,17 @@ class DetailedProfile extends Component {
     this.props.fetchVoteSmartBio(this.props.params.cid)
       .then( (data)=> {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
-      });
+        return data.payload.data.candidate.candidateId;
+      })
+      .then( (id) => {
+        console.log(id);
+        this.props.fetchCourageScore(id);
+      })
   }
 
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
-    console.log(bio);
     const election = voteSmartBio.election;
     const name = election.ballotName;
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
@@ -76,6 +84,7 @@ class DetailedProfile extends Component {
   render() {
     const { voteSmartBio } = this.props;
     const { contributors } = this.props;
+    const { courage } = this.props
     if (!voteSmartBio){
       return <div>Loading...</div>;
     }
@@ -85,6 +94,7 @@ class DetailedProfile extends Component {
         <div className="candidate-components">
           <CandidateExperience candInfo={voteSmartBio.candidate} />
           <CandidateFinance financeInfo={ contributors } />
+          <CandidateCourage score={ courage } />
         </div>
       </div>
     );
@@ -95,7 +105,8 @@ class DetailedProfile extends Component {
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
-    contributors: state.profiles.contributors
+    contributors: state.profiles.contributors,
+    courage: state.profiles.courage
   };
 }
 
