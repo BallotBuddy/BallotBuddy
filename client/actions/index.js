@@ -38,10 +38,6 @@ export function fetchTwitter(){
   };
 } 
 
-
-
-
-
 // fetch profiles based on name search
 export function fetchProfile(term) {
   const route = 'name?name=';
@@ -56,9 +52,10 @@ export function fetchProfile(term) {
   };
 }
 
+//http://localhost:8080/candVoteSmartId?votesmart_id=...
 // fetch single candidate's information
 export function fetchCandidate(cid) {
-  const route = 'id?id=';
+  const route = 'VoteSmartId?votesmart_id=';
   const url = `${URL}${route}${cid}`;
   const request = axios.get(url);
 
