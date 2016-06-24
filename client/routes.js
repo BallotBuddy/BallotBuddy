@@ -14,6 +14,6 @@ export default (
     <IndexRoute component={SearchBar} />
     <Route path="profile/:cid" component={DetailedProfile}>
     </Route>
-    <Route path="aboutus" component={AboutUs} />
+    <Route path="aboutus" component={AboutUs}></Route>
   </Route>
 );

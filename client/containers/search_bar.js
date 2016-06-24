@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchProfile, fetchByZip, fetchCandidateVideo  } from '../actions/index';
 import ProfilesList from '../containers/profiles_list';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 class SearchBar extends Component {
 	constructor(props) {
