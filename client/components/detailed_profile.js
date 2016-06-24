@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio, fetchCandidateIndustryContributors } from '../actions/index';
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
@@ -13,6 +13,8 @@ class DetailedProfile extends Component {
       .then( (data)=> {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
       });
+  componentDidMount(){
+    this.props.fetchVoteSmartBio(this.props.params.cid);
   }
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
@@ -49,7 +51,7 @@ class DetailedProfile extends Component {
       <div className="single-profile">
         <div className="single-profile-header">
           <img className="single-logo" src={logo} />
-          <Link to="/" className="back-button">Back to search results</Link>
+          <Link onClick = {()=>{this.props.clearVoteSmartBio()}}to="/" className="back-button">Back to search results</Link>
           <div className="detail-color-bar"></div>
         </div>
           <div className="single-profile-info">
@@ -63,6 +65,9 @@ class DetailedProfile extends Component {
             </div>
             <div>
             <CandidateVideo candInfo = {voteSmartBio.election}/>
+            </div>
+            <div>
+              <CandidateVideo candInfo = {voteSmartBio.election}/>
             </div>
           </div>
         </div>
@@ -95,4 +100,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors } )(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile);
+    zipResponse: state.profiles.zipResponse
+  };
+}
+
