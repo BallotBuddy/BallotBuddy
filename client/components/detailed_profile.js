@@ -14,7 +14,7 @@ class DetailedProfile extends Component {
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
       });
   }
-      
+
   renderSingleProfile(){
     const { voteSmartBio } = this.props;
     const bio = voteSmartBio.candidate;
@@ -98,4 +98,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } )(DetailedProfile)
-

@@ -1,8 +1,8 @@
 import axios from 'axios';
-
 const configuration = require('../../config.js');
 const config = configuration.configuration();
 let env = config.client;
+
 // request URL for candidate search
 const URL = 'http://' + env + '/cand';
 
