@@ -118,7 +118,7 @@ app.route('/candlastname').get(function (req, res) {
 //http://localhost:8080/candVoteSmartId?votesmart_id=...
 app.route('/candVoteSmartId').get(function(req, res) {
   var candId = req.query.votesmart_id;
-  db.queryByVoteSmartId(candId).then(function(results) {
+  db.queryByVoteSmartId(candId).then(function(results) { 
     res.status(200).send(results);
   })
 })
