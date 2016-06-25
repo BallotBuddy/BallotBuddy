@@ -167,3 +167,26 @@ votesmart.fetchCandidateWebAddress = function (option) {
       console.log("Failed to fetch candidate office web address info: ", err.message);
     })
 }
+
+votesmart.fetchCourageScore = function(id) {
+  var options = {
+    uri: 'http://api.votesmart.org/Npat.getNpat?candidateId=' + id + '&o=JSON',
+    qs: {
+      key: api_key || process.env.VOTESMART
+    },
+    headers: { 'User-Agent': 'request-promise' },
+    json: true,
+  };
+  return votesmart.fetchScore(options);
+}
+
+votesmart.fetchScore = function (option) {
+  return rp(option)
+    .then(function(res) {
+      console.log('succesfully fetched courage score');
+      return (res);
+    })
+    .catch(function (err) {
+      console.log('failed to fetch score: ', err.message);
+    })
+}

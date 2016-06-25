@@ -17,6 +17,7 @@ app.route('/candid')
       res.status(200).send(results);
     });
   })
+
 //http://localhost:8080/candname?name=ROBERT
 app.route('/candname')
   .get(function (req, res) {
@@ -39,6 +40,14 @@ app.route('/candstate')
       res.status(200).send(results);
     })
   })
+
+//http://localhost:8080/candCourageScore?candId=....
+app.route('/candCourageScore').get(function(req,res) {
+  var canId = req.query.candId;
+  vs.fetchCourageScore(canId).then(function (results) {
+    res.status(200).send(results);
+  })
+})
 
 //http://localhost:8080/candzip?zip=96007
 app.route('/candzip').get(function (req, res) {

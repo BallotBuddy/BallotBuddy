@@ -1,10 +1,14 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { fetchCandidateIndustryContributors } from '../actions/index';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { fetchCandidateIndustryContributors } from '../actions/index';
+
 
 class CandidateFinance extends Component {
+
+  componentWillMount() {
+    this.props.fetchCandidateIndustryContributors(this.props.id);
+  }
 
   renderCandidateFinance(){
     return this.props.contributors.map((donor) => {
@@ -43,14 +47,10 @@ class CandidateFinance extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchCandidateIndustryContributors }, dispatch);
-}
-
 function mapStateToProps(state){
   return {
     contributors: state.profiles.contributors
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CandidateFinance);
+export default connect(mapStateToProps, { fetchCandidateIndustryContributors })(CandidateFinance);

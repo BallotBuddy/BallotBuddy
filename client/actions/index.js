@@ -13,6 +13,7 @@ export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
 export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
 export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
+export const FETCH_COURAGE_SCORE = 'FETCH_COURAGE_SCORE';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -86,3 +87,14 @@ export function clearVoteSmartBio() {
   }
 }
 
+//http://localhost:8080/candCourageScore?candId=....
+export function fetchCourageScore(cid) {
+  const route = 'CourageScore?candId=';
+  const url = `${URL}${route}${cid}`;
+  const request = axios.get(url);
+
+  return {
+    type: FETCH_COURAGE_SCORE,
+    payload: request
+  }
+}

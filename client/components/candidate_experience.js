@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { fetchCandidate } from '../actions/index';
 
 export default class CandidateExperience extends Component {
 
@@ -12,7 +9,6 @@ export default class CandidateExperience extends Component {
 		sectionObjs.push({category: "Political", data:this.props.candInfo.political});
 		sectionObjs.push({category: "Congressional", data:this.props.candInfo.congMembership});
 		sectionObjs.push({category: "Other", data:this.props.candInfo.orgMembership});
-
 		return (
 			<table>
 				<tbody>
