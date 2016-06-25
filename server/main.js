@@ -55,7 +55,6 @@ app.route('/candtwitter')
                   res.status(200).send(array);
     })
 
-//twit.getCandTwitterPosts 
 
 })
 //http://localhost:8080/candstate?state=TX
@@ -95,6 +94,7 @@ app.route('/candCampAddress').get(function (req, res) {
 app.route('/candbio').get(function (req, res) {
   var candbio = req.query.candId;
   vs.collectCandidateDetails(candbio).then(function (results) {
+    console.log(results);
     res.status(200).send(results);
   })
 })

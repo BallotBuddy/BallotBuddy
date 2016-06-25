@@ -6,14 +6,11 @@ import {
   FETCH_TWITTER
   } from '../actions/index';
 
-const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [] };
+const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: [] };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
   switch (action.type) {
-
-
-  // grab candidate bio from votesmart's api
   case FETCH_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data};
   
