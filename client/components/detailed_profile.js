@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+<<<<<<< 87f5bd75aaa048b8d25ad351e4c99fee49d97656
 import { fetchVoteSmartBio, clearVoteSmartBio, fetchCandidate } from '../actions/index';
+=======
+import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } from '../actions/index';
+>>>>>>> implementing the twitter component
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
@@ -17,9 +21,6 @@ class DetailedProfile extends Component {
     this.props.fetchVoteSmartBio(this.props.params.cid)
       .then( (data)=> { console.log(data);
         this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
-        .then( (data) => { 
-          this.props.fetchCandidate(27097)
-        })
       });
 >>>>>>> got singleProfile to hold candidate information including youtube id and youtube links
   }
@@ -81,9 +82,9 @@ class DetailedProfile extends Component {
   }
 //data.payload.data['0'].twitter_id;
   render() {
-    const { singleProfile } = this.props;
-    const tweetId = singleProfile;
-    console.log("render in detaile_profile is firing!! this is the tweetId:", tweetId )
+    // const { singleProfile } = this.props;
+    // const tweetId = singleProfile.twitter_id;
+    // console.log("render in detaile_profile is firing!! this is the tweetId:", tweetId )
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
       return <div>Loading...</div>;
@@ -96,7 +97,7 @@ class DetailedProfile extends Component {
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
           <CandidateFinance financeInfo={ contributors } />
-          <Twitter twitterId = { tweetId } />
+          <Twitter candId = { voteSmartBio.candidateId } />
         </div>
       </div>
     );

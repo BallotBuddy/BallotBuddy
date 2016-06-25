@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { fetchTwitter } from '../actions/index';
+import { fetchTwitter, fetchCandidate } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -29,8 +29,12 @@ class Twitter extends Component {
 //     });
 //   }
   componentWillMount() {
-    console.log("componentWillMount is firing!! this is the twitterId:", this.props.twitterId)
-    this.props.fetchTwitter();
+    console.log("componentWillMount is firing!! this is the twitterId:")
+    this.props.fetchCandidate(this.props.candId)
+      .then ((data) => {
+        console.log("opensecrets data:", data.payload.data['0'].twitter_id)
+        this.props.fetchTwitter(data);       
+      })
     
   }
   
@@ -43,12 +47,13 @@ class Twitter extends Component {
 }
 }
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchTwitter }, dispatch);
+  return bindActionCreators({ fetchTwitter, fetchCandidate }, dispatch);
 }
 
 function mapStateToProps(state){
   return {
-   twitterdata : state.profiles.twitterdata
+   twitterdata : state.profiles.twitterdata,
+   singleProfile: state.profiles.singleProfile
   }
 }
 

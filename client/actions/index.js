@@ -29,12 +29,12 @@ export function fetchCandidateIndustryContributors(crpid){
   }
 }
 // fetch twitter data based on twitter candidate nickname
-export function fetchTwitter(){
-  
+export function fetchTwitter(cid){
+  const request = cid;
 
   return {
     type: FETCH_TWITTER,
-    payload: { data:"Hi, I'm listening to Jack"}
+    payload: { data:"cid"}
   };
 } 
 
