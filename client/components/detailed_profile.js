@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio, clearBio } from '../actions/index';
+import { fetchVoteSmartBio, clearVoteSmartBio } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
@@ -94,4 +94,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, clearBio } )(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, clearVoteSmartBio } )(DetailedProfile);
