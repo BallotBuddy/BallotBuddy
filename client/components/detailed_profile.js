@@ -11,7 +11,17 @@ import Twitter from '../containers/twitter';
 class DetailedProfile extends Component {
 
   componentWillMount(){
+<<<<<<< 63fdea70f9717cb3b7aed7604670f44080e56601
     this.props.fetchVoteSmartBio(this.props.params.cid);
+=======
+    this.props.fetchVoteSmartBio(this.props.params.cid)
+      .then( (data)=> { console.log(data);
+        this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
+        .then( (data) => { 
+          this.props.fetchCandidate(27097)
+        })
+      });
+>>>>>>> got singleProfile to hold candidate information including youtube id and youtube links
   }
 
   renderSingleProfile(){
@@ -69,8 +79,11 @@ class DetailedProfile extends Component {
       </div>
     );
   }
-
+//data.payload.data['0'].twitter_id;
   render() {
+    const { singleProfile } = this.props;
+    const tweetId = singleProfile;
+    console.log("render in detaile_profile is firing!! this is the tweetId:", tweetId )
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
       return <div>Loading...</div>;
@@ -83,7 +96,7 @@ class DetailedProfile extends Component {
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
           <CandidateFinance financeInfo={ contributors } />
-          <Twitter />
+          <Twitter twitterId = { tweetId } />
         </div>
       </div>
     );
@@ -95,7 +108,6 @@ function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
     singleProfile: state.profiles.singleProfile
-
   };
 }
 

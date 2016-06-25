@@ -28,9 +28,9 @@ class Twitter extends Component {
 //       )
 //     });
 //   }
-  componentWillMount()
-  {
-      this.props.fetchTwitter();
+  componentWillMount() {
+    console.log("componentWillMount is firing!! this is the twitterId:", this.props.twitterId)
+    this.props.fetchTwitter();
     
   }
   
