@@ -387,14 +387,46 @@ ul {
   box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
 }
 
-.courage-issue {
+.courage-topic {
+  width: 80%;
+  font-size: 1em;
+  font-weight: bold;
   background-color: white;
   margin: .8em;
   padding: .2em;
   font-weight: bold;
   display: flex;
-  flex-grow: column;
+  flex-direction: column;
   flex-grow: 1;
   text-align: center;
   box-shadow: 5px 4px 8px rgba(0,0,0,0.4);
+  align-items: center;
+}
+
+.topic-questions {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.topic-question {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  color: white;
+  background-color: rgba(1,33,72,.9);
+  text-align: center;
+  justify-content: space-around;
+}
+
+.question-response {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  background-color: rgba(1,33,72,.2);
+  justify-content: space-around;
 }

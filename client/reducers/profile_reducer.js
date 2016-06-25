@@ -5,11 +5,7 @@ import {
   FETCH_COURAGE_SCORE
   } from '../actions/index';
 
-<<<<<<< 5c8e6a22d6bb2c9565330fd953fe8475637141e2
-const INITIAL_STATE = { profiles: [], singleProfile: null, zipResponse: [], voteSmartBio: '', contributors: [], courage: [] };
-=======
 const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [] };
->>>>>>> search reducer implemented - candidate courage component implemented (v1) - clean up on superfluous code
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -25,8 +21,7 @@ export default function( state = INITIAL_STATE, action) {
     return {...state, voteSmartBio: action.payload.data};
   // courage test results
   case FETCH_COURAGE_SCORE:
-    console.log('courage action: ', action);
-    return {...state, courage: action.payload.data.npat.section}
+    return {...state, courage: action.payload.data.npat };
   //default:
   default:
     return state;

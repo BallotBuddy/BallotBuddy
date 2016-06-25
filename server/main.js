@@ -17,6 +17,7 @@ app.route('/candid')
       res.status(200).send(results);
     });
   })
+
 //http://localhost:8080/candname?name=ROBERT
 app.route('/candname')
   .get(function (req, res) {

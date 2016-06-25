@@ -1,8 +1,14 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchCandidateIndustryContributors } from '../actions/index';
 
-export default class CandidateFinance extends Component {
+
+class CandidateFinance extends Component {
+
+  componentWillMount() {
+    this.props.fetchCandidateIndustryContributors(this.props.id);
+  }
 
   renderCandidateFinance(){
     return this.props.contributors.map((donor) => {
@@ -47,4 +53,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(CandidateFinance);
+export default connect(mapStateToProps, { fetchCandidateIndustryContributors })(CandidateFinance);

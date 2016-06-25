@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio, fetchCourageScore } from '../actions/index';
+import { fetchVoteSmartBio, clearBio } from '../actions/index';
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
-<<<<<<< 5c8e6a22d6bb2c9565330fd953fe8475637141e2
 import CandidateVideo from './candidate_video';
-=======
 import CandidateCourage from '../containers/candidate_courage';
->>>>>>> search reducer implemented - candidate courage component implemented (v1) - clean up on superfluous code
 
 class DetailedProfile extends Component {
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid)
-      .then( (data)=> {
-        this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
-        return data.payload.data.candidate.candidateId;
-      })
-      .then( (id) => {
-        console.log(id);
-        this.props.fetchCourageScore(id);
-      })
+    this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
   renderSingleProfile(){
@@ -65,7 +54,6 @@ class DetailedProfile extends Component {
           <div className="single-profile-info">
           <img className="single-pic" src={pic} />
           <div className="info">
-            <button onClick={()=> {this.props.fetchCourageScore(bio.candidateId)}}>click for score</button>
             <div>
               <h2>{name}</h2>
             </div>
@@ -83,8 +71,6 @@ class DetailedProfile extends Component {
 
   render() {
     const { voteSmartBio } = this.props;
-    const { contributors } = this.props;
-    const { courage } = this.props
     if (!voteSmartBio){
       return <div>Loading...</div>;
     }
@@ -93,8 +79,8 @@ class DetailedProfile extends Component {
         {this.renderSingleProfile()}
         <div className="candidate-components">
           <CandidateExperience candInfo={voteSmartBio.candidate} />
-          <CandidateFinance financeInfo={ contributors } />
-          <CandidateCourage score={ courage } />
+          <CandidateFinance id={voteSmartBio.candidate.crpId} />
+          <CandidateCourage id={voteSmartBio.candidate.candidateId} />
         </div>
       </div>
     );
@@ -105,9 +91,7 @@ class DetailedProfile extends Component {
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
-    contributors: state.profiles.contributors,
-    courage: state.profiles.courage
   };
 }
 
-export default connect(mapStateToProps, { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio, fetchCourageScore } )(DetailedProfile);
+export default connect(mapStateToProps, { fetchVoteSmartBio, clearBio } )(DetailedProfile);
