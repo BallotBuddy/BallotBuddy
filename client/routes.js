@@ -7,6 +7,7 @@ import ProfilesList from './containers/profiles_list';
 import SearchBar from './containers/search_bar';
 import DetailedProfile from './components/detailed_profile';
 import CandidateVideo from './components/candidate_video';
+import AboutUs from './components/about_us';
 
 export default (
   <Route path="/" component={App}>
