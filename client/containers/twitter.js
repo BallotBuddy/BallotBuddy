@@ -6,39 +6,18 @@ import { bindActionCreators } from 'redux';
 
 class Twitter extends Component { 
 
-//   renderTweet(){
-//     return this.props.contributors.map((tweet) => {
-//   // [{"created_at":"","text":"","user":"","location":"","followers":"","url":""}]
-//       return (
-//         <div className="" key={tweet.text}>
-//           <div className="">
-//             {industry}
-//           </div>
-//           <div className="donor-type">
-//             <div className="type">Individual</div>
-//             <div className="type">Political Action Committee</div>
-//             <div className="type">Total</div>
-//           </div>
-//           <div className="donation-amounts">
-//             <div className="amount">{indivs}</div>
-//             <div className="amount">{pacs}</div>
-//             <div className="total-amount">{total}</div>
-//           </div>
-//         </div>
-//       )
-//     });
-//   }
   componentWillMount() {
-    console.log("componentWillMount is firing!! this is the twitterId:")
-    this.props.fetchCandidate(this.props.candId)
+    console.log("componentWillMount is firing!! this is the twitterId:",this.props.candId)
+    this.props.fetchCandidate(this.props.candId)  //undefined
       .then ((data) => {
-        console.log("opensecrets data:", data.payload.data['0'].twitter_id)
+        console.log("opensecrets data:", data)
         this.props.fetchTwitter(data);       
       })
     
   }
   
     render(){
+        console.log('twitter render()',this.props); //undefined
         const tweet = this.props.twitterdata;
         console.log("render firinng! tweet", tweet)
       return(      
@@ -51,7 +30,8 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {
+  console.log('state',state);     
+  return { 
    twitterdata : state.profiles.twitterdata,
    singleProfile: state.profiles.singleProfile
   }

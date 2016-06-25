@@ -11,7 +11,6 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = { searchTerm: '' };
-
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
@@ -24,7 +23,6 @@ class SearchBar extends Component {
 	// initiates the fetchByZip action to perform the search.
 	onFormSubmit(event) {
 		event.preventDefault();
-
 		this.props.fetchByZip( this.state.searchTerm );
 		this.setState( { searchTerm: '' } );
 	}

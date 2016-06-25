@@ -21,7 +21,7 @@ export default function( state = INITIAL_STATE, action) {
   //single candidate:
   case FETCH_CANDIDATE:
   console.log("This is the profile reducer firing for FETCH_CANDIDATE", action.payload.data['0']);
-    return { ...state, singleProfile: action.payload.data['0'] };
+    return { ...state, singleProfile: action.payload.data['0'] }; //undefined
   //initial search:
   case FETCH_PROFILE:
     return {...state, profiles: action.payload.data};

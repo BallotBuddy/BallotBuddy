@@ -30,11 +30,11 @@ export function fetchCandidateIndustryContributors(crpid){
 }
 // fetch twitter data based on twitter candidate nickname
 export function fetchTwitter(cid){
-  const request = cid;
+  
 
   return {
     type: FETCH_TWITTER,
-    payload: { data:"cid"}
+    cid
   };
 } 
 
@@ -91,7 +91,6 @@ export function fetchVoteSmartBio(cid) {
 
 // clears the VoteSmartBio state when the back button is clicked
 export function clearVoteSmartBio() {
-
   return {
     type: CLEAR_VOTE_SMART_BIO,
     payload: ''

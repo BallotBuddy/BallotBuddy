@@ -31,6 +31,7 @@ class CandidateFinance extends Component {
             <div className="amount">{pacs}</div>
             <div className="total-amount">{total}</div>
           </div>
+        </div>
         )
       });
     }
@@ -51,9 +52,9 @@ class CandidateFinance extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    contributors: state.profiles.contributors
+  function mapStateToProps(state){
+    return {
+      contributors: state.profiles.contributors
   }
 
 export default connect(mapStateToProps, { fetchCandidateIndustryContributors })(CandidateFinance);
