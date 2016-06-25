@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-<<<<<<< 87f5bd75aaa048b8d25ad351e4c99fee49d97656
 import { fetchVoteSmartBio, clearVoteSmartBio, fetchCandidate } from '../actions/index';
-=======
-import { fetchVoteSmartBio, fetchCandidateIndustryContributors, clearVoteSmartBio } from '../actions/index';
->>>>>>> implementing the twitter component
 import { Link } from 'react-router';
 import CandidateExperience from './candidate_experience';
 import CandidateFinance from '../containers/candidate_finance';
@@ -15,14 +11,7 @@ import Twitter from '../containers/twitter';
 class DetailedProfile extends Component {
 
   componentWillMount(){
-<<<<<<< 63fdea70f9717cb3b7aed7604670f44080e56601
     this.props.fetchVoteSmartBio(this.props.params.cid);
-=======
-    this.props.fetchVoteSmartBio(this.props.params.cid)
-      .then( (data)=> { console.log(data);
-        this.props.fetchCandidateIndustryContributors(data.payload.data.candidate.crpId)
-      });
->>>>>>> got singleProfile to hold candidate information including youtube id and youtube links
   }
 
   renderSingleProfile(){
@@ -96,7 +85,6 @@ class DetailedProfile extends Component {
           <CandidateExperience candInfo={voteSmartBio.candidate} />
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
-          <CandidateFinance financeInfo={ contributors } />
           <Twitter candId = { voteSmartBio.candidateId } />
         </div>
       </div>

@@ -2,7 +2,6 @@ import {
   FETCH_VOTE_SMART_BIO,
   FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
   CLEAR_VOTE_SMART_BIO,
-<<<<<<< 63fdea70f9717cb3b7aed7604670f44080e56601
   FETCH_COURAGE_SCORE,
   FETCH_TWITTER
   } from '../actions/index';
@@ -12,24 +11,7 @@ const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitter
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
   switch (action.type) {
-=======
-  FETCH_TWITTER } from '../actions/index'
-const INITIAL_STATE = { profiles: [], singleProfile: '', zipResponse: [], voteSmartBio: '', contributors: [] , twitterdata: '' };
-// returns results from API call for candidate search, passes to state
-export default function( state = INITIAL_STATE, action) {
-  switch (action.type) {
-  //single candidate:
-  case FETCH_CANDIDATE:
-  console.log("This is the profile reducer firing for FETCH_CANDIDATE", action.payload.data['0']);
-    return { ...state, singleProfile: action.payload.data['0'] }; //undefined
-  //initial search:
-  case FETCH_PROFILE:
-    return {...state, profiles: action.payload.data};
-  //search by zipcode:
-  case FETCH_BY_ZIP:
-    return {...state, zipResponse: action.payload.data};
-  // grab candidate bio from votesmart's api
->>>>>>> got singleProfile to hold candidate information including youtube id and youtube links
+  // grab candidate data from vote smart api
   case FETCH_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data};
   
