@@ -69,6 +69,7 @@ class DetailedProfile extends Component {
       </div>
     );
   }
+
 //data.payload.data['0'].twitter_id;
   render() {
     // const { singleProfile } = this.props;
@@ -85,7 +86,7 @@ class DetailedProfile extends Component {
           <CandidateExperience candInfo={voteSmartBio.candidate} />
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
-          <Twitter candId = { voteSmartBio.candidateId } />
+          <Twitter candId = { voteSmartBio.candidate.candidateId } />
         </div>
       </div>
     );

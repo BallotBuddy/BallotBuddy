@@ -6,7 +6,7 @@ import {
   FETCH_TWITTER
   } from '../actions/index';
 
-const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: [] };
+const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: '' };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -21,7 +21,7 @@ export default function( state = INITIAL_STATE, action) {
   
   // grab twitter data
   case FETCH_TWITTER:
-    console.log("fetch twitter",action)
+    console.log("FETCH_TWITTER in profile_reducer this is the state action:", action)
     return {...state, twitterdata: action.payload.data};
 
   // clears vote smart bio state

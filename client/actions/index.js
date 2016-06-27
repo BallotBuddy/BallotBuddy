@@ -29,12 +29,16 @@ export function fetchCandidateIndustryContributors(crpid){
   }
 }
 // fetch twitter data based on twitter candidate nickname
+// request = "LamarSmithTX21"
 export function fetchTwitter(cid){
-  
-
+  const route = 'twitter?candtwitternickname=';
+  const url = `${URL}${route}${cid}`
+  const request = axios.get(url);
+  request.then((data) => {   
+  })
   return {
     type: FETCH_TWITTER,
-    cid
+    payload: request
   };
 } 
 
