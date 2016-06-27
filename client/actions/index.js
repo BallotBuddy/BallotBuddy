@@ -1,9 +1,8 @@
 import axios from 'axios';
+
 const configuration = require('../../config.js');
 const config = configuration.configuration();
 let env = config.client;
-
-// request URL for candidate search
 const URL = 'http://' + env + '/cand';
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
@@ -15,6 +14,9 @@ export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_C
 export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
 export const FETCH_COURAGE_SCORE = 'FETCH_COURAGE_SCORE';
 export const FETCH_TWITTER = 'FETCH_TWITTER';
+export const SHOW_SEARCH = 'SHOW_SEARCH';
+export const SHOW_LIST = 'SHOW_LIST';
+export const CLEAR_PROFILES = 'CLEAR_PROFILES';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -30,7 +32,6 @@ export function fetchCandidateIndustryContributors(crpid){
 }
 
 // fetch twitter data based on twitter candidate nickname
-// request = "LamarSmithTX21"
 export function fetchTwitter(cid){
   const route = 'twitter?candtwitternickname=';
   const url = `${URL}${route}${cid}`
@@ -46,7 +47,7 @@ export function fetchTwitter(cid){
 // fetch profiles based on name search
 export function fetchProfile(term) {
   const route = 'name?name=';
-  //convert to uppercase to avoid case sensitivity
+  //convert input term to uppercase to avoid case sensitivity
   const name = term.toUpperCase();
   const url = `${URL}${route}${name}`;
   const request = axios.get(url);
@@ -98,6 +99,26 @@ export function fetchVoteSmartBio(cid) {
 export function clearVoteSmartBio() {
   return {
     type: CLEAR_VOTE_SMART_BIO,
+    payload: ''
+  }
+}
+
+export function showSearch() {
+  return {
+    type: SHOW_SEARCH
+  }
+}
+
+export function showList() {
+  return {
+    type: SHOW_LIST
+  }
+}
+
+export function clearProfiles() {
+  console.log('clear profiles firing...')
+  return{
+    type: CLEAR_PROFILES,
     payload: ''
   }
 }

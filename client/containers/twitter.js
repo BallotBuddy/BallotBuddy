@@ -55,7 +55,7 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   return { 
    twitterdata : state.profiles.twitterdata,
-   singleProfile: state.search.singleProfile
+   singleProfile: state.landing.singleProfile
   }
 }
 

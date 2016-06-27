@@ -1,7 +1,8 @@
 import _ from "lodash";
 import React, { Component } from 'react';
-import SearchBar from '../containers/search_bar';
-import ProfilesList from '../containers/profiles_list';
+import LandingPage from '../components/landing_page';
+// import SearchBar from '../containers/search_bar';
+// import ProfilesList from '../containers/profiles_list';
 
 // Main componnent
 export default class App extends Component {

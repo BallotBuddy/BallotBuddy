@@ -1,10 +1,13 @@
 import { 
   FETCH_PROFILE,
   FETCH_CANDIDATE,
-  FETCH_BY_ZIP
+  FETCH_BY_ZIP,
+  SHOW_SEARCH,
+  SHOW_LIST,
+  CLEAR_PROFILES
   } from '../actions/index';
 
-const INITIAL_STATE = { profiles: [], singleProfile: '', zipResponse: []};
+const INITIAL_STATE = { profiles: '', singleProfile: '', zipResponse: '', list: false, search: true};
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -21,7 +24,15 @@ export default function( state = INITIAL_STATE, action) {
   // search by zipcode:
   case FETCH_BY_ZIP:
     return {...state, zipResponse: action.payload.data};
-  
+  // fires to show the search component
+  case SHOW_SEARCH:
+    return {...state, list: false, search: true};
+  // fires to show the profiles list component
+  case SHOW_LIST:
+    return {...state, list: true, search: false};
+  // default... 
+  case CLEAR_PROFILES:
+    return {...state, zipResponse: action.payload.data};
   default:
     return state;
   }
