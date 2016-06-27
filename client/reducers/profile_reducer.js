@@ -21,7 +21,6 @@ export default function( state = INITIAL_STATE, action) {
   
   // grab twitter data
   case FETCH_TWITTER:
-    console.log("FETCH_TWITTER in profile_reducer this is the state action:", action)
     return {...state, twitterdata: action.payload.data};
 
   // clears vote smart bio state

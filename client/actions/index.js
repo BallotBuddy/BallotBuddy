@@ -28,6 +28,7 @@ export function fetchCandidateIndustryContributors(crpid){
     payload: request
   }
 }
+
 // fetch twitter data based on twitter candidate nickname
 // request = "LamarSmithTX21"
 export function fetchTwitter(cid){

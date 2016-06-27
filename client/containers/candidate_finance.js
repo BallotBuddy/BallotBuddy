@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCandidateIndustryContributors } from '../actions/index';
 
-
 class CandidateFinance extends Component {
 
   componentWillMount() {
@@ -50,7 +49,6 @@ class CandidateFinance extends Component {
   function mapDispatchToProps(dispatch){
     return bindActionCreators({ fetchCandidateIndustryContributors }, dispatch);
   }
-
 
   function mapStateToProps(state){
     return {

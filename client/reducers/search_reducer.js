@@ -9,9 +9,9 @@ const INITIAL_STATE = { profiles: [], singleProfile: '', zipResponse: []};
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
   switch (action.type) {
+    
   // single candidate:
   case FETCH_CANDIDATE:
-    console.log("FETCH_CANDIDATE in search_reducer this is the state action:", action)
     return { ...state, singleProfile: action.payload.data['0'] };
   
   // initial search:

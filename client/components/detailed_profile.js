@@ -72,9 +72,6 @@ class DetailedProfile extends Component {
 
 //data.payload.data['0'].twitter_id;
   render() {
-    // const { singleProfile } = this.props;
-    // const tweetId = singleProfile.twitter_id;
-    // console.log("render in detaile_profile is firing!! this is the tweetId:", tweetId )
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
       return <div>Loading...</div>;
@@ -92,7 +89,6 @@ class DetailedProfile extends Component {
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return { 
