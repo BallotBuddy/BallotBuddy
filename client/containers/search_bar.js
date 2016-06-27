@@ -1,9 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { fetchByZip } from '../actions/index';
-// import ProfilesList from '../containers/profiles_list';
 import { Link } from 'react-router'
 import { showList } from '../actions/index';
 

@@ -17,9 +17,6 @@ export default class Loader extends Component {
             <label> ●</label>
             <label> ●</label>
             <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
           </div>
         </div>
       </div>

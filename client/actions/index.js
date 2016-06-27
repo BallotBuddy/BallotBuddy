@@ -103,18 +103,21 @@ export function clearVoteSmartBio() {
   }
 }
 
+// instructs the landing_page to render the header/search component
 export function showSearch() {
   return {
     type: SHOW_SEARCH
   }
 }
 
+// instructs landing_page component to render the profiles_list component
 export function showList() {
   return {
     type: SHOW_LIST
   }
 }
 
+// clears profiles results from previous search.
 export function clearProfiles() {
   console.log('clear profiles firing...')
   return{
