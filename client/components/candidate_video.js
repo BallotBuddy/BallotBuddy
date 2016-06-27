@@ -39,14 +39,9 @@ class CandidateVideo extends Component {
 		const url = `https://www.youtube.com/embed/${videoId}`;
 		
 		return (
-		<div className="video-player">
-			<div>
-				<iframe src={url}></iframe>
+			<div className="video-player">
+				<iframe className="you-tube-video" src={url}></iframe>
 			</div>
-			<div className= "details">
-				<div>{video.snippet.title}</div>
-			</div>
-		</div>
 	);
 };
 

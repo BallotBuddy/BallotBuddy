@@ -8,12 +8,11 @@ class Twitter extends Component {
 
   componentWillMount() {
     this.props.fetchCandidate(this.props.candId)  //undefined
-      .then ((data) => {  
-        this.props.fetchTwitter(data.payload.data['0'].twitter_id)
-        .then ((data) => {
-        })       
+    .then ((data) => {
+      this.props.fetchTwitter(data.payload.data['0'].twitter_id)
+      .then ((data) => {
       })
-    
+    })
   }
 
   renderTwitterComponent(){
@@ -28,13 +27,10 @@ class Twitter extends Component {
       return (
         <div className="twitter-tile" key={data.text}>
           <div className="twitter-message">
-            {text}
+            <div className="twitter-text">{text}</div>
+            <div className="twitter-author">-{user}</div>
+            <div className="twitter-time">{created_at}</div>
           </div>
-          <div>{created_at}</div>
-          <div>{followers}</div>
-          <div>{location}</div>
-          <div>{user}</div>
-          <div>{url}</div>
         </div>
        )
     });  
@@ -42,8 +38,13 @@ class Twitter extends Component {
   
     render(){
       const { twitterdata } = this.props.twitterdata;
-      return(      
-        <div> { this.props.twitterdata.length > 0 ? this.renderTwitterComponent():null }</div>
+      return(
+        <div className="twitter-box">
+          <div className="twitter-box-title">Recent Tweets</div>
+          <div className="twitter-tiles">
+          { this.props.twitterdata.length > 0 ? this.renderTwitterComponent():null }
+          </div>
+        </div>
       );
     }
 }

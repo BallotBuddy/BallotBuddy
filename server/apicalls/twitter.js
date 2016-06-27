@@ -1,12 +1,9 @@
 var OAuth = require('oauth-request');
 var api_keys = require('../../api_keys');
-var consumer_public = api_keys.consumerKey;
-var consumer_secret = api_keys.consumerSecret;
-var access_Token = api_keys.accessToken;
-var accessTokenSecrets = api_keys.accessTokenSecret;
-
-
-
+var consumer_public = api_keys.consumerKey ||process.env.TWITTERCK;
+var consumer_secret = api_keys.consumerSecret || process.env.TWITTERCS;
+var access_Token = api_keys.accessToken || process.env.TWITTERAT;
+var accessTokenSecrets = api_keys.accessTokenSecret || process.env.TWITTERTS;
 
 var twit = module.exports;
 

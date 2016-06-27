@@ -30,7 +30,7 @@ class SearchBar extends Component {
 	}
 
 	onButtonClick(event) {
-		this.props.showList();
+		// this.props.showList();
 	}
 
 	// builds search bar elements

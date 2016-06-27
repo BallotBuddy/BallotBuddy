@@ -40,7 +40,7 @@ class CandidateFinance extends Component {
       return (
         <div className='candidate-finance-container'>
           Top Campaign Contributors
-          <div className="candidate-finance-title">{this.renderCandidateFinance()}</div>
+          <div className="candidate-finance-tiles">{this.renderCandidateFinance()}</div>
         </div>
       );
     }
