@@ -5,6 +5,27 @@ var Promise = require('bluebird');
 var api_Keys = require('../../api_keys');
 var api_key = api_Keys.OPENSECRETS_API;
 var opensecrets = module.exports;
+var db = require('../database/database/db');
+var _ = require('underscore');
+var PromiseThrottle = require('promise-throttle');
+
+opensecrets.checkstashreturn = function(cid){
+
+ return db.queryFunding(cid).then(function(data){
+    console.log(data);
+   if (data.length === 0){
+      return opensecrets.candIndustry(cid)
+      .then(function(results){
+              console.log(results);
+              return results;
+      })
+
+   }
+   else {
+     return data;
+   }
+    })
+  }
 
 opensecrets.candIndustry = function(cid) {
   var industries = {
@@ -37,7 +58,7 @@ opensecrets.fetch = function (request) {
         industry_code: '',
         industry_name: '',
         indivs: '',
-        pacs: '',
+        pacs: '', 
         total: ''
       }];
       return (obj);

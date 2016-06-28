@@ -42,21 +42,17 @@ var collectCandidates = function (states) {
 }
 
 var worker = function () {
-   db.deleteEverything();
-  db.ensureSchema()
-    .then(function () {
+ //  db.deleteEverything();
+  db.ensureSchema().then(db.closeDb)
+    // .then(function () {
 
-      console.log("Regenerated candidate tables");
-      return collectCandidates(states).then(db.closeDb);
-    })
-    .catch(function (err) {
-      console.log("Worker failed: ", err);
-    })
+    //   console.log("Regenerated candidate tables");
+    //   return collectCandidates(states).then(db.closeDb);
+    // })
+    // .catch(function (err) {
+    //   console.log("Worker failed: ", err);
+    // })
 } ();
-
-
-
-
 
 //
 // Fetches a scrubbed array of candidates and

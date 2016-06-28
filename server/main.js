@@ -25,6 +25,18 @@ app.route('/candid')
     });
   })
 
+//http://localhost:8080/candyoutube?term=Clinton
+app.route('/candyoutube')
+.get(function(req,res){
+var searchstring = req.query.term;
+YTSearch({key: api_key, term: searchstring +' Official Campaign Video' }, (videos) => {       
+      res.status(200).send( {       
+				videos: videos,
+				selectedVideo: videos[0]
+			});
+		})   
+})
+
 //http://localhost:8080/candname?name=ROBERT
 app.route('/candname')
   .get(function (req, res) {
@@ -129,7 +141,7 @@ app.route('/candVoteSmartId').get(function(req, res) {
 //http://localhost:8080/candIndustryContributors?candId=
 app.route('/candIndustryContributors').get(function(req, res){
   var candId = req.query.candId;
-  os.candIndustry(candId).then(function(results) {
+  os.checkstashreturn(candId).then(function(results) {
     res.status(200).send(results);
   })
 })
