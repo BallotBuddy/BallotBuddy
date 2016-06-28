@@ -97,8 +97,8 @@ class CandidateCourage extends Component {
                 )
               default:
                 return
-                  }
-            })()
+            }
+        })()
       });
   }
 
