@@ -3,10 +3,11 @@ import {
   FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
   CLEAR_VOTE_SMART_BIO,
   FETCH_COURAGE_SCORE,
-  FETCH_TWITTER
+  FETCH_TWITTER,
+  FETCH_CANDIDATE_VIDEO
   } from '../actions/index';
 
-const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: '' };
+const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: '', video: '' };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -32,7 +33,11 @@ export default function( state = INITIAL_STATE, action) {
   case FETCH_COURAGE_SCORE:
     return {...state, courage: action.payload.data.npat };
 
-  // default
+  // youtube video results
+  case FETCH_CANDIDATE_VIDEO:
+  console.log('profile_reducer state:', action.payload.data)
+    return {...state, video: action.payload.data.selectedVideo}
+
   default:
     return state;
   }

@@ -9,14 +9,14 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
 export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
-export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
 export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
 export const FETCH_COURAGE_SCORE = 'FETCH_COURAGE_SCORE';
-export const FETCH_TWITTER = 'FETCH_TWITTER';
+export const FETCH_TWITTER = 'FETCH_TWITTER';<<<<<<< 2dbb9b2bbbebc9d79e5cb4560cd1a643a919e4d6
 export const SHOW_SEARCH = 'SHOW_SEARCH';
 export const SHOW_LIST = 'SHOW_LIST';
 export const CLEAR_PROFILES = 'CLEAR_PROFILES';
+export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -138,3 +138,17 @@ export function fetchCourageScore(cid) {
     payload: request
   }
 }
+
+//http://localhost:8080/candyoutube?term=Clinton
+export function fetchCandidateVideo(name) {
+  console.log('fetchCandidateVideo is firing!!!:', name)
+  const route = 'youtube?term=';
+  const url = `${URL}${route}${name}`;
+  const request = axios.get(url);
+
+  return {
+    type: FETCH_CANDIDATE_VIDEO,
+    payload: request
+  }
+}
+

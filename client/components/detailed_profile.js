@@ -18,7 +18,10 @@ class DetailedProfile extends Component {
   }
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid);
+    this.props.fetchVoteSmartBio(this.props.params.cid)
+      .then((data) =>{
+        this.props.fetchCandidate(this.props.voteSmartBio.candidate.candidateId)
+      })
   }
 
   backButtonClick(){
@@ -73,13 +76,24 @@ class DetailedProfile extends Component {
         </div>
         <div className="info-party">
           <img className="info-party-logo" src={logo} />
+          <div className="info">
+            <div>
+              <h2>{name}</h2>
+            </div>
+            <div>
+              <h4>{bio.homeState}</h4>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
+        // const youtubeURL = this.props.singleProfile
+          // console.log('data in the componentWillMount for youtubeURL:', youtubeURL)
 
 //data.payload.data['0'].twitter_id;
   render() {
+    const { singleProfile } = this.props;
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
       return <Loader />
@@ -104,6 +118,11 @@ class DetailedProfile extends Component {
           <CandidateFinance id={voteSmartBio.candidate.crpId} />
           <CandidateExperience candInfo={voteSmartBio.candidate} />
           <CandidateCourage id={voteSmartBio.candidate.candidateId} />
+          <Twitter candId = {voteSmartBio.candidate.candidateId} />
+          <CandidateVideo 
+          candInfo = {voteSmartBio.election}
+          candId = {voteSmartBio.candidate.candidateId}
+          candYouTube = {singleProfile}/>
         </div>
       </div>
     );
@@ -113,7 +132,7 @@ class DetailedProfile extends Component {
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
-    singleProfile: state.profiles.singleProfile
+    singleProfile: state.search.singleProfile
   };
 }
 
