@@ -27,7 +27,6 @@ app.route('/candname')
     db.queryCandidate()
       .then(function (results) {
         var newArray = results.filter(function (candidate) {
-          //console.log(candidate.candidate_firstlast);
           return candidate.candidate_firstlast.includes(searchString);
         })
         res.status(200).send(newArray);
@@ -94,7 +93,6 @@ app.route('/candCampAddress').get(function (req, res) {
 app.route('/candbio').get(function (req, res) {
   var candbio = req.query.candId;
   vs.collectCandidateDetails(candbio).then(function (results) {
-    console.log(results);
     res.status(200).send(results);
   })
 })

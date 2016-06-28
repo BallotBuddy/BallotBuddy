@@ -29,6 +29,8 @@ class SearchBar extends Component {
 		this.setState( { searchTerm: '' } );
 	}
 
+	//this button click will eventually allow a user to see candidates
+	// by current location (won't need to enter a zip)
 	onButtonClick(event) {
 		// this.props.showList();
 	}

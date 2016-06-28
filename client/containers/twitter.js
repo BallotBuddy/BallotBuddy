@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 class Twitter extends Component { 
 
   componentWillMount() {
-    this.props.fetchCandidate(this.props.candId)  //undefined
+    this.props.fetchCandidate(this.props.candId)
     .then ((data) => {
       this.props.fetchTwitter(data.payload.data['0'].twitter_id)
     })

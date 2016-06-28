@@ -54,11 +54,11 @@ class DetailedProfile extends Component {
         logo = lib;
         break;
       case 'G':
-        logo = gree
-        break;n;
+        logo = green;
+        break;
       case 'N':
-        logo = none
-        break;;
+        logo = none;
+        break;
       default:
        return logo = none;
     }

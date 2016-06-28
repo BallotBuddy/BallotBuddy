@@ -4,7 +4,6 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import LandingPage from './components/landing_page';
-// import SearchBar from './containers/search_bar';
 import DetailedProfile from './components/detailed_profile';
 import AboutUs from './components/about_us';
 

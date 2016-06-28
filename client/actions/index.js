@@ -23,8 +23,7 @@ export function fetchCandidateIndustryContributors(crpid){
   const route = 'IndustryContributors?candId=';
   const url = `${URL}${route}${crpid}`;
   const request = axios.get(url);
-  request.then(function(data) {
-  })
+
   return {
     type: FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
     payload: request
@@ -36,6 +35,7 @@ export function fetchTwitter(cid){
   const route = 'twitter?candtwitternickname=';
   const url = `${URL}${route}${cid}`
   const request = axios.get(url);
+
   return {
     type: FETCH_TWITTER,
     payload: request
@@ -95,6 +95,7 @@ export function fetchVoteSmartBio(cid) {
 
 // clears the VoteSmartBio state when the back button is clicked
 export function clearVoteSmartBio() {
+
   return {
     type: CLEAR_VOTE_SMART_BIO,
     payload: ''
@@ -103,6 +104,7 @@ export function clearVoteSmartBio() {
 
 // instructs the landing_page to render the header/search component
 export function showSearch() {
+
   return {
     type: SHOW_SEARCH
   }
@@ -110,6 +112,7 @@ export function showSearch() {
 
 // instructs landing_page component to render the profiles_list component
 export function showList() {
+
   return {
     type: SHOW_LIST
   }
@@ -117,6 +120,7 @@ export function showList() {
 
 // clears profiles results from previous search.
 export function clearProfiles() {
+
   return{
     type: CLEAR_PROFILES,
     payload: ''

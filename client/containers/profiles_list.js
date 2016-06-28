@@ -14,7 +14,6 @@ class ProfilesList extends Component {
   }
 
   backButtonClick() {
-    console.log('backbuttonfiring in profiles list');
     this.props.clearProfiles();
     this.props.showSearch();
   }
