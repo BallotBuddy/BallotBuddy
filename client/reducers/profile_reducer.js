@@ -11,6 +11,7 @@ const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitter
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
   switch (action.type) {
+
   // grab candidate data from vote smart api
   case FETCH_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data};
@@ -31,6 +32,7 @@ export default function( state = INITIAL_STATE, action) {
   case FETCH_COURAGE_SCORE:
     return {...state, courage: action.payload.data.npat };
 
+  // default
   default:
     return state;
   }

@@ -36,17 +36,17 @@ class Twitter extends Component {
     });  
   }
   
-    render(){
-      const { twitterdata } = this.props.twitterdata;
-      return(
-        <div className="twitter-box">
-          <div className="twitter-box-title">Recent Tweets</div>
-          <div className="twitter-tiles">
-          { this.props.twitterdata.length > 0 ? this.renderTwitterComponent():null }
-          </div>
+  render(){
+    const { twitterdata } = this.props.twitterdata;
+    return(
+      <div className="twitter-box">
+        <div className="twitter-box-title">Recent Tweets</div>
+        <div className="twitter-tiles">
+        { this.props.twitterdata.length > 0 ? this.renderTwitterComponent():null }
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 function mapDispatchToProps(dispatch){

@@ -31,28 +31,28 @@ class CandidateFinance extends Component {
             <div className="total-amount">{total}</div>
           </div>
         </div>
-        )
-      });
-    }
-
-    render(){
-      const { contributors } = this.props;
-      return (
-        <div className='candidate-finance-container'>
-          Top Campaign Contributors
-          <div className="candidate-finance-tiles">{this.renderCandidateFinance()}</div>
-        </div>
-      );
-    }
+      )
+    });
   }
 
-  function mapDispatchToProps(dispatch){
-    return bindActionCreators({ fetchCandidateIndustryContributors }, dispatch);
+  render(){
+    const { contributors } = this.props;
+    return (
+      <div className='candidate-finance-container'>
+        Top Campaign Contributors
+        <div className="candidate-finance-tiles">{this.renderCandidateFinance()}</div>
+      </div>
+    );
   }
+}
 
-  function mapStateToProps(state){
-    return {
-      contributors: state.profiles.contributors
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ fetchCandidateIndustryContributors }, dispatch);
+}
+
+function mapStateToProps(state){
+  return {
+    contributors: state.profiles.contributors
   }
 }
 

@@ -32,8 +32,6 @@ class DetailedProfile extends Component {
     const name = bio.firstName + ' ' + bio.lastName;
     const state = bio.homeState;
     const candidacy = election.status + ' candidate for ' + election.office;
-    console.log('bio:', bio);
-    console.log('election', election);
     const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
     const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
     const ind = 'http://www.bartleboglehegarty.com/london/wp-content/themes/bbh/img/sheep-9.png';
