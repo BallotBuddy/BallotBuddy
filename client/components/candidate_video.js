@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DetailedProfile from './detailed_profile'
 import YTSearch from 'youtube-api-search';
+<<<<<<< 8d69735bb880262eed6602f2ab4c95a8dd618832
 <<<<<<< 8eb323c9f31f27c79dc81f7f8fcc20b2daa10a0b
 import { fetchCandidate, fetchCandidateVideo } from '../actions/index';
 import { bindActionCreators } from 'redux';
 =======
 const api_keys = require('../../../api_keys');
+=======
+const api_keys = require('../../api_keys');
+>>>>>>> take1
 const api_key = api_keys.YOUTUBE_API;
 const API_KEY = process.env.YOU_TUBE || api_key;
 >>>>>>> fixed path issue
