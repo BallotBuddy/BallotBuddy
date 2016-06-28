@@ -12,7 +12,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        {this.props.search ? <SearchBar coords={ coords } /> : null }
+        {this.props.search ? <SearchBar /> : null }
         {this.props.list ? <ProfilesList /> : null }
       </div>
     )
