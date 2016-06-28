@@ -46,10 +46,6 @@ class CandidateFinance extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchCandidateIndustryContributors }, dispatch);
-}
-
 function mapStateToProps(state){
   return {
     contributors: state.profiles.contributors

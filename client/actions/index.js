@@ -36,8 +36,6 @@ export function fetchTwitter(cid){
   const route = 'twitter?candtwitternickname=';
   const url = `${URL}${route}${cid}`
   const request = axios.get(url);
-  request.then((data) => {   
-  })
   return {
     type: FETCH_TWITTER,
     payload: request
@@ -119,7 +117,6 @@ export function showList() {
 
 // clears profiles results from previous search.
 export function clearProfiles() {
-  console.log('clear profiles firing...')
   return{
     type: CLEAR_PROFILES,
     payload: ''

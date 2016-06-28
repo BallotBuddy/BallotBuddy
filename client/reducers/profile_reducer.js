@@ -14,7 +14,7 @@ export default function( state = INITIAL_STATE, action) {
 
   // grab candidate data from vote smart api
   case FETCH_VOTE_SMART_BIO:
-    return {...state, voteSmartBio: action.payload.data};
+    return {...state, voteSmartBio: action.payload.data };
   
   // grab contributors via opensecrets api
   case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
@@ -22,11 +22,11 @@ export default function( state = INITIAL_STATE, action) {
   
   // grab twitter data
   case FETCH_TWITTER:
-    return {...state, twitterdata: action.payload.data};
+    return {...state, twitterdata: action.payload.data };
 
   // clears vote smart bio state
   case CLEAR_VOTE_SMART_BIO:
-    return {...state, voteSmartBio: action.payload.data};
+    return {...state, voteSmartBio: action.payload.data, twitterdata: '' };
   
   // courage test results
   case FETCH_COURAGE_SCORE:

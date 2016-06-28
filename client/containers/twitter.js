@@ -10,8 +10,6 @@ class Twitter extends Component {
     this.props.fetchCandidate(this.props.candId)  //undefined
     .then ((data) => {
       this.props.fetchTwitter(data.payload.data['0'].twitter_id)
-      .then ((data) => {
-      })
     })
   }
 
@@ -40,9 +38,8 @@ class Twitter extends Component {
     const { twitterdata } = this.props.twitterdata;
     return(
       <div className="twitter-box">
-        <div className="twitter-box-title">Recent Tweets</div>
         <div className="twitter-tiles">
-        { this.props.twitterdata.length > 0 ? this.renderTwitterComponent():null }
+        { this.props.twitterdata.length > 0 ? this.renderTwitterComponent(): '' }
         </div>
       </div>
     );
