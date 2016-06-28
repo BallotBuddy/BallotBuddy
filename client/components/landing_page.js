@@ -10,17 +10,6 @@ class LandingPage extends Component {
   }
 
   render() {
-  let coords = {
-    lat: '',
-    lon: ''
-  };
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log('position :', position);
-      coords[lat] = position.coords.latitude;
-      coords[long] = position.coords.longitude;
-    })
-  }
     return (
       <div>
         {this.props.search ? <SearchBar coords={ coords } /> : null }

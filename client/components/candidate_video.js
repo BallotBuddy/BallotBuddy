@@ -3,7 +3,7 @@ import DetailedProfile from './detailed_profile'
 import YTSearch from 'youtube-api-search';
 const api_keys = require('../../api_keys');
 const api_key = api_keys.YOUTUBE_API;
-const API_KEY = process.env.Youtube_Key || api_key;
+const API_KEY = process.env.YOU_TUBE || api_key;
 
 class CandidateVideo extends Component {
 	constructor(props) {

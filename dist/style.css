@@ -965,3 +965,65 @@ ul {
   -webkit-animation: dotLoader 3.5s 500ms infinite ease-in-out;
   animation: dotLoader 3.5s 500ms infinite ease-in-out;
 }
+
+.bbcheck {
+  position: relative;
+  box-shadow: 1px 2px 2px 0px #464242;
+  top: 0px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 1em;
+  float: left;
+  background-color: rgb(210,210,210);
+  width: 5em;
+  height: 5em;
+  border: 1px solid rgb(1,33,72);
+  margin: 2em;
+}
+
+.bOne {
+  font-size: 51px;
+  position: relative;
+  top: -.1em;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  left: .4em;
+  color: rgb(1,33,72);
+  font-weight: bold;
+  z-index: 1;
+}
+
+.bTwo {
+  font-size: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  left: .6em;
+  top: .2em;
+  font-weight: bold;
+  color: rgb(188,19,62);
+  z-index: 2;
+}
+
+.bbCheck {
+  font-size: 70px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  left: 0.4em;
+  top: -.2em;
+  font-weight: bold;
+  color: white;
+  transform: scale(2,1);
+  display: inline-block;
+}

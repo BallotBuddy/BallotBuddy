@@ -37,6 +37,13 @@ class SearchBar extends Component {
 	render() {
 		return(
 			<div>
+		{/*
+			<div className="bbcheck">
+				<p className="bOne">b</p>
+				<p className="bTwo">b</p>
+				<p className="bbCheck">√</p>
+			</div>
+		*/}
 				<header	className="header">
 					<div className="ballot-buddy-logo">
 						<div>
