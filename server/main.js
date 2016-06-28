@@ -6,6 +6,8 @@ let app = Server.app();
 let db = require('./database/database/db')
 let vs = require('./apicalls/votesmart');
 let os = require('./apicalls/opensecrets');
+let twit = require('./apicalls/twitter');
+
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
 //http://localhost:8080/candid?id=N00009920
@@ -25,13 +27,35 @@ app.route('/candname')
     db.queryCandidate()
       .then(function (results) {
         var newArray = results.filter(function (candidate) {
-          //console.log(candidate.candidate_firstlast);
           return candidate.candidate_firstlast.includes(searchString);
         })
         res.status(200).send(newArray);
       })
   })
 
+  //http://localhost:8080/candtwitter?candtwitternickname=RepByrne
+app.route('/candtwitter')
+.get(function(req,res){
+  var candidatenickname =req.query.candtwitternickname;
+    twit.gettweets(candidatenickname).then(function(results){
+      res.status(200).send(results);
+    }).catch(function(error){
+      console.log(error);
+       var obj = {};
+                    obj.created_at = '';
+                    obj.text = '';
+                    obj.user = '';
+                    obj.location = '';
+                    obj.followers = '';
+                    obj.url = '';
+
+                    var array=[];
+                    array.push(obj);
+                  res.status(200).send(array);
+    })
+
+
+})
 //http://localhost:8080/candstate?state=TX
 app.route('/candstate')
   .get(function (req, res) {
@@ -92,7 +116,7 @@ app.route('/candlastname').get(function (req, res) {
 //http://localhost:8080/candVoteSmartId?votesmart_id=...
 app.route('/candVoteSmartId').get(function(req, res) {
   var candId = req.query.votesmart_id;
-  db.queryByVoteSmartId(candId).then(function(results) {
+  db.queryByVoteSmartId(candId).then(function(results) { 
     res.status(200).send(results);
   })
 })

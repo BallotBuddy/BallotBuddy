@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import ProfileReducer from './profile_reducer';
-import SearchReducer from './search_reducer';
+import LandingReducer from './landing_reducer';
 
 // aggregates all individual reducers
 const rootReducer = combineReducers({
   profiles: ProfileReducer,
-  search: SearchReducer
+  landing: LandingReducer
 });
 
 export default rootReducer;
