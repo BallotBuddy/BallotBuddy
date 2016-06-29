@@ -785,29 +785,260 @@ ul {
   height: 10em;
 }
 
+.about-back-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 10px;
+}
+
+.about_us {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  letter-spacing: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.about_us h1 {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.about_us h2 {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.about_us h3 {
+  margin-top: 5px;
+}
+
+.team-line {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 15%;
+  margin-bottom: 10px;
+  padding-top: 1px;
+  background: linear-gradient(-90deg, white, gray, white);
+}
+
+.project-line {
+  position: relative;
+  top: 4px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 17%;
+  padding-top: 1px;
+  background: linear-gradient(-90deg, white, gray, white);
+}
+
+.sources-line {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 19%;
+  padding-top: 1px;
+  background: linear-gradient(-90deg, white, gray, white);
+}
+
+.about_project {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.about_team {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.team-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.team-tile{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin: 1em;
+  width: 250px;
+  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  height: 475px;
+}
+
+.team-photo-box {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 225px;
+  width: 100%;
+  display: flex;
+  background-color: rgb(240,240,240);
+}
+
+.about_team ul {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: row;
+  height: 30px;
+  margin: auto;
+}
+
+
+.outer-li {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-left: 0;
+  margin-right: 0;
+  width: 4em;
+}
+
+.mid-li {
+  width: 2em;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
 .about_team img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.team-member-blurb {
+  position: relative;
+  text-align: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 10px;
+  padding: 8px;
+  height: 30%;
+}
+
+.about_sources {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+}
+
+.sources-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: space-around;
+  margin: auto;
+  width: 25%;
+}
+
+.sources-box a {
+  display: flex;
+  margin: 1em;
 }
 
 .about-us-button {
-  background-color: rgba(208,0,53,.8);
-  border: solid 2px;
-  border-color: white;
-  border-radius: .3em;
-  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgb(200,200,200);
+  border-radius: 20em;
+  color: black;
   padding: .3%;
-  float: right;
-  margin-left: .5%;
-  margin-right: .5%;
-  margin-top: .5%;
   text-align: center;
-  font-size: 35%;
-  display: none;
+  font-size: 1em;
+  height: 2em;
+  width: 6em;
+  margin-top: .1em;
+  margin-bottom: .1em;
+  box-shadow: inset 0 0 5px #000000;
 }
 
 .about-us-button:hover {
-  background-color: rgba(208,0,53,1);
+  background-color: rgba(175,175,175,1);
+  font-weight: bold;
   text-decoration: none;
   color: white;
 }
@@ -879,6 +1110,9 @@ ul {
 /*------------------*/
 /* Loading dots CSS */
 /*------------------*/
+.loader-back {
+  text-decoration: none !important;
+}
 
 .cs-loader {
   display: flex;
@@ -888,13 +1122,12 @@ ul {
   right: 0;
   bottom: 0;
   margin: auto;
-  margin-top: 20%;
-  margin-bottom: 100%;
-  height: 100%;
+  margin-top: 15%;
   width: 100%;
 }
 
 .cs-loader-inner {
+  height: 3em;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -906,11 +1139,14 @@ ul {
   text-align: center;
 }
 
-.cs-loader-inner label {
+.cs-loader-inner img {
   color: rgb(159,0,40);
   font-size: 20px;
+  width: 1.5em;
+  height: 1.5em;
   opacity: 0;
   display:inline-block;
+  margin-left: 1em;
 }
 
 @keyframes dotLoader {
@@ -951,17 +1187,42 @@ ul {
   }
 }
 
-.cs-loader-inner label:nth-child(3) {
+.cs-loader-inner img:nth-child(8) {
+  -webkit-animation: dotLoader 3.5s 200ms infinite ease-in-out;
+  animation: dotLoader 3.5s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(7) {
   -webkit-animation: dotLoader 3.5s 300ms infinite ease-in-out;
   animation: dotLoader 3.5s 300ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(2) {
+.cs-loader-inner img:nth-child(6) {
   -webkit-animation: dotLoader 3.5s 400ms infinite ease-in-out;
   animation: dotLoader 3.5s 400ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(1) {
+.cs-loader-inner img:nth-child(5) {
   -webkit-animation: dotLoader 3.5s 500ms infinite ease-in-out;
   animation: dotLoader 3.5s 500ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(4) {
+  -webkit-animation: dotLoader 3.5s 600ms infinite ease-in-out;
+  animation: dotLoader 3.5s 600ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(3) {
+  -webkit-animation: dotLoader 3.5s 700ms infinite ease-in-out;
+  animation: dotLoader 3.5s 700ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(2) {
+  -webkit-animation: dotLoader 3.5s 800ms infinite ease-in-out;
+  animation: dotLoader 3.5s 800ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(1) {
+  -webkit-animation: dotLoader 3.5s 900ms infinite ease-in-out;
+  animation: dotLoader 3.5s 900ms infinite ease-in-out;
 }

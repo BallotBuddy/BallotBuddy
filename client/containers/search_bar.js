@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchByZip } from '../actions/index';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 import { showList } from '../actions/index';
 
 class SearchBar extends Component {
@@ -32,7 +32,7 @@ class SearchBar extends Component {
 	//this button click will eventually allow a user to see candidates
 	// by current location (won't need to enter a zip)
 	onButtonClick(event) {
-		// this.props.showList();
+		this.props.showList();
 	}
 
 	// builds search bar elements
@@ -57,8 +57,8 @@ class SearchBar extends Component {
 								onChange={this.onInputChange} />
 						</form>
 					</div>
-				</header>
 				<Link to="/aboutus" className="about-us-button">About Us</Link>
+				</header>
 			</div>
 		);
 	}
