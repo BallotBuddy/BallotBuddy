@@ -19,7 +19,7 @@ class CandidateVideo extends Component {
 	// 		selectedVideo: null
 	//   };
 	// }
-
+// senatorsanders
 	componentWillMount(){
 		this.props.fetchCandidate(this.props.candInfo) 
       .then (() => {
