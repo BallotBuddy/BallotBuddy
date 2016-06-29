@@ -9,6 +9,7 @@ let os = require('./apicalls/opensecrets');
 let twit = require('./apicalls/twitter');
 let YTSearch = require('youtube-api-search')
 let api_keys = require('../api_keys.js')
+var Promise = require('bluebird');
 let api_key = api_keys.YOUTUBE_API;
 
 app.use('/', express.static(path.join(__dirname, "../dist")))
@@ -138,11 +139,24 @@ app.route('/candVoteSmartId').get(function(req, res) {
   })
 })
 
-//http://localhost:8080/candIndustryContributors?candId=
+//http://localhost:8080/candIndustryContributors?candId=N00000019 ///////////////////////////////
 app.route('/candIndustryContributors').get(function(req, res){
   var candId = req.query.candId;
-  os.checkstashreturn(candId).then(function(results) {
-    res.status(200).send(results);
+ return os.checkstashreturn(candId).then(function(results) {
+   var obj = results.reduce((acc, elem) => {
+	if(acc[elem.sector] === undefined) {
+		acc[elem.sector] = elem.funding;
+	} else {
+		acc[elem.sector] += elem.funding;
+	}
+	return acc;
+}, {});
+
+var result = [];
+for( var key in obj ) { 
+	result.push({sector: key, funding: obj[key]});
+}
+    res.status(200).send(result);
   })
 })
 
