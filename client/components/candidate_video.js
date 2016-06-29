@@ -6,39 +6,47 @@ import { fetchCandidate, fetchCandidateVideo } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 
-// const api_keys = require('../../api_keys');
-// const api_key = api_keys.YOUTUBE_API;
-// const API_KEY = process.env.Youtube_Key || api_key;
 
 class CandidateVideo extends Component {
-	// constructor(props) {
-	// 	super(props);
-
-	// 	this.state = { 
-	// 		videos: [],
-	// 		selectedVideo: null
-	//   };
-	// }
-// senatorsanders
 	componentWillMount(){
-		this.props.fetchCandidate(this.props.candInfo) 
-      .then (() => {
-      	console.log("singleProfile:", this.props.singleProfile)
-				this.props.fetchCandidateVideo(this.props.candInfo.ballotName)
-		      .then (() => {
-						if (this.props.candYouTube){
-							let stuff = this.props.candYouTube.youtube_url;
-							console.log("componentWillMount fired youtubeURL:", stuff)
-							let stuff2 = stuff.split("/")
-							console.log("stuff2:", stuff2)
-							let stuff3 = stuff2[stuff2.length-1]
-							console.log("stuff3:", stuff3)
-							this.props.fetchCandidateVideo(stuff3 ? stuff3 :this.props.candInfo.ballotName)							
-						}
-					})
-      })
+
+		this.props.fetchCandidate(this.props.candInfo)
+			.then (() => {
+				if(this.props.singleProfile.youtube_url){
+					let URL = this.props.singleProfile.youtube_url;
+					console.log("componentWillMount fired youtubeURL:", URL)
+					URL = URL.split("/")
+					console.log("URL:", URL)
+					URL = URL[URL.length-1]
+					console.log("URL:", URL)
+					this.props.fetchCandidateVideo(URL)
+				} else {
+					this.props.fetchCandidateVideo(this.props.candInfo.ballotName)
+				}
+			})
+    //   .then (() => {
+    //   	console.log("singleProfile:", this.props.singleProfile)
+				// this.props.fetchCandidateVideo(this.props.candInfo.ballotName)
+		  //     .then (() => {
+				// 	})
+    //   })
+	}
+				// this.props.fetchCandidateVideo(stuff3 ? stuff3 : this.props.candInfo.ballotName)							
+
+	searchCandidateVideo() {
+			if (this.props.candYouTube){
+				let stuff = this.props.candYouTube.youtube_url;
+				console.log("componentWillMount fired youtubeURL:", stuff)
+				let stuff2 = stuff.split("/")
+				console.log("stuff2:", stuff2)
+				let stuff3 = stuff2[stuff2.length-1]
+				console.log("stuff3:", stuff3)
+				return stuff3;
+			}
 	}
 	
+//`https://www.youtube.com/embed/${videoId}`
+
 	// fetchCandidateVideo() {
 	// 	// const youtubeURL = this.props.singleProfile.youtube_url;
 	// 	// console.log("youtubeURL:", youtubeURL)
@@ -76,16 +84,16 @@ class CandidateVideo extends Component {
 	}
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchCandidate, fetchCandidateVideo }, dispatch);
-}
+// function mapDispatchToProps(dispatch){
+  // return bindActionCreators({ fetchCandidate, fetchCandidateVideo }, dispatch);
+// }
 
 function mapStateToProps(state){
-	console.log("state:",state)
+	console.log("state in candVideo:",state)
   return { 
-   singleProfile: state.search.singleProfile,
+   singleProfile: state.landing.singleProfile,
    video: state.profiles.video
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CandidateVideo);
+export default connect(mapStateToProps, {fetchCandidateVideo, fetchCandidate})(CandidateVideo);

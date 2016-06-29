@@ -15,6 +15,7 @@ export default function( state = INITIAL_STATE, action) {
 
   // grab candidate data from vote smart api
   case FETCH_VOTE_SMART_BIO:
+  console.log("voteSmartBio is firing!!!!",)
     return {...state, voteSmartBio: action.payload.data };
   
   // grab contributors via opensecrets api
@@ -35,7 +36,7 @@ export default function( state = INITIAL_STATE, action) {
 
   // youtube video results
   case FETCH_CANDIDATE_VIDEO:
-  console.log('profile_reducer state:', action.payload.data)
+  // console.log('profile_reducer state:', action.payload.data)
     return {...state, video: action.payload.data.selectedVideo}
 
   default:

@@ -18,6 +18,7 @@ class DetailedProfile extends Component {
   }
 
   componentWillMount(){
+    console.log("willMount is firing in detailed-profile")
     this.props.fetchVoteSmartBio(this.props.params.cid)
       .then((data) =>{
         this.props.fetchCandidate(this.props.voteSmartBio.candidate.candidateId)
@@ -88,12 +89,9 @@ class DetailedProfile extends Component {
       </div>
     );
   }
-        // const youtubeURL = this.props.singleProfile
-          // console.log('data in the componentWillMount for youtubeURL:', youtubeURL)
 
 //data.payload.data['0'].twitter_id;
   render() {
-    const { singleProfile } = this.props;
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
       return <Loader />
@@ -112,17 +110,12 @@ class DetailedProfile extends Component {
         <div className="detailed-profile-components">
           {this.renderSingleProfile()}
           <div className="social-media">
-            <Twitter candId = { voteSmartBio.candidate.candidateId } />
-            <CandidateVideo candInfo = {voteSmartBio.election}/>
+            <CandidateFinance id={voteSmartBio.candidate.crpId} />
+            <CandidateExperience candInfo={voteSmartBio.candidate} />
+            <CandidateCourage id={voteSmartBio.candidate.candidateId} />
+            <Twitter candId = {voteSmartBio.candidate.candidateId} />
+            <CandidateVideo candInfo={voteSmartBio.candidate.candidateId} />
           </div>
-          <CandidateFinance id={voteSmartBio.candidate.crpId} />
-          <CandidateExperience candInfo={voteSmartBio.candidate} />
-          <CandidateCourage id={voteSmartBio.candidate.candidateId} />
-          <Twitter candId = {voteSmartBio.candidate.candidateId} />
-          <CandidateVideo 
-          candInfo = {voteSmartBio.election}
-          candId = {voteSmartBio.candidate.candidateId}
-          candYouTube = {singleProfile}/>
         </div>
       </div>
     );
@@ -132,7 +125,7 @@ class DetailedProfile extends Component {
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
-    singleProfile: state.search.singleProfile
+    singleProfile: state.landing.singleProfile
   };
 }
 
