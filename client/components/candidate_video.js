@@ -33,7 +33,8 @@ class CandidateVideo extends Component {
 				if(this.props.office==="President") {
 					this.props.fetchCandidateVideo(`${this.props.ballotName} official campaign`)				
 				}else{
-					this.props.fetchCandidateVideo("Simpsons Donald Trump")
+					// return if data is undefined
+					return
 				}
 			})
 	}
@@ -41,8 +42,9 @@ class CandidateVideo extends Component {
 	renderCandidatePlayer() {
 		if (!this.props.video) {
 			return <div>Loading...</div>;
-		}
+		} 
 		const video = this.props.video;
+		console.log("video!!!!!", video)
 		const videoId = video.id.videoId;
 		const url = `https://www.youtube.com/embed/${videoId}`;
 		

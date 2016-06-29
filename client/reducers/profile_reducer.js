@@ -27,8 +27,8 @@ export default function( state = INITIAL_STATE, action) {
 
   // clears vote smart bio state
   case CLEAR_VOTE_SMART_BIO:
-    return {...state, voteSmartBio: action.payload.data, twitterdata: '' };
-  
+    return {...state, voteSmartBio: action.payload.data, twitterdata: '', video: action.payload.data };
+
   // courage test results
   case FETCH_COURAGE_SCORE:
     return {...state, courage: action.payload.data.npat };

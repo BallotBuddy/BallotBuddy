@@ -17,6 +17,7 @@ export const SHOW_SEARCH = 'SHOW_SEARCH';
 export const SHOW_LIST = 'SHOW_LIST';
 export const CLEAR_PROFILES = 'CLEAR_PROFILES';
 export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
+export const CLEAR_VIDEO = 'CLEAR_VIDEO';
 
 // fetch top candidate industry contributors
 export function fetchCandidateIndustryContributors(crpid){
@@ -98,6 +99,14 @@ export function clearVoteSmartBio() {
 
   return {
     type: CLEAR_VOTE_SMART_BIO,
+    payload: ''
+  }
+}
+// clears the Video state when the back button is clicked
+export function clearVideo(){
+
+  return {
+    type: CLEAR_VIDEO,
     payload: ''
   }
 }
