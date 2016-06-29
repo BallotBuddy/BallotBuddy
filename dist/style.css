@@ -1142,8 +1142,8 @@ ul {
 .cs-loader-inner img {
   color: rgb(159,0,40);
   font-size: 20px;
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.5em;
+  height: 1.5em;
   opacity: 0;
   display:inline-block;
   margin-left: 1em;
@@ -1187,17 +1187,42 @@ ul {
   }
 }
 
-.cs-loader-inner img:nth-child(3) {
+.cs-loader-inner img:nth-child(8) {
+  -webkit-animation: dotLoader 3.5s 200ms infinite ease-in-out;
+  animation: dotLoader 3.5s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(7) {
+  -webkit-animation: dotLoader 3.5s 300ms infinite ease-in-out;
+  animation: dotLoader 3.5s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(6) {
   -webkit-animation: dotLoader 3.5s 400ms infinite ease-in-out;
   animation: dotLoader 3.5s 400ms infinite ease-in-out;
 }
 
-.cs-loader-inner img:nth-child(2) {
+.cs-loader-inner img:nth-child(5) {
   -webkit-animation: dotLoader 3.5s 500ms infinite ease-in-out;
   animation: dotLoader 3.5s 500ms infinite ease-in-out;
 }
 
-.cs-loader-inner img:nth-child(1) {
+.cs-loader-inner img:nth-child(4) {
   -webkit-animation: dotLoader 3.5s 600ms infinite ease-in-out;
   animation: dotLoader 3.5s 600ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(3) {
+  -webkit-animation: dotLoader 3.5s 700ms infinite ease-in-out;
+  animation: dotLoader 3.5s 700ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(2) {
+  -webkit-animation: dotLoader 3.5s 800ms infinite ease-in-out;
+  animation: dotLoader 3.5s 800ms infinite ease-in-out;
+}
+
+.cs-loader-inner img:nth-child(1) {
+  -webkit-animation: dotLoader 3.5s 900ms infinite ease-in-out;
+  animation: dotLoader 3.5s 900ms infinite ease-in-out;
 }

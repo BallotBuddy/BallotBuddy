@@ -32,7 +32,7 @@ class SearchBar extends Component {
 	//this button click will eventually allow a user to see candidates
 	// by current location (won't need to enter a zip)
 	onButtonClick(event) {
-		// this.props.showList();
+		this.props.showList();
 	}
 
 	// builds search bar elements
