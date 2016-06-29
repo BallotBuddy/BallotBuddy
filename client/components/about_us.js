@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { showSearch } from '../actions/index';
 
-class AboutUs extends Component {
-
-	// constructor(props) {
-	// 	super(props)
-
-	// 	this.backButtonClick = this.backButtonClick.bind(this);
-	// }
-
-	backButtonClick(){
-		this.props.showSearch();
-	}
+export default class AboutUs extends Component {
 
 	render() {
 		return (
@@ -90,5 +78,3 @@ class AboutUs extends Component {
 		);
 	}
 }
-
-export default connect(null, { showSearch })(AboutUs);
