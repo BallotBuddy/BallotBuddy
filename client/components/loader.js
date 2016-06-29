@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 export default class Loader extends Component {
 
   render(){
+      const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
+      const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
+      const vote = 'http://www.clydetownshipscc.org/uploads/4/4/0/0/4400048/__9117737_orig.png';
+
     return (
       <div className="search-results">
         <div className="result-header">
@@ -14,9 +18,14 @@ export default class Loader extends Component {
         </div>
         <div className="cs-loader">
           <div className="cs-loader-inner">
+            <img src={rep} />
+            <img src={vote} />
+            <img src={dem} />
+          {/*
             <label> ●</label>
             <label> ●</label>
             <label> ●</label>
+          */}
           </div>
         </div>
       </div>
