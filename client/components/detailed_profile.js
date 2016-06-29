@@ -124,7 +124,6 @@ class DetailedProfile extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("state!!!!!!!!!", state)
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
     singleProfile: state.landing.singleProfile
