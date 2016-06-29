@@ -1,40 +1,50 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import DetailedProfile from './detailed_profile'
 import YTSearch from 'youtube-api-search';
-const api_keys = require('../../api_keys');
-const api_key = api_keys.YOUTUBE_API;
-const API_KEY = process.env.YOU_TUBE || api_key;
+import { fetchCandidate, fetchCandidateVideo } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class CandidateVideo extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = { 
-			videos: [],
-			selectedVideo: null
-	  };
-	}
-
+	// fetch a candidate video	
 	componentWillMount(){
-		this.fetchCandidateVideo();	
-	}
-	
-	fetchCandidateVideo() {
-		const name = this.props.candInfo.ballotName;
-		YTSearch({key: API_KEY, term: `${name}Official Campaign Video` }, (videos) => {
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-		})
+
+		// first retrieve open secrets data using candidate ID
+		this.props.fetchCandidate(this.props.candInfo)
+			.then (() => {
+
+				// sort search by federal level candidates using the data from open secrets
+				if(this.props.singleProfile.youtube_url){
+
+					// if the candidate is Bernie use his presidental video
+					if(this.props.ballotName==="Bernie Sanders"){
+						this.props.fetchCandidateVideo("Bernie Sanders official campaign")
+					}else{						
+					let URL = this.props.singleProfile.youtube_url;
+					URL = URL.split("/")
+					URL = URL[URL.length-1]
+					this.props.fetchCandidateVideo(`${URL} ${this.props.office}`)				
+					}
+				}
+
+				// if the candidate is not congressional
+			}).catch ((err) => {
+				if(this.props.office==="President") {
+					this.props.fetchCandidateVideo(`${this.props.ballotName} official campaign`)				
+				}else{
+					// return if data is undefined
+					return
+				}
+			})
 	}
 
 	renderCandidatePlayer() {
-		if (!this.state.selectedVideo) {
+		if (!this.props.video) {
 			return <div>Loading...</div>;
-		}
-
-		const video = this.state.selectedVideo;
+		} 
+		const video = this.props.video;
+		console.log("video!!!!!", video)
 		const videoId = video.id.videoId;
 		const url = `https://www.youtube.com/embed/${videoId}`;
 		
@@ -54,4 +64,11 @@ class CandidateVideo extends Component {
 	}
 }
 
-export default CandidateVideo;
+function mapStateToProps(state){
+  return { 
+   singleProfile: state.landing.singleProfile,
+   video: state.profiles.video
+  }
+}
+
+export default connect(mapStateToProps, {fetchCandidateVideo, fetchCandidate})(CandidateVideo);

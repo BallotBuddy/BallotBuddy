@@ -7,8 +7,13 @@ let db = require('./database/database/db')
 let vs = require('./apicalls/votesmart');
 let os = require('./apicalls/opensecrets');
 let twit = require('./apicalls/twitter');
+let YTSearch = require('youtube-api-search')
+let api_keys = require('../api_keys.js')
+let api_key = api_keys.YOUTUBE_API;
 
 app.use('/', express.static(path.join(__dirname, "../dist")))
+
+app.route('')
 
 //http://localhost:8080/candid?id=N00009920
 app.route('/candid')
@@ -127,6 +132,18 @@ app.route('/candIndustryContributors').get(function(req, res){
   os.candIndustry(candId).then(function(results) {
     res.status(200).send(results);
   })
+})
+
+//http://localhost:8080/candyoutube?term=Clinton
+app.route('/candyoutube')
+.get(function(req,res){
+var searchstring = req.query.term;
+YTSearch({key: api_key, term: searchstring}, (videos) => {       
+     res.status(200).send( {       
+                videos: videos,
+                selectedVideo: videos[0]
+            });
+        })   
 })
 
 //http://localhost:8080/searches - returns them all
