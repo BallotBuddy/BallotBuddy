@@ -12,59 +12,31 @@ class CandidateVideo extends Component {
 
 		this.props.fetchCandidate(this.props.candInfo)
 			.then (() => {
+				console.log("Bernie Sanders", this.props.ballotName)
 				if(this.props.singleProfile.youtube_url){
+					if(this.props.ballotName==="Bernie Sanders"){
+						this.props.fetchCandidateVideo("Bernie Sanders official campaign")
+					}else{						
 					let URL = this.props.singleProfile.youtube_url;
-					console.log("componentWillMount fired youtubeURL:", URL)
 					URL = URL.split("/")
-					console.log("URL:", URL)
 					URL = URL[URL.length-1]
-					console.log("URL:", URL)
-					this.props.fetchCandidateVideo(URL)
-				} else {
-					this.props.fetchCandidateVideo(this.props.candInfo.ballotName)
+					this.props.fetchCandidateVideo(URL)				
+					}
+				}
+			}).catch ((err) => {
+				if(this.props.office==="President") {
+					this.props.fetchCandidateVideo(`${this.props.ballotName} official campaign`)				
+				}else{
+					this.props.fetchCandidateVideo("Simpsons Donald Trump")
 				}
 			})
-    //   .then (() => {
-    //   	console.log("singleProfile:", this.props.singleProfile)
-				// this.props.fetchCandidateVideo(this.props.candInfo.ballotName)
-		  //     .then (() => {
-				// 	})
-    //   })
 	}
-				// this.props.fetchCandidateVideo(stuff3 ? stuff3 : this.props.candInfo.ballotName)							
-
-	searchCandidateVideo() {
-			if (this.props.candYouTube){
-				let stuff = this.props.candYouTube.youtube_url;
-				console.log("componentWillMount fired youtubeURL:", stuff)
-				let stuff2 = stuff.split("/")
-				console.log("stuff2:", stuff2)
-				let stuff3 = stuff2[stuff2.length-1]
-				console.log("stuff3:", stuff3)
-				return stuff3;
-			}
-	}
-	
-//`https://www.youtube.com/embed/${videoId}`
-
-	// fetchCandidateVideo() {
-	// 	// const youtubeURL = this.props.singleProfile.youtube_url;
-	// 	// console.log("youtubeURL:", youtubeURL)
-
-	// 	const name = this.props.candInfo.ballotName;
-	// 	YTSearch({key: API_KEY, term: `${name}Official Campaign Video` }, (videos) => {
-	// 		this.setState({
-	// 			videos: videos,
-	// 			selectedVideo: videos[0]
-	// 		});
-	// 	})
-	// }
 
 	renderCandidatePlayer() {
 		if (!this.props.video) {
 			return <div>Loading...</div>;
 		}
-		const video = this.props.video;		console.log('renderCandidatePlayer video:', video)
+		const video = this.props.video;
 		const videoId = video.id.videoId;
 		const url = `https://www.youtube.com/embed/${videoId}`;
 		
@@ -89,7 +61,6 @@ class CandidateVideo extends Component {
 // }
 
 function mapStateToProps(state){
-	console.log("state in candVideo:",state)
   return { 
    singleProfile: state.landing.singleProfile,
    video: state.profiles.video

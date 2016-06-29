@@ -141,7 +141,6 @@ export function fetchCourageScore(cid) {
 
 //http://localhost:8080/candyoutube?term=Clinton
 export function fetchCandidateVideo(name) {
-  console.log('fetchCandidateVideo is firing!!!:', name)
   const route = 'youtube?term=';
   const url = `${URL}${route}${name}`;
   const request = axios.get(url);

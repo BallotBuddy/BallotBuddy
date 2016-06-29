@@ -15,7 +15,6 @@ export default function( state = INITIAL_STATE, action) {
 
   // single candidate:
   case FETCH_CANDIDATE:
-  console.log("FETCH_CANDIDATE is firing this is the action:", action)
     return { ...state, singleProfile: action.payload.data['0'] };
   
   // initial search:

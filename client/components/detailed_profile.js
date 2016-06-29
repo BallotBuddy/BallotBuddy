@@ -18,7 +18,6 @@ class DetailedProfile extends Component {
   }
 
   componentWillMount(){
-    console.log("willMount is firing in detailed-profile")
     this.props.fetchVoteSmartBio(this.props.params.cid)
       .then((data) =>{
         this.props.fetchCandidate(this.props.voteSmartBio.candidate.candidateId)
@@ -114,7 +113,9 @@ class DetailedProfile extends Component {
             <CandidateExperience candInfo={voteSmartBio.candidate} />
             <CandidateCourage id={voteSmartBio.candidate.candidateId} />
             <Twitter candId = {voteSmartBio.candidate.candidateId} />
-            <CandidateVideo candInfo={voteSmartBio.candidate.candidateId} />
+            <CandidateVideo candInfo={voteSmartBio.candidate.candidateId} 
+                            ballotName={voteSmartBio.election.ballotName}
+                            office={voteSmartBio.election.office}/>
           </div>
         </div>
       </div>
@@ -123,6 +124,7 @@ class DetailedProfile extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("state!!!!!!!!!", state)
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
     singleProfile: state.landing.singleProfile
