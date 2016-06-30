@@ -9,6 +9,7 @@
 4. In a browser, go to localhost:8080
 ​
 ##Windows - Getting started
+
 1. Run `npm install webpack -g` (first time only)
 2. Run `npm install` (first time only)
 ​3. Run `webpack -w` (keep running)
@@ -17,6 +18,7 @@
 ​
 ​
 ##Development & Production
+
 Development - In config.js, make `switcher = 'd'`
 ​
 Production  - In config.js, make `switcher = 'p'`. Next, in package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
@@ -26,6 +28,7 @@ Because we are in a state of rapid development and changing API's.. I believe th
 ​
 ​
 ##Updating the Database
+
 To rebuild the database:
 1) Set an environment key `process.env.Candidate_key` to a working opensecrets.org API key (free after signup)
 2) In package.json, change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
@@ -33,6 +36,7 @@ Note: opensecrets.org limits their API
 
 
 ##API Notes
+
 postgres
 DATABASE_URL = needs to be set for the deployment database. this is provided by the hosting provider.
 
