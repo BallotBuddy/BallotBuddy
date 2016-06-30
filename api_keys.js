@@ -1,5 +1,5 @@
 
-var  apikey = module.exports;
+var apikey = module.exports;
 apikey.VOTESMART_API = '';
 apikey.OPENSECRETS_API = '';
 apikey.consumerKey ='';
