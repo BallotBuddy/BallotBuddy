@@ -10,9 +10,9 @@ class CandidateFinance extends Component {
   }
 
   renderCandidateFinance(){
-    // Build an array of the top 5 sectors by funding amount
     if(this.props.sectorFunding === undefined) { return <div> Loading... </div> }
-    console.log("Sector funding array is: ", this.props.sectorFunding);
+
+    // Build an array of the top 5 sectors by funding amount
     const topFundingSectors = this.props.sectorFunding.sort((a, b) => { return b.funding - a.funding }).slice(0,5);
 
     // Build a box for each sector, displaying funding total
