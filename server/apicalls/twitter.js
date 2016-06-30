@@ -62,7 +62,10 @@ twit.gettweets = function (tweetnickname) {
                         am = 'PM';
                         hours = hours-12;
                     }
-                    var minutes = datetime.getMinutes();
+                    var minutes = datetime.getMinutes().toString();
+                    if (minutes.length < 2){
+                        minutes = '0' + minutes; 
+                    }
 
                     var obj = {};
                     obj.created_at = hours +':'+minutes+ am + ' - ' + day + ' ' + month[monthdigit] + ' ' + year;
