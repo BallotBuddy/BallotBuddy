@@ -119,9 +119,9 @@ knex.queryFunding = function (id) {
   return knex('funding').where({ candidate_id: id }).select();
 };
 
-knex.insertFundingRow = (function(row){
-  return knex('funding') .returning('candidate_id','sector_code','industry','sector','funding').insert(row);
-})
+knex.insertFundingRow = function(row){
+  return knex('funding').returning('candidate_id','sector_code','industry','sector','funding').insert(row);
+}
 
 //close database connection
 knex.closeDb = function () {

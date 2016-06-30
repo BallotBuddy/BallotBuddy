@@ -139,10 +139,14 @@ app.route('/candVoteSmartId').get(function(req, res) {
   })
 })
 
-//http://localhost:8080/candIndustryContributors?candId=N00000019 ///////////////////////////////
-app.route('/candIndustryContributors').get(function(req, res){
+//http://localhost:8080/candSectorFunding?candId=N00000019 ///////////////////////////////
+// Returns an array that looks like:
+// [ {industry: 'agriculture', funding: 123456},
+//   {industry: 'transportation', funding: 500000}]
+
+app.route('/candSectorFunding').get(function(req, res){
   var candId = req.query.candId;
- return os.checkstashreturn(candId).then(function(results) {
+ return os.checkStashReturn(candId).then(function(results) {
    var obj = results.reduce((acc, elem) => {
 	if(acc[elem.sector] === undefined) {
 		acc[elem.sector] = elem.funding;

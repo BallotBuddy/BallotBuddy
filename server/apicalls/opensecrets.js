@@ -1,22 +1,20 @@
 var rp = require('request-promise');
 var _ = require('underscore');
 var Promise = require('bluebird');
+var PromiseThrottle = require('promise-throttle');
 
+var db = require('../database/database/db');
 var api_Keys = require('../../api_keys');
 var api_key = api_Keys.OPENSECRETS_API;
 var opensecrets = module.exports;
-var db = require('../database/database/db');
-var _ = require('underscore');
-var PromiseThrottle = require('promise-throttle');
 
 
-
-opensecrets.checkstashreturn = function (cid) {
+opensecrets.checkStashReturn = function (cid) {
 
   return db.queryFunding(cid).then(function (data) {
     
-    if (data.length <1){
-      return opensecrets.candSectorSum(cid).then(function(results){
+    if (data.length < 1){
+      return opensecrets.candSectorFunding(cid).then(function(results){
         console.log('opensecrets line 20', results);
        return db.queryFunding(cid);
       })
@@ -45,7 +43,7 @@ opensecrets.fetch = function (request) {
 // Takes a candidates opensecreds id
 // Returns an object ==> { sector: totalFunding }
 // Note: There are 18 sectors in total -
-opensecrets.candSectorSum = function (cid) {
+opensecrets.candSectorFunding = function (cid) {
   // Object that will hold total funding for each industry
   var sectorFunding = {
     "Agribusiness": 0,
@@ -72,11 +70,11 @@ opensecrets.candSectorSum = function (cid) {
   // { code: 'A01', sector: 'Agribusiness', industry: 'Crop Production & Basic Processing'}
   // Note: Each sector (e.g. 'Transportation') covers multiple industries (e.g. 'Automotive', 'Trucking', 'Railroads')
   var test ={};
- return Promise.map(industryCodes, function (industryObj) {
+  return Promise.map(industryCodes, function (industryObj) {
     // build request for sector-level funding data
     const sector = industryObj.sector;
     var uri = 'http://www.opensecrets.org/api/?method=CandIndByInd&cid=' + cid + '&cycle=2016&ind=' + industryObj.code + '&output=json';
-   console.log(uri);
+    console.log(uri);
     var industryFunding = {
       uri: uri,
       qs: {
