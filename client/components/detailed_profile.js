@@ -70,8 +70,9 @@ class DetailedProfile extends Component {
         <div className="single-pic-box">
           <img className="single-pic" src={pic} />
         </div>
-        <div className="info">
+        <div className="single-profile-text">
           <div className="info-name">{name}</div>
+          <div className="info-name-line"></div>
           <div className="info-candidacy">{candidacy}</div>
         </div>
         <div className="info-party">

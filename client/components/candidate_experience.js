@@ -10,16 +10,16 @@ export default class CandidateExperience extends Component {
 		sectionObjs.push({category: "Congressional", data:this.props.candInfo.congMembership});
 		sectionObjs.push({category: "Other", data:this.props.candInfo.orgMembership});
 		return (
-			<table>
-				<tbody>
+			<table className="candidate-experince-table">
+				<tbody className="candidate-table-body">
 					{ sectionObjs.map((obj) => {
 						return (
-							<tr className={obj.category} key={obj.category}>
+							<tr className="table-row-category" key={obj.category}>
 								<td className="experience-category">{obj.category}:</td>
 								<td className="experience-details">
 									<ul className="list-unstyled">
 										{/*Puts each newline on it's own bullet*/}
-										{ obj.data.split('\n').map(line => { return <li key={line}>{line}</li> }) }
+										{ obj.data.split('\n').map(line => { return <li className="experience-item" key={line}>{line}</li> }) }
 									</ul>
 								</td>
 							</tr>
@@ -32,11 +32,10 @@ export default class CandidateExperience extends Component {
 
 	render() {
 		return (
-			<div className="experience-component-block">
-				<div className="experience-component col-sx-12 col-sm-6">
-					<div className="text-center">Candidate Experience</div>
+			<div className="experience-component-box">
+				<div className="candidate-experience-title">Experience</div>
+				<div className="experience-title-line"></div>
 					{this.renderCandidateExperience()}
-				</div>
 			</div>
 		);
 	}
