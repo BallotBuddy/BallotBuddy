@@ -38,10 +38,13 @@ class Loader extends Component {
         </div>
         <div className="cs-loader">
           <div className="cs-loader-inner">
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+          {/*
             <img src={dem} />
             <img src={vote} />
             <img src={rep} />
-          {/*
             <img src={baratheon} />
             <img src={bolton} />
             <img src={lannister} />
@@ -50,9 +53,6 @@ class Loader extends Component {
             <img src={greyjoy} />
             <img src={martel} />
             <img src={tully} />
-            <label> ●</label>
-            <label> ●</label>
-            <label> ●</label>
           */}
           </div>
         </div>

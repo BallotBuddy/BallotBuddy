@@ -37,7 +37,9 @@ class CandidateFinance extends Component {
     const { sectorFunding } = this.props;
     return (
       <div className='candidate-finance-container'>
-        Top 5 Campaign Financing Sectors
+        <div className='candidate-finance-title'>Top 5 Campaign Finance Contributors</div>
+        <p className='finance-disclaimer'>(by sector)</p>
+        <div className='candidate-finance-line'></div>
         <div className="candidate-finance-tiles">{this.renderCandidateFinance()}</div>
       </div>
     );
