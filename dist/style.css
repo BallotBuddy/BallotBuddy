@@ -1,5 +1,7 @@
 #app {
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Source Sans Pro', sans-serif;
   position: relative;
   top: 0;
   right: 0;
@@ -76,7 +78,6 @@
   border-radius: 20px;
   background-color: rgba(255,255,255,.2);
   margin-bottom: 15px;
-  font-weight: bold;
 }
 
 .search-by-location:hover {
@@ -110,7 +111,6 @@
 }
 
 .search-input {
-  font-weight: bold;
   height: 30px;
   width: 144px;
   color: white;
@@ -213,7 +213,6 @@
 .go-back-button:hover {
   background-color: rgba(208,0,53,1);
   color: white;
-  font-weight: bold;
 }
 
 .back-link {
@@ -298,7 +297,6 @@
 
 .candidate-name {
   font-size: 100%;
-  font-weight: bold;
   width: 100%;
   color: rgb(50,50,50);
   display: flex;
@@ -396,7 +394,7 @@
   left: 0;
   margin: auto;
   text-align: center;
-  background-color: rgb(250,250,250);
+  background-color: rgb(220,220,220);
 }
 
 .single-profile-header {
@@ -437,23 +435,24 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 0;
+  top: 100px;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
   width: 80%;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+  background-color: white;
 }
 
 .single-profile-info {
-  position: absolute;
+  position: relative;
   display: flex;
-  top: 0;
+  top: -40px;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-top: 5em;
   width: 90%;
   height: 10em;
   background-color: rgb(1,33,72);
@@ -479,7 +478,6 @@
   left: 0;
   margin: auto;
   font-size: 3.5em;
-  font-weight: bold;
 }
 
 .info-name-line {
@@ -562,12 +560,12 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-top: 14.5em;
   display: flex;
   flex-direction: column;
   width: 90%;
-  background-color: rgb(240,240,240);
-  padding: 1em;
+  padding-top: 015px;
+  padding-bottom: 15px;
+  background-color: rgb(245,245,245);
 }
 
 .twitter-box {
@@ -644,7 +642,6 @@
   right: 0;
   bottom: 0;
   left: 20%;
-  font-weight: bold;
   font-size: 17px;
   margin: auto;
   width: 100%;
@@ -683,6 +680,8 @@
   display: flex;
   background-color: rgb(245,245,245);
   flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .candidate-experience-title {
@@ -698,33 +697,46 @@
   background: linear-gradient(-90deg, rgba(0,0,0,0), rgb(50,50,50), rgba(0,0,0,0));
 }
 
-.experience-candidate-table {
-  vertical-align: text-top;
-  font-weight: bold;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
+.candidate-experience-table {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .candidate-table-body {
-
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 .table-row-category {
-
+  margin: auto;
+  position: relative;
 }
 
 .experience-category {
-
+   position: relative; 
+   margin: auto; 
+   margin-top: 0; 
+   padding-top: 0;
+   font-size: 20px;
 }
 
 .experience-details {
-
+  margin: auto;
+  position: relative;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .list-unstyled {
-
+  padding-left: 0;
+  list-style: none;
+  margin: auto;
+  padding: 10px;
 }
 
 .experience-item {
@@ -747,6 +759,8 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: rgb(240,240,240);
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .candidate-finance-title {
@@ -808,7 +822,6 @@
   width: 100%;
   text-align: center;
   color: white;
-  font-weight: bold;
 }
 
 .donor-type {
@@ -831,7 +844,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  font-weight: bold;
   justify-content: space-around;
   flex-grow: 1;
   text-align: center;
@@ -844,7 +856,6 @@
 
 .total-amount {
   flex-grow: 1;
-  font-weight: bold;
   width: 33.33%;
 }
 
@@ -1106,7 +1117,6 @@
 
 .about-us-button:hover {
   background-color: rgba(175,175,175,1);
-  font-weight: bold;
   text-decoration: none;
   color: white;
 }
@@ -1116,63 +1126,49 @@
 
 .candidate-courage-container {
   position: relative;
-  top: 7em;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
+  width: 90%;
   display: flex;
+  background-color: rgb(240,240,240);
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  width: 85%;
-  background-color: rgb(230,230,230);
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 3em;
 }
 
 .courage-topic {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 20px;
   width: 80%;
-  font-size: 1em;
-  font-weight: bold;
+  padding: 5px;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.4);
+  padding-top: 5px;
   background-color: white;
-  margin: .8em;
-  padding: .2em;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: center;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
-  align-items: center;
 }
 
 .topic-questions {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
+  font-size: 16px
 }
 
 .topic-question {
   width: 100%;
-  display: flex;
-  flex-grow: 1;
   color: white;
   background-color: rgba(1,33,72,.9);
-  text-align: center;
-  justify-content: space-around;
 }
 
 .question-response {
   width: 100%;
-  display: flex;
-  flex-grow: 1;
   background-color: rgba(1,33,72,.2);
-  justify-content: space-around;
 }
 
 /*------------------*/

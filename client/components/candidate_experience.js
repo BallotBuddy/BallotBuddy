@@ -10,7 +10,7 @@ export default class CandidateExperience extends Component {
 		sectionObjs.push({category: "Congressional", data:this.props.candInfo.congMembership});
 		sectionObjs.push({category: "Other", data:this.props.candInfo.orgMembership});
 		return (
-			<table className="candidate-experince-table">
+			<table className="candidate-experience-table">
 				<tbody className="candidate-table-body">
 					{ sectionObjs.map((obj) => {
 						return (
