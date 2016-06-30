@@ -18,10 +18,7 @@ class DetailedProfile extends Component {
   }
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid)
-      .then((data) =>{
-        this.props.fetchCandidate(this.props.voteSmartBio.candidate.candidateId)
-      })
+    this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
   backButtonClick(){
@@ -77,19 +74,12 @@ class DetailedProfile extends Component {
         </div>
         <div className="info-party">
           <img className="info-party-logo" src={logo} />
-          <div className="info">
-            <div>
-              <h2>{name}</h2>
-            </div>
-            <div>
-              <h4>{bio.homeState}</h4>
-            </div>
-          </div>
         </div>
       </div>
     );
   }
 
+//data.payload.data['0'].twitter_id;
   render() {
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){
@@ -109,14 +99,14 @@ class DetailedProfile extends Component {
         <div className="detailed-profile-components">
           {this.renderSingleProfile()}
           <div className="social-media">
-            <CandidateFinance id={voteSmartBio.candidate.crpId} />
-            <CandidateExperience candInfo={voteSmartBio.candidate} />
-            <CandidateCourage id={voteSmartBio.candidate.candidateId} />
-            <Twitter candId = {voteSmartBio.candidate.candidateId} />
-            <CandidateVideo candInfo={voteSmartBio.candidate.candidateId} 
+            <Twitter candId = { voteSmartBio.candidate.candidateId } />
+            <CandidateVideo candInfo = {voteSmartBio.election}
                             ballotName={voteSmartBio.election.ballotName}
                             office={voteSmartBio.election.office}/>
           </div>
+          <CandidateFinance id={voteSmartBio.candidate.crpId} />
+          <CandidateExperience candInfo={voteSmartBio.candidate} />
+          <CandidateCourage id={voteSmartBio.candidate.candidateId} />
         </div>
       </div>
     );
@@ -126,9 +116,8 @@ class DetailedProfile extends Component {
 function mapStateToProps(state) {
   return { 
     voteSmartBio: state.profiles.voteSmartBio,
-    singleProfile: state.landing.singleProfile
+    singleProfile: state.profiles.singleProfile
   };
 }
 
 export default connect(mapStateToProps, { fetchVoteSmartBio, clearVoteSmartBio, fetchCandidate } )(DetailedProfile);
-
