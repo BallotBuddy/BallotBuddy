@@ -79,7 +79,6 @@ class DetailedProfile extends Component {
     );
   }
 
-//data.payload.data['0'].twitter_id;
   render() {
     const { voteSmartBio } = this.props;
     if (!voteSmartBio){

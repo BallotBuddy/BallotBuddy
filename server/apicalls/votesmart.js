@@ -22,7 +22,6 @@ votesmart.checkPhotoStatus = function (photo) {
       return true;
     })
     .catch(function (err) {
-
       return false;
     })
 }

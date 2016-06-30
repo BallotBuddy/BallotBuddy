@@ -9,7 +9,7 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const FETCH_CANDIDATE = 'FETCH_CANDIDATE';
 export const FETCH_BY_ZIP = 'FETCH_BY_ZIP';
 export const FETCH_VOTE_SMART_BIO = 'FETCH_VOTE_SMART_BIO';
-export const FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS = 'FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS';
+export const FETCH_CANDIDATE_SECTOR_FUNDING = 'FETCH_CANDIDATE_SECTOR_FUNDING';
 export const CLEAR_VOTE_SMART_BIO = 'CLEAR_VOTE_SMART_BIO';
 export const FETCH_COURAGE_SCORE = 'FETCH_COURAGE_SCORE';
 export const FETCH_TWITTER = 'FETCH_TWITTER';
@@ -20,19 +20,19 @@ export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const CLEAR_VIDEO = 'CLEAR_VIDEO';
 
 // fetch top candidate industry contributors
-export function fetchCandidateIndustryContributors(crpid){
-  const route = 'IndustryContributors?candId=';
+export function fetchCandidateSectorFunding(crpid) {
+  const route = 'SectorFunding?candId=';
   const url = `${URL}${route}${crpid}`;
   const request = axios.get(url);
 
   return {
-    type: FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
+    type: FETCH_CANDIDATE_SECTOR_FUNDING,
     payload: request
   }
 }
 
 // fetch twitter data based on twitter candidate nickname
-export function fetchTwitter(cid){
+export function fetchTwitter(cid) {
   const route = 'twitter?candtwitternickname=';
   const url = `${URL}${route}${cid}`
   const request = axios.get(url);
@@ -41,7 +41,7 @@ export function fetchTwitter(cid){
     type: FETCH_TWITTER,
     payload: request
   };
-} 
+}
 
 // fetch profiles based on name search
 export function fetchProfile(term) {
@@ -103,7 +103,7 @@ export function clearVoteSmartBio() {
   }
 }
 // clears the Video state when the back button is clicked
-export function clearVideo(){
+export function clearVideo() {
 
   return {
     type: CLEAR_VIDEO,
@@ -130,7 +130,7 @@ export function showList() {
 // clears profiles results from previous search.
 export function clearProfiles() {
 
-  return{
+  return {
     type: CLEAR_PROFILES,
     payload: ''
   }

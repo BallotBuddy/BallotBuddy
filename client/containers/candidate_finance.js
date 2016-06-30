@@ -1,34 +1,32 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCandidateIndustryContributors } from '../actions/index';
+import { fetchCandidateSectorFunding } from '../actions/index';
 
 class CandidateFinance extends Component {
 
   componentWillMount() {
-    this.props.fetchCandidateIndustryContributors(this.props.id);
+    this.props.fetchCandidateSectorFunding(this.props.id);
   }
 
   renderCandidateFinance(){
-    return this.props.contributors.map((donor) => {
-      const industry = donor.industry_name;
-      const indivs = donor.indivs;
-      const pacs = donor.pacs;
-      const total = donor.total;
+    if(this.props.sectorFunding === undefined) { return <div> Loading... </div> }
+
+    // Build an array of the top 5 sectors by funding amount
+    const topFundingSectors = this.props.sectorFunding.sort((a, b) => { return b.funding - a.funding }).slice(0,5);
+
+    // Build a box for each sector, displaying funding total
+    return topFundingSectors.map((sectorObj) => {
+      const sector = sectorObj.sector;
+      const funding = sectorObj.funding;
       return (
-        <div className="donor-tile" key={donor.industry_code}>
-          <div className="donor-industry">
-            {industry}
-          </div>
-          <div className="donor-type">
-            <div className="type">Individual</div>
-            <div className="type">Political Action Committee</div>
-            <div className="type">Total</div>
+        <div className="donor-tile" key={sector}>
+          <div className="donor-sector">
+            {sector}
           </div>
           <div className="donation-amounts">
-            <div className="amount">{indivs}</div>
-            <div className="amount">{pacs}</div>
-            <div className="total-amount">{total}</div>
+            {/* Note: the logic formats the number (e.g. 1000000 --> $1,000,000) */}
+            <div className="total-amount">{"$"+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
           </div>
         </div>
       )
@@ -36,11 +34,10 @@ class CandidateFinance extends Component {
   }
 
   render(){
-    const { contributors } = this.props;
+    const { sectorFunding } = this.props;
     return (
       <div className='candidate-finance-container'>
-        <div className='candidate-finance-title'>Top Campaign Contributors</div>
-        <div className='candidate-finance-line'></div>
+        Top 5 Campaign Financing Sectors
         <div className="candidate-finance-tiles">{this.renderCandidateFinance()}</div>
       </div>
     );
@@ -49,8 +46,8 @@ class CandidateFinance extends Component {
 
 function mapStateToProps(state){
   return {
-    contributors: state.profiles.contributors
+    sectorFunding: state.profiles.sectorFunding
   }
 }
 
-export default connect(mapStateToProps, { fetchCandidateIndustryContributors })(CandidateFinance);
+export default connect(mapStateToProps, { fetchCandidateSectorFunding })(CandidateFinance);

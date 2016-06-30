@@ -8,12 +8,9 @@ var path = require('path');
 
 var configuration = require('../../../config.js');
 var config = configuration.configuration();
- 
 
-
-//console.log('is this undefined?',config.database);
 var env = config.database;
-console.log('database environment',env);
+console.log('database environment', env);
 var knex = require('knex')(env)
 var _ = require('underscore');
 
@@ -21,9 +18,12 @@ module.exports = knex;
 
 knex.deleteEverything = function () {
   //return knex('candidate').truncate()
-  return knex.schema.dropTableIfExists('candidate')
+  return knex.schema.dropTableIfExists('funding')
     .then(function () {
-      console.log("Deleted candidate db tables")
+      knex.schema.dropTableIfExists('candidate')
+        .then(function () {
+          console.log("Deleted candidate db tables")
+        })
     })
 }
 
@@ -59,6 +59,20 @@ knex.ensureSchema = ensureSchema = function () {
           console.log('Created candidate table.');
         })
       }
+    }),
+    knex.schema.hasTable('funding').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('funding', function (table) {
+          table.increments('row_id').primary();
+          table.foreign('candidate_id').references('candidate_id').inTable('candidate');
+          table.string('candidate_id', 30);
+          table.string('sector', 50);
+          table.string('code',5);
+          table.decimal('total');
+        }).then(function (table) {
+          console.log('Created funding table.');
+        })
+      }
     })
   ])
 }
@@ -73,14 +87,14 @@ knex.getCandByState = function (canstate) {
 knex.queryCandidate = function () {
   return knex('candidate').select();
 };
+
 //selects a candidate by id
 knex.queryByCandId = function (id) {
   return knex('candidate').where({ candidate_id: id }).select();
 };
 
-
 // selects candidate by votesmart_id
-knex.queryByVoteSmartId = function(id) {
+knex.queryByVoteSmartId = function (id) {
   return knex('candidate').where({ votesmart_id: id }).select();
 }
 
@@ -100,9 +114,18 @@ knex.insertEverything = function (candArr, table) {
     return candArr;
   });
 }
+// Get all funding where candidate id matches
+knex.queryFunding = function (id) {
+  return knex('funding').where({ candidate_id: id }).select();
+};
 
+knex.insertFundingRow = function(row){
+  return knex('funding').returning('candidate_id','sector_code','industry','sector','funding').insert(row);
+}
+
+//close database connection
 knex.closeDb = function () {
   knex.destroy().then(function () {
-    console.log("Closed db connection")
+    console.log("Closed db connection");
   })
 }

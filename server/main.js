@@ -9,6 +9,7 @@ let os = require('./apicalls/opensecrets');
 let twit = require('./apicalls/twitter');
 let YTSearch = require('youtube-api-search')
 let api_keys = require('../api_keys.js')
+var Promise = require('bluebird');
 let api_key = api_keys.YOUTUBE_API;
 
 app.use('/', express.static(path.join(__dirname, "../dist")))
@@ -24,6 +25,18 @@ app.route('/candid')
       res.status(200).send(results);
     });
   })
+
+//http://localhost:8080/candyoutube?term=Clinton
+app.route('/candyoutube')
+.get(function(req,res){
+var searchstring = req.query.term;
+YTSearch({key: api_key, term: searchstring +' Official Campaign Video' }, (videos) => {       
+      res.status(200).send( {       
+				videos: videos,
+				selectedVideo: videos[0]
+			});
+		})   
+})
 
 //http://localhost:8080/candname?name=ROBERT
 app.route('/candname')
@@ -126,11 +139,28 @@ app.route('/candVoteSmartId').get(function(req, res) {
   })
 })
 
-//http://localhost:8080/candIndustryContributors?candId=
-app.route('/candIndustryContributors').get(function(req, res){
+//http://localhost:8080/candSectorFunding?candId=N00000019 
+// Returns an array that looks like:
+// [ {industry: 'agriculture', funding: 123456},
+//   {industry: 'transportation', funding: 500000}]
+
+app.route('/candSectorFunding').get(function(req, res){
   var candId = req.query.candId;
-  os.candIndustry(candId).then(function(results) {
-    res.status(200).send(results);
+ return os.checkStashReturn(candId).then(function(results) {
+   var obj = results.reduce((acc, elem) => {
+	if(acc[elem.sector] === undefined) {
+		acc[elem.sector] = elem.funding;
+	} else {
+		acc[elem.sector] += elem.funding;
+	}
+	return acc;
+}, {});
+
+var result = [];
+for( var key in obj ) { 
+	result.push({sector: key, funding: obj[key]});
+}
+    res.status(200).send(result);
   })
 })
 
