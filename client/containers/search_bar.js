@@ -64,5 +64,3 @@ class SearchBar extends Component {
 }
 
 export default connect(null, { fetchByZip, showList })(SearchBar);
-
-						// <div className="search-by-location" onClick={this.onButtonClick}>find by location</div>
