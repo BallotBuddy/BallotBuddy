@@ -106,7 +106,6 @@
   margin: auto;
   height: 32px;
   width: 175px;
-  margin-top: 15px;
   background-color: #012148;
 }
 
@@ -914,6 +913,9 @@
 
 .about_us h3 {
   margin-top: 5px;
+  margin-top: 5px;
+  position: relative;
+  top: .3em;
 }
 
 .team-line {
@@ -1208,14 +1210,15 @@
   text-align: center;
 }
 
-.cs-loader-inner label {
+.cs-loader-inner img {
   color: rgb(159,0,40);
   font-size: 20px;
-  width: 3em;
-  height: 3em;
+  width: 1.5em;
+  height: 1.5em;
   opacity: 0;
   display:inline-block;
   margin: auto;
+  margin-left: 1em;
 }
 
 @keyframes dotLoader {
@@ -1256,42 +1259,27 @@
   }
 }
 
-.cs-loader-inner label:nth-child(8) {
-  -webkit-animation: dotLoader 3.5s 200ms infinite ease-in-out;
-  animation: dotLoader 3.5s 200ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(7) {
-  -webkit-animation: dotLoader 3.5s 300ms infinite ease-in-out;
-  animation: dotLoader 3.5s 300ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(6) {
-  -webkit-animation: dotLoader 3.5s 400ms infinite ease-in-out;
-  animation: dotLoader 3.5s 400ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(5) {
+.cs-loader-inner img:nth-child(5) {
   -webkit-animation: dotLoader 3.5s 500ms infinite ease-in-out;
   animation: dotLoader 3.5s 500ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(4) {
+.cs-loader-inner img:nth-child(4) {
   -webkit-animation: dotLoader 3.5s 600ms infinite ease-in-out;
   animation: dotLoader 3.5s 600ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(3) {
+.cs-loader-inner img:nth-child(3) {
   -webkit-animation: dotLoader 3.5s 700ms infinite ease-in-out;
   animation: dotLoader 3.5s 700ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(2) {
+.cs-loader-inner img:nth-child(2) {
   -webkit-animation: dotLoader 3.5s 800ms infinite ease-in-out;
   animation: dotLoader 3.5s 800ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(1) {
+.cs-loader-inner img:nth-child(1) {
   -webkit-animation: dotLoader 3.5s 900ms infinite ease-in-out;
   animation: dotLoader 3.5s 900ms infinite ease-in-out;
 }

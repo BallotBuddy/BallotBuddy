@@ -41,7 +41,7 @@ class CandidateVideo extends Component {
 
 	renderCandidatePlayer() {
 		if (!this.props.video) {
-			return <div>Loading...</div>;
+			return <div></div>;
 		} 
 		const video = this.props.video;
 		console.log("video!!!!!", video)
