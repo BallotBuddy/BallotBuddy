@@ -1,27 +1,22 @@
-## BallotBuddy
+#BallotBuddy
+​Ballotbuddy.co is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
+​
+##Mac - Getting started
+
+1. Run `npm install`
+2. Run `npm run build`
+3. Run `npm start`
+4. In a browser, go to localhost:8080
+​
+##Windows - Getting started
+1. Run `npm install webpack -g` (first time only)
+2. Run `npm install` (first time only)
+​3. Run `webpack -w` (keep running)
+​4. Run `npm start` (run in 2nd terminal window)
+​5. In a browser, go to localhost:8080
 ​
 ​
-#Mac - Getting started
-`npm install`
-​
-`npm run build`
-​
-`npm start`
-​
-​
-​
-#Windows - Getting started
-`npm install webpack -g` (first time)
-​
-`npm install`
-​
-`webpack -w` (keep running)
-​
-`npm start` (run in 2nd terminal window)
-​
-​
-​
-#Development & Production
+##Development & Production
 Development - In config.js, make `switcher = 'd'`
 ​
 Production  - In config.js, make `switcher = 'p'`. Next, in package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
@@ -30,12 +25,30 @@ Note: The major difference between development and production is the database us
 Because we are in a state of rapid development and changing API's.. I believe that of this merge, all content that is viewable is 100% remote API delivered through the server. The database is currently like an appendix and not necessary for the site to do anything at the moment.
 ​
 ​
-#Updating the Database
+##Updating the Database
 To rebuild the database:
 1) Set an environment key `process.env.Candidate_key` to a working opensecrets.org API key (free after signup)
 2) In package.json, change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
 Note: opensecrets.org limits their API
 
 
+##API Notes
+postgres
+DATABASE_URL = needs to be set for the deployment database. this is provided by the hosting provider.
 
+opensecrets
+OPENSECRETS = opensecrets api key.
+
+Twitter
+(You need all 4 of these from the twitter api in order for twitter feed to work.)
+TWITTERAT = token
+TWITTERCK = consumer key
+TWITTERCS = consumer secret
+TWITTERTS = token secret
+
+votesmart api
+VOTESMART
+
+Youtube api
+YOU_TUBE
 
