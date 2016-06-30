@@ -110,7 +110,11 @@ class CandidateCourage extends Component {
       );
     }
     return (
-      <div className="candidate-courage-container">{this.renderCandidateCourage()}</div>
+      <div className="candidate-courage-container">
+        <div className="candidate-experience-title">Key Issues</div>
+        <div className="experience-title-line"></div>
+        {this.renderCandidateCourage()}
+      </div>
     );
   }
 }

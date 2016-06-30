@@ -164,18 +164,6 @@ for( var key in obj ) {
   })
 })
 
-//http://localhost:8080/candyoutube?term=Clinton
-app.route('/candyoutube')
-.get(function(req,res){
-var searchstring = req.query.term;
-YTSearch({key: api_key, term: searchstring}, (videos) => {       
-     res.status(200).send( {       
-                videos: videos,
-                selectedVideo: videos[0]
-            });
-        })   
-})
-
 //http://localhost:8080/searches - returns them all
 app.route('/searches')
   .get(function (req, res) {

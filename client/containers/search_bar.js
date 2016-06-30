@@ -47,12 +47,11 @@ class SearchBar extends Component {
 						</div>
 					</div>
 					<div className="search-bar">
-						<div className="search-by-location" onClick={this.onButtonClick}>find by location</div>
-						<span className="search-choice">- or -</span>
 						<form className="zip-option" onSubmit={this.onFormSubmit}>
+						<span className="search-choice">enter zip code</span>
 							<input
 								className="search-input"
-								placeholder="search by zip"
+								placeholder="e.g. 78701"
 								value={this.state.searchTerm}
 								onChange={this.onInputChange} />
 						</form>
@@ -65,3 +64,5 @@ class SearchBar extends Component {
 }
 
 export default connect(null, { fetchByZip, showList })(SearchBar);
+
+						// <div className="search-by-location" onClick={this.onButtonClick}>find by location</div>
