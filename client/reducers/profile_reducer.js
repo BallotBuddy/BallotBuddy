@@ -1,13 +1,13 @@
 import { 
   FETCH_VOTE_SMART_BIO,
-  FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS,
+  FETCH_CANDIDATE_SECTOR_FUNDING,
   CLEAR_VOTE_SMART_BIO,
   FETCH_COURAGE_SCORE,
   FETCH_TWITTER,
   FETCH_CANDIDATE_VIDEO
   } from '../actions/index';
 
-const INITIAL_STATE = { voteSmartBio: '', contributors: [], courage: [], twitterdata: '', video: '' };
+const INITIAL_STATE = { voteSmartBio: '', courage: [], twitterdata: '', sectorFunding: [{sector:'', funding: 0}], video: '' };
 
 // returns results from API call for candidate search, passes to state
 export default function( state = INITIAL_STATE, action) {
@@ -17,9 +17,9 @@ export default function( state = INITIAL_STATE, action) {
   case FETCH_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data };
   
-  // grab contributors via opensecrets api
-  case FETCH_CANDIDATE_INDUSTRY_CONTRIBUTORS:
-    return {...state, contributors: action.payload.data || [] };
+  // grab sectorFunding via opensecrets api
+  case FETCH_CANDIDATE_SECTOR_FUNDING:
+    return {...state, sectorFunding: action.payload.data || [] };
   
   // grab twitter data
   case FETCH_TWITTER:
