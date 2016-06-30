@@ -2,4 +2,5 @@
 dist/bundle.js
 .DS_Store
 dummy_response.js
+api_keys.js
 client/components/profile_tile.js
