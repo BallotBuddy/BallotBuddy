@@ -38,7 +38,7 @@ class SearchBar extends Component {
 	// builds search bar elements
 	render() {
 		return(
-			<div>
+			<div className="main-header">
 				<header	className="header">
 					<div className="ballot-buddy-logo">
 						<div>
@@ -55,9 +55,10 @@ class SearchBar extends Component {
 								value={this.state.searchTerm}
 								onChange={this.onInputChange} />
 						</form>
+						<div className="search-by-location" onClick={this.onFormSubmit}>find candidates</div>
 					</div>
-				<Link to="/aboutus" className="about-us-button">About Us</Link>
 				</header>
+				<Link to="/aboutus" className="about-us-button">About Us</Link>
 			</div>
 		);
 	}
