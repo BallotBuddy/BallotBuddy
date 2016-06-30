@@ -26,8 +26,8 @@ class Twitter extends Component {
         <div className="twitter-tile" key={data.text}>
           <div className="twitter-message">
             <div className="twitter-text">"{text}"</div>
-            <div className="twitter-author">-{user}</div>
-            <div className="twitter-time">-{created_at}-</div>
+            <div className="twitter-author">-{user}-</div>
+            <div className="twitter-time">{created_at}</div>
           </div>
         </div>
        )
