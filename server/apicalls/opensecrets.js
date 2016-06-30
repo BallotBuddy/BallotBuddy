@@ -10,7 +10,6 @@ var opensecrets = module.exports;
 
 
 opensecrets.checkStashReturn = function (cid) {
-
   return db.queryFunding(cid).then(function (data) {
     
     if (data.length < 1){

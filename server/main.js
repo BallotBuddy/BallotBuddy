@@ -139,7 +139,7 @@ app.route('/candVoteSmartId').get(function(req, res) {
   })
 })
 
-//http://localhost:8080/candSectorFunding?candId=N00000019 ///////////////////////////////
+//http://localhost:8080/candSectorFunding?candId=N00000019 
 // Returns an array that looks like:
 // [ {industry: 'agriculture', funding: 123456},
 //   {industry: 'transportation', funding: 500000}]

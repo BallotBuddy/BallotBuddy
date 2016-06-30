@@ -20,7 +20,7 @@ export const FETCH_CANDIDATE_VIDEO = 'FETCH_CANDIDATE_VIDEO';
 export const CLEAR_VIDEO = 'CLEAR_VIDEO';
 
 // fetch top candidate industry contributors
-export function fetchCandidateSectorFunding(crpid){
+export function fetchCandidateSectorFunding(crpid) {
   const route = 'SectorFunding?candId=';
   const url = `${URL}${route}${crpid}`;
   const request = axios.get(url);
@@ -32,7 +32,7 @@ export function fetchCandidateSectorFunding(crpid){
 }
 
 // fetch twitter data based on twitter candidate nickname
-export function fetchTwitter(cid){
+export function fetchTwitter(cid) {
   const route = 'twitter?candtwitternickname=';
   const url = `${URL}${route}${cid}`
   const request = axios.get(url);
@@ -41,7 +41,7 @@ export function fetchTwitter(cid){
     type: FETCH_TWITTER,
     payload: request
   };
-} 
+}
 
 // fetch profiles based on name search
 export function fetchProfile(term) {
@@ -103,7 +103,7 @@ export function clearVoteSmartBio() {
   }
 }
 // clears the Video state when the back button is clicked
-export function clearVideo(){
+export function clearVideo() {
 
   return {
     type: CLEAR_VIDEO,
@@ -130,7 +130,7 @@ export function showList() {
 // clears profiles results from previous search.
 export function clearProfiles() {
 
-  return{
+  return {
     type: CLEAR_PROFILES,
     payload: ''
   }
