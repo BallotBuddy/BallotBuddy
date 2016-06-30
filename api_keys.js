@@ -1,9 +1,10 @@
-var  apikey = module.exports;
-apikey.VOTESMART_API = 'f4f8f4595fdf4d3773aee9e02da81f2b';
-apikey.OPENSECRETS_API = '3c7a5da86810113ed0203cd59f3d7596'; // '31779c7d2d96d53b00c738b77b0d32a1';
-apikey.consumerKey ='CZET9TioRh2bK61PNoD0f48JJ';
-apikey.consumerSecret='2ejmV1LYPsfUgqOY34vsy3cTZjznYsOXFrqsyMtvj2vvimG8yo';
-apikey.accessToken='719900747131916288-0wGWb1I8zwbXtrElI005PCmC7RrDQmD';
-apikey.accessTokenSecret='gaQU3Brgq7nW29oTSkxzxggadAdjytCgR1MLF0h3Bcvh9';
-apikey.YOUTUBE_API = 'AIzaSyDkPDfoyJbl4EvNTTQUg8EbXJM-rFGjCF8';
+
+var apikey = module.exports;
+apikey.VOTESMART_API = '';
+apikey.OPENSECRETS_API = '';
+apikey.consumerKey ='';
+apikey.consumerSecret='';
+apikey.accessToken='';
+apikey.accessTokenSecret='';
+apikey.YOUTUBE_API = '';
 apikey.callbackUrl='';
