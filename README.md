@@ -1,27 +1,26 @@
 #BallotBuddy
-​Ballotbuddy.co is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
+​[Ballotbuddy.co](http://www.ballotbuddy.co/) is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
 ​
 ##Mac - Getting started
 
 1. Run `npm install`
 2. Run `npm run build`
 3. Run `npm start`
-4. In a browser, go to localhost:8080
-​
+4. In a browser, go to `localhost:8080`
+
 ##Windows - Getting started
 
 1. Run `npm install webpack -g` (first time only)
 2. Run `npm install` (first time only)
-​3. Run `webpack -w` (keep running)
-​4. Run `npm start` (run in 2nd terminal window)
-​5. In a browser, go to localhost:8080
-​
+3. Run `webpack -w` (keep running)
+4. Run `npm start` (run in 2nd terminal window)
+5. In a browser, go to `localhost:8080`.
 ​
 ##Development & Production
 
-Development - In config.js, make `switcher = 'd'`
+**Development** - In config.js, make `switcher = 'd'`
 ​
-Production  - In config.js, make `switcher = 'p'`. Next, in package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
+**Production**  - In config.js, make `switcher = 'p'`. Next, in package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
 ​
 Note: The major difference between development and production is the database used. Development uses SQLite3, while production uses postgres.
 Because we are in a state of rapid development and changing API's.. I believe that of this merge, all content that is viewable is 100% remote API delivered through the server. The database is currently like an appendix and not necessary for the site to do anything at the moment.
@@ -30,9 +29,9 @@ Because we are in a state of rapid development and changing API's.. I believe th
 ##Updating the Database
 
 To rebuild the database:
-1) Set an environment key `process.env.Candidate_key` to a working opensecrets.org API key (free after signup)
-2) In package.json, change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
-Note: opensecrets.org limits their API
+1. Set an environment key `process.env.Candidate_key` to a working opensecrets.org API key (free after signup)
+2. In package.json, change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
+	* Note: opensecrets.org limits their API
 
 
 ##API Notes
@@ -55,4 +54,3 @@ VOTESMART
 
 Youtube api
 YOU_TUBE
-
