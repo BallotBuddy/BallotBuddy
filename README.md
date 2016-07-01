@@ -35,8 +35,7 @@
 * In config.js, make `switcher = 'p'`
 * In package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
 
-Note: The major difference between development and production is the database used. Development uses SQLite3, while production uses postgres.
-Because we are in a state of rapid development and changing API's.. I believe that of this merge, all content that is viewable is 100% remote API delivered through the server. The database is currently like an appendix and not necessary for the site to do anything at the moment.
+Note: The key difference between development and production is the database used - development uses SQLite3, while production uses postgres.
 
 
 ##Database Notes
