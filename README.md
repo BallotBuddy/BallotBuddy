@@ -65,3 +65,23 @@ VOTESMART
 
 Youtube api
 YOU_TUBE
+
+##Key Endpoints
+**Local Candidates (zip code search)**
+Route: `/candzip?zip=`
+Example: `//http://localhost:8080/candzip?zip=78701`
+Response format: 
+Source: VoteSmart API
+
+**Candidate Bio**
+Route: `/candbio?candId=`
+Example: `http://localhost:8080/candbio?candId=15723`
+Response format: 
+Source: VoteSmart API
+
+
+##Future Readme additions
+* Data mixed between database and api calls
+* Contribution guidelines (fork and make a pull request if you want to contribute)
+* Team workflow
+* List contributors and roles
