@@ -14,6 +14,7 @@
 2. Run `npm run build`
 3. Run `npm start`
 4. In a browser, go to `localhost:8080`
+	* Note: Code changes will require re-running `npm start` before they show up in the browser
 
 ###Windows
 
@@ -21,22 +22,23 @@
 2. Run `npm install` (first time only)
 3. Run `webpack -w` (keep running)
 4. Run `npm start` (run in 2nd terminal window)
-5. In a browser, go to `localhost:8080`.
-​
+5. In a browser, go to `localhost:8080`
+	* Note: Code changes will automatically show up in the browser (after file is saved)
+
 ##Development & Production
 
 ###Development
 * In config.js, ensure `switcher = 'd'`
-​* In package.json, ensure line 9 is `"postinstall": "npm run build",`
+* In package.json, ensure line 9 is `"postinstall": "npm run build",`
 
 ###Production
 * In config.js, make `switcher = 'p'`
 * In package.json change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
-​
+
 Note: The major difference between development and production is the database used. Development uses SQLite3, while production uses postgres.
 Because we are in a state of rapid development and changing API's.. I believe that of this merge, all content that is viewable is 100% remote API delivered through the server. The database is currently like an appendix and not necessary for the site to do anything at the moment.
-​
-​
+
+
 ##Updating the Database
 
 To rebuild the database:
