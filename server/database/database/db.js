@@ -64,7 +64,7 @@ knex.ensureSchema = ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('funding', function (table) {
           table.increments('row_id').primary();
-          table.foreign('candidate_id').references('candidate_id').inTable('candidate');
+       //   table.foreign('candidate_id').references('candidate_id').inTable('candidate');
           table.string('candidate_id', 30);
           table.string('sector', 50);
           table.string('code',5);
