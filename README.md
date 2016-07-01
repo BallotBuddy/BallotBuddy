@@ -1,6 +1,12 @@
 #BallotBuddy
-​[Ballotbuddy.co](http://www.ballotbuddy.co/) is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
-​
+[Ballotbuddy.co](http://www.ballotbuddy.co/) is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
+
+##Tech Stack
+* React with Redux
+* Node
+* Express
+* PostgreSQL with Knex (deployed) or SQLite3 (local build)
+
 ##Getting started (local build)
 
 ###Mac
