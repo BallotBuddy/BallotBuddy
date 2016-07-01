@@ -149,9 +149,9 @@ app.route('/candSectorFunding').get(function(req, res){
  return os.checkStashReturn(candId).then(function(results) {
    var obj = results.reduce((acc, elem) => {
 	if(acc[elem.sector] === undefined) {
-		acc[elem.sector] = elem.funding;
+		acc[elem.sector] = (elem.funding *1);
 	} else {
-		acc[elem.sector] += elem.funding;
+		acc[elem.sector] += (elem.funding *1);
 	}
 	return acc;
 }, {});
