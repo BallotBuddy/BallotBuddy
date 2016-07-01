@@ -65,7 +65,7 @@ knex.ensureSchema = ensureSchema = function () {
         knex.schema.createTable('funding', function (table) {
           table.increments('row_id').primary();
              table.string('candidate_id', 30);
-          table.string('sector', 50);
+          table.string('industry', 50);
           table.string('sector_code',5);          //   'candidate_id','sector_code','industry','sector','funding'
           table.decimal('funding');
         }).then(function (table) {
