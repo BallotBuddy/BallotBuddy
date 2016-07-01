@@ -70,7 +70,7 @@ Within the `api_keys.js` file:
 
 ###Deployment environment variables
 Within the hosting provider's enivornment variables:
-Postgres setup
+<br>**Postgres** setup
 <br>`DATABASE_URL` needs to be set for the deployment database as an environment variable. This should be provided by the hosting provider.
 
 **VoteSmart API** ($45 annual fee)
@@ -101,7 +101,7 @@ Note: Our endpoints use a mix of direct API calls (e.g. VoteSmart, Twitter) and 
 **Candidate Bio (experience)**
 <br>Route: `/candbio?candId=`
 <br>Example: `http://www.ballotbuddy.co/candbio?candId=15723`
-<br>Response format: ``
+<br>Response format: `{ candidate: {candidateId: "15723", crpId: "N00023864",...}, election: {office: "President", officeType: "Presidential",...} }`
 <br>Source: VoteSmart API
 
 **Sector Funding**
@@ -113,11 +113,11 @@ Note: Our endpoints use a mix of direct API calls (e.g. VoteSmart, Twitter) and 
 **Key Issues (i.e. courage survey)**
 <br>Route: `/candCourageScore?candId=`
 <br>Example: `http://www.ballotbuddy.co/candCourageScore?candId=N00000019`
-<br>Response format: ``
+<br>Response format: `{ npat: {candidate: "Donald J. Trump", candidateId: "15723",...} }`
 <br>Source: VoteSmart API
 
 ##Contribution Guidelines
-Got an idea? Great! Create a new issue describing your update, then fork the repo and create a branch named `feat#`, where # is the issue number. When ready, put in a pull request to [master in this repo](https://github.com/BallotBuddy/BallotBuddy).
+Got an idea? Great! Create a new issue describing your update, then fork the repo and create a branch named `feat#`, where `#` is the issue number. When ready, put in a pull request to [master in this repo](https://github.com/BallotBuddy/BallotBuddy).
 
 ##Contributors
 * Matt DuBose ([mjdubose](https://github.com/mjdubose)) - Back end and database
