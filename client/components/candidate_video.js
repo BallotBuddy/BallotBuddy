@@ -5,12 +5,12 @@ import YTSearch from 'youtube-api-search';
 import { fetchCandidate, fetchCandidateVideo } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
-class CandidateVideo extends Component {
+class CandidateVideo extends Component { 
 
 	// fetch a candidate video	
 	componentWillMount(){
 
-		// first retrieve open secrets data using candidate ID
+		// fetch open secrets data using candidate ID
 		this.props.fetchCandidate(this.props.candInfo)
 			.then (() => {
 
@@ -18,22 +18,22 @@ class CandidateVideo extends Component {
 				if(this.props.singleProfile.youtube_url){
 
 					// if the candidate is Bernie use his presidental video
-					if(this.props.ballotName==="Bernie Sanders"){
-						this.props.fetchCandidateVideo("Bernie Sanders official campaign")
+					if(this.props.ballotName==='Bernie Sanders'){
+						this.props.fetchCandidateVideo('Bernie Sanders official campaign')
 					}else{						
 					let URL = this.props.singleProfile.youtube_url;
-					URL = URL.split("/")
+					URL = URL.split('/')
 					URL = URL[URL.length-1]
 					this.props.fetchCandidateVideo(`${URL} ${this.props.office}`)				
 					}
 				}
 
-				// if the candidate is not congressional
+			// if the candidate is not congressional
 			}).catch ((err) => {
-				if(this.props.office==="President") {
+				if(this.props.office==='President') {
 					this.props.fetchCandidateVideo(`${this.props.ballotName} official campaign`)				
 				}else{
-					// return if data is undefined
+					// return if data is undefined 
 					return
 				}
 			})

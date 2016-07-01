@@ -115,7 +115,7 @@ class ProfilesList extends Component {
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
-        <Link className="profile-link" to={"profile/" + id}>
+        <Link className="profile-link" to={'profile/' + id}>
           <div className="profile-picture-box">
             <img className="profile-picture" src={picture} />
           </div>

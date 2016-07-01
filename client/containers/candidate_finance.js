@@ -26,7 +26,7 @@ class CandidateFinance extends Component {
           </div>
           <div className="donation-amounts">
             {/* Note: the logic formats the number (e.g. 1000000 --> $1,000,000) */}
-            <div className="total-amount">{"$"+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+            <div className="total-amount">{'$'+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           </div>
         </div>
       )

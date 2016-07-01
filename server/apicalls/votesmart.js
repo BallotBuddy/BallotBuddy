@@ -1,6 +1,6 @@
 var rp = require('request-promise');
 var _ = require('underscore');
-var Promise = require("bluebird");
+var Promise = require('bluebird');
 
 
 var api_keys = require('../../api_keys');

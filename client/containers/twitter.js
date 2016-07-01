@@ -7,10 +7,12 @@ import { bindActionCreators } from 'redux';
 class Twitter extends Component { 
 
   componentWillMount() {
+    // fetch open secrets data using candidate ID
     this.props.fetchCandidate(this.props.candId)
-    .then ((data) => {
-      this.props.fetchTwitter(data.payload.data['0'].twitter_id)
-    })
+      .then ((data) => {
+        // fetch tweets
+        this.props.fetchTwitter(data.payload.data['0'].twitter_id)
+      })
   }
 
   renderTwitterComponent(){

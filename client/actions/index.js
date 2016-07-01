@@ -57,7 +57,6 @@ export function fetchProfile(term) {
   };
 }
 
-//http://localhost:8080/candVoteSmartId?votesmart_id=...
 // fetch single candidate's information
 export function fetchCandidate(cid) {
   const route = 'VoteSmartId?votesmart_id=';
@@ -82,7 +81,7 @@ export function fetchByZip(zip) {
   }
 }
 
-//http://localhost:8080/candbio?candId=15723
+// fetch single candidate's information
 export function fetchVoteSmartBio(cid) {
   const route = 'bio?candId=';
   const url = `${URL}${route}${cid}`;
@@ -102,6 +101,7 @@ export function clearVoteSmartBio() {
     payload: ''
   }
 }
+
 // clears the Video state when the back button is clicked
 export function clearVideo() {
 

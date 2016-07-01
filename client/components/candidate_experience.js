@@ -4,11 +4,11 @@ export default class CandidateExperience extends Component {
 
 	renderCandidateExperience() {
 		const sectionObjs = [];
-		sectionObjs.push({category: "Education", data:this.props.candInfo.education});
-		sectionObjs.push({category: "Professional", data:this.props.candInfo.profession});
-		sectionObjs.push({category: "Political", data:this.props.candInfo.political});
-		sectionObjs.push({category: "Congressional", data:this.props.candInfo.congMembership});
-		sectionObjs.push({category: "Other", data:this.props.candInfo.orgMembership});
+		sectionObjs.push({category: 'Education', data:this.props.candInfo.education});
+		sectionObjs.push({category: 'Professional', data:this.props.candInfo.profession});
+		sectionObjs.push({category: 'Political', data:this.props.candInfo.political});
+		sectionObjs.push({category: 'Congressional', data:this.props.candInfo.congMembership});
+		sectionObjs.push({category: 'Other', data:this.props.candInfo.orgMembership});
 		return (
 			<table className="candidate-experience-table">
 				<tbody className="candidate-table-body">

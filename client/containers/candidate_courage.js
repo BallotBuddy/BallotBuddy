@@ -5,22 +5,26 @@ import { fetchCourageScore } from '../actions/index';
 class CandidateCourage extends Component {
 
   componentWillMount() {
+    // is the id the votesmart or the opensecrets id for the candidate?
     this.props.fetchCourageScore(this.props.id);
   }
 
   renderCandidateCourage() {
+    // do we still want a loading div?
     if (this.props.courage.length === 0) {
       return <div>Loading...</div>
     }
     const response = this.props.courage;
     const questions = response.section;
+    // if there is no value for response.section value return the surveyMessage value
     if (!questions) {
       return <div className="courage-topic">{response.surveyMessage}</div>
     }
+    // else return the questions data
       return questions.map((topic) => {
         return (() => {
             switch( topic.name ) {
-              case "Abortion":
+              case 'Abortion':
                 return (
                   <div className='courage-topic' key={topic.name}>Abortion
                   { topic.row.map((position) => {
@@ -35,7 +39,7 @@ class CandidateCourage extends Component {
                   }
                   </div>
                 )
-              case "Environment":
+              case 'Environment':
                 return (
                   <div className='courage-topic' key={topic.name}>Environment
                   { topic.row.map((position) => {
@@ -50,7 +54,7 @@ class CandidateCourage extends Component {
                   }
                   </div>
                 )
-              case "Health Care":
+              case 'Health Care':
                 return (
                   <div className='courage-topic' key={topic.name}>Health Care
                   { topic.row.map((position) => {
@@ -65,7 +69,7 @@ class CandidateCourage extends Component {
                   }
                   </div>
                 )
-              case "Guns":
+              case 'Guns':
                 return (
                   <div className='courage-topic' key={topic.name}>Guns
                   { topic.row.map((position) => {
@@ -80,7 +84,7 @@ class CandidateCourage extends Component {
                   }
                   </div>
                 )
-              case "Immigration":
+              case 'Immigration':
                 return (
                   <div className='courage-topic' key={topic.name}>Immigration
                   { topic.row.map((position) => {
