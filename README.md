@@ -31,6 +31,7 @@
 ###Development
 * In config.js, ensure `switcher = 'd'`
 * In package.json, ensure line 9 is `"postinstall": "npm run build",`
+* **Macs** - in package.json, ensure line 8 is `"build": "./node_modules/webpack/bin/webpack.js -w -c",`
 
 ###Production
 * In config.js, make `switcher = 'p'`
