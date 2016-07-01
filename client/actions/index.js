@@ -68,7 +68,9 @@ export function fetchCandidate(cid) {
     payload: request
   };
 }
-
+// 
+// I think we should add routes to all these like below
+// 
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
   const route = 'zip?zip=';
@@ -136,7 +138,7 @@ export function clearProfiles() {
   }
 }
 
-//http://localhost:8080/candCourageScore?candId=....
+//http://localhost:8080/candCourageScore?candId=.... // <= like these.......
 export function fetchCourageScore(cid) {
   const route = 'CourageScore?candId=';
   const url = `${URL}${route}${cid}`;
@@ -148,7 +150,7 @@ export function fetchCourageScore(cid) {
   }
 }
 
-//http://localhost:8080/candyoutube?term=Clinton
+// http://localhost:8080/candyoutube?term=Clinton
 export function fetchCandidateVideo(name) {
   const route = 'youtube?term=';
   const url = `${URL}${route}${name}`;

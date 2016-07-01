@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchByZip } from '../actions/index';
@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
 	// two-way binds the search input value to this.state.searchTerm
 	onInputChange(event) {
-		this.setState( { searchTerm: event.target.value });
+		this.setState({ searchTerm: event.target.value });
 	}
 
 	// initiates the fetchByZip action to perform the search.
@@ -65,4 +65,3 @@ class SearchBar extends Component {
 
 export default connect(null, { fetchByZip, showList })(SearchBar);
 
-						// <div className="search-by-location" onClick={this.onButtonClick}>find by location</div>

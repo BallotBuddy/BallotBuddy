@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCandidateSectorFunding } from '../actions/index';
@@ -6,6 +6,9 @@ import { fetchCandidateSectorFunding } from '../actions/index';
 class CandidateFinance extends Component {
 
   componentWillMount() {
+    // 
+    // this.props.id COULD BE MORE SPECIFIC
+    // 
     this.props.fetchCandidateSectorFunding(this.props.id);
   }
 
