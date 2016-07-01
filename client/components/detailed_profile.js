@@ -87,7 +87,7 @@ class DetailedProfile extends Component {
     return (
       <div className="detailed-profile">
         <div className="result-header">
-          <Link className='back-link' to="/" style={[ { float: 'left' } ]}>
+          <Link className='back-link' to="/" style= {{ float: 'left' }} >
             <div className="go-back-button" onClick={() => {this.backButtonClick()}}>back</div>
           </Link>
           <div className="result-header-logo">

@@ -1,5 +1,6 @@
 var OAuth = require('oauth-request');
 var api_keys = require('../../api_keys');
+var moment = require('moment-timezone');
 var consumer_public = api_keys.consumerKey || process.env.TWITTERCK;
 var consumer_secret = api_keys.consumerSecret || process.env.TWITTERCS;
 var access_Token = api_keys.accessToken || process.env.TWITTERAT;
@@ -52,17 +53,21 @@ twit.gettweets = function (tweetnickname) {
             if (err) { reject(err) }
             else {
                 var returnedtweets = tweets.map(function (element) {
-                    var datetime = new Date(element.created_at);
-                    var day = datetime.getDate();
-                    var monthdigit = datetime.getMonth();
-                    var year = datetime.getFullYear();
-                    var hours = datetime.getHours();
+                    moment.tz.setDefault("America/Chicago");
+
+                    var datetime = moment(new Date(element.created_at));
+                 //   var datetime = new Date(element.created_at);  //element.created_at
+                
+                    var day = datetime.date();
+                    var monthdigit = datetime.month();
+                    var year = datetime.year();
+                    var hours = datetime.hour();
                     var am = 'AM';
                     if (hours > 12 ){
                         am = 'PM';
                         hours = hours-12;
                     }
-                    var minutes = datetime.getMinutes().toString();
+                    var minutes = datetime.minute().toString();
                     if (minutes.length < 2){
                         minutes = '0' + minutes; 
                     }

@@ -26,6 +26,7 @@
     "jquery": "^2.2.4",
     "knex": "^0.11.5",
     "lodash": "^3.10.1",
+    "moment-timezone": "^0.5.4",
     "nodemon": "^1.9.2",
     "oauth-request": "0.0.1",
     "pg": "^5.1.0",
