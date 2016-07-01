@@ -21,6 +21,10 @@ class DetailedProfile extends Component {
     this.props.fetchVoteSmartBio(this.props.params.cid);
   }
 
+  componentWillUnmount(){
+    this.props.clearVoteSmartBio();
+  } 
+
   backButtonClick(){
     this.props.clearVoteSmartBio();
   }
