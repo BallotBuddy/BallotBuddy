@@ -7,7 +7,7 @@
 * Express
 * PostgreSQL with Knex (deployed) or SQLite3 (local build)
 
-##Getting started (local build)
+##Installation (local build)
 
 ###Mac
 1. Run `npm install`
@@ -39,15 +39,15 @@ Note: The major difference between development and production is the database us
 Because we are in a state of rapid development and changing API's.. I believe that of this merge, all content that is viewable is 100% remote API delivered through the server. The database is currently like an appendix and not necessary for the site to do anything at the moment.
 
 
-##Updating the Database
+##Database Notes
 
-To rebuild the database:
+###Rebuild
 1. Set an environment key `process.env.Candidate_key` to a working opensecrets.org API key (free after signup)
 2. In package.json, change `"postinstall": "npm run build"` to `"postinstall": "node server/database/worker/dbgrabber.js && npm run build"`
 	* Note: opensecrets.org limits their API
 
 
-##External APIs
+###External API Keys
 
 postgres
 DATABASE_URL = needs to be set for the deployment database. this is provided by the hosting provider.
