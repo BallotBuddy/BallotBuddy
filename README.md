@@ -1,5 +1,6 @@
 #BallotBuddy
-[Ballotbuddy.co](http://www.ballotbuddy.co/) is a website for easily finding useful information about your elected officals (US only). Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
+[Ballotbuddy.co](http://www.ballotbuddy.co/) is a website for easily finding useful information about your elected officals (US only).
+<br>Don't know all your representatives? Search by zip code to get a list of candidates up for election in your district, then click on their profiles to learn about their experience, sources of funding, position on issues, and more.
 
 ##Tech Stack
 * React with Redux
@@ -94,29 +95,29 @@ Note: Our endpoints use a mix of direct API calls (e.g. VoteSmart, Twitter) and 
 **Local Candidates (zip code search)**
 <br>Route: `/candzip?zip=`
 <br>Example: `http://www.ballotbuddy.co/candzip?zip=78701`
-<br>Response format: 
+<br>Response format: `[{ candidateId: "55463", firstName: "Hillary", nickName: "", middleName: "Rodham", preferredName: "Hillary", lastName: "Clinton", ...}, {...}, ... ]`
 <br>Source: VoteSmart API
 
 **Candidate Bio (experience)**
 <br>Route: `/candbio?candId=`
 <br>Example: `http://www.ballotbuddy.co/candbio?candId=15723`
-<br>Response format: 
+<br>Response format: ``
 <br>Source: VoteSmart API
 
 **Sector Funding**
 <br>Route: `/candSectorFunding?candId=`
 <br>Example: `http://www.ballotbuddy.co/candSectorFunding?candId=N00000019`
-<br>Response format: [ {industry: 'agriculture', funding: 123456}, ... ]
+<br>Response format: `[ {industry: 'agriculture', funding: 123456}, ... ]`
 <br>Source: Stored in database, which is populated by OpenSecrets API
 
-**Key Issues (i.e. Courage Survey)**
+**Key Issues (i.e. courage survey)**
 <br>Route: `/candCourageScore?candId=`
 <br>Example: `http://www.ballotbuddy.co/candCourageScore?candId=N00000019`
-<br>Response format: 
+<br>Response format: ``
 <br>Source: VoteSmart API
 
 ##Contribution Guidelines
-Got an idea? Great! Create a new issue describing your update. Fork the repo and create a branch named 'feat#', where # is the issue number. When ready, put in a pull request to [master in this repo](https://github.com/BallotBuddy/BallotBuddy).
+Got an idea? Great! Create a new issue describing your update, then fork the repo and create a branch named `feat#`, where # is the issue number. When ready, put in a pull request to [master in this repo](https://github.com/BallotBuddy/BallotBuddy).
 
 ##Contributors
 * Matt DuBose ([mjdubose](https://github.com/mjdubose)) - Back end and database
