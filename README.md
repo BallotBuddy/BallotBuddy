@@ -47,28 +47,49 @@ Because we are in a state of rapid development and changing API's.. I believe th
 	* Note: opensecrets.org limits their API
 
 
-###External API Keys
+##External API Keys
+Our code relies on several APIs for information. To run the code with full functionality, you will need to get several keys in order to access these APIs.
 
-postgres
-DATABASE_URL = needs to be set for the deployment database. this is provided by the hosting provider.
+###Development variables (local build)
+Within the `api_keys.js` file:
 
-opensecrets
-OPENSECRETS = opensecrets api key.
+**VoteSmart API** ($45 annual fee)
+<br>`VOTESMART_API` = VoteSmart API key
 
-Twitter
-(You need all 4 of these from the twitter api in order for twitter feed to work.)
-TWITTERAT = token
-TWITTERCK = consumer key
-TWITTERCS = consumer secret
-TWITTERTS = token secret
+**OpenSecrets**
+<br>`OPENSECRETS_API` = opensecrets api key
 
-votesmart api
-VOTESMART
+**Twitter** (All 4 required)
+<br>`accessToken` = token
+<br>`consumerKey` = consumer key
+<br>`consumerSecret` = consumer secret
+<br>`accessTokenSecret` = token secret
 
-Youtube api
-YOU_TUBE
+**Youtube API**
+<br>`YOUTUBE_API` = Youtube API key
 
-##Key Endpoints
+###Deployment environment variables
+Within the hosting provider's enivornment variables:
+Postgres setup
+<br>`DATABASE_URL` needs to be set for the deployment database as an environment variable. This should be provided by the hosting provider.
+
+**VoteSmart API** ($45 annual fee)
+<br>`VOTESMART`= VoteSmart API key
+
+**OpenSecrets**
+`OPENSECRETS` = opensecrets api key.
+
+**Twitter** (All 4 required)
+<br>`TWITTERAT` = token
+<br>`TWITTERCK` = consumer key
+<br>`TWITTERCS` = consumer secret
+<br>`TWITTERTS` = token secret
+
+**Youtube API**
+<br>`YOU_TUBE` = Youtube API key
+
+
+##Notable Endpoints
 Note: Our endpoints use a mix of direct API calls (e.g. VoteSmart, Twitter) and data stored in our database. See the Source information for more details on a specific endpoint.
 
 **Local Candidates (zip code search)**
