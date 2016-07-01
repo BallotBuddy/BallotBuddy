@@ -10,7 +10,7 @@ let twit = require('./apicalls/twitter');
 let YTSearch = require('youtube-api-search')
 let api_keys = require('../api_keys.js')
 var Promise = require('bluebird');
-let api_key = api_keys.YOUTUBE_API;
+let api_key = api_keys.YOUTUBE_API  || process.env.YOU_TUBE;
 
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
