@@ -294,6 +294,12 @@
   box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
   transition: all .2s ease-in-out;
   border-bottom: 1em solid;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .profile-picture-box {
@@ -478,6 +484,7 @@
   width: 80%;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
   background-color: white;
+  animation: fadein 1s;
 }
 
 .single-profile-info {
@@ -612,6 +619,7 @@
   left: 0;
   margin: auto;
   width: 95%;
+  animation: fadein 1s;
 }
 
 .twitter-box-title {
@@ -702,6 +710,7 @@
   width: 40em;
   height: 22em;
   margin-top: 2em;
+  animation: fadein 1s;
 }
 
 .experience-component-box {
@@ -796,6 +805,7 @@
   background-color: rgb(240,240,240);
   padding-top: 15px;
   padding-bottom: 15px;
+  animation: fadein 4s;
 }
 
 .candidate-finance-title {
@@ -924,6 +934,7 @@
   letter-spacing: 0;
   margin: auto;
   text-align: center;
+  animation: fadein 1s;
 }
 
 .about_us h1 {
@@ -1064,7 +1075,6 @@
   padding: 0;
   margin: auto;
 }
-
 
 .outer-li {
   position: relative;
