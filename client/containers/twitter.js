@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { fetchTwitter, fetchCandidate } from '../actions/index';
 import { connect } from 'react-redux';
@@ -49,7 +49,7 @@ class Twitter extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchTwitter, fetchCandidate }, dispatch);
+  return bindActionCreators({ fetchTwitter, fetchCandidate }, dispatch); // <= DO WE  NEED THIS?
 }
 
 function mapStateToProps(state){
