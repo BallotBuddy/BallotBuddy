@@ -904,12 +904,13 @@
 }
 
 .about-back-link {
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  padding: 10px;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
 .about_us {
@@ -931,7 +932,6 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-top: 1em;
   width: 100%;
 }
 
@@ -947,10 +947,9 @@
 }
 
 .about_us h3 {
-  margin-top: 5px;
-  margin-top: 5px;
+  margin: auto;
   position: relative;
-  top: .3em;
+  top: 0;
 }
 
 .team-line {
@@ -961,7 +960,7 @@
   left: 0;
   margin: auto;
   width: 15%;
-  margin-bottom: 10px;
+  margin-bottom: 2em;
   padding-top: 1px;
   background: linear-gradient(-90deg, white, gray, white);
 }
@@ -973,8 +972,8 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-bottom: 10px;
-  width: 17%;
+  margin-bottom: 2em;
+  width: 25%;
   padding-top: 1px;
   background: linear-gradient(-90deg, white, gray, white);
 }
@@ -986,14 +985,15 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 19%;
+  margin-bottom: 2em;
   padding-top: 1px;
+  width: 19%;
   background: linear-gradient(-90deg, white, gray, white);
 }
 
 .about_project {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: auto;
+  margin-bottom: 4em;
 }
 
 .about_team {
@@ -1005,6 +1005,7 @@
   bottom: 0;
   left: 0;
   margin: auto;
+  margin-bottom: 4em;
 }
 
 .team-box{
@@ -1044,7 +1045,7 @@
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
-  height: 225px;
+  height: 250px;
   width: 100%;
   display: flex;
   background-color: rgb(240,240,240);
@@ -1059,6 +1060,7 @@
   left: 0;
   flex-direction: row;
   height: 30px;
+  padding: 0;
   margin: auto;
 }
 
@@ -1070,9 +1072,7 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-left: 0;
-  margin-right: 0;
-  width: 4em;
+  margin-left: .2em;
 }
 
 .mid-li {
@@ -1085,9 +1085,19 @@
   margin: auto;
 }
 
-.about_team img {
-  width: 180px;
-  height: 180px;
+.link-icon {
+  width: 1em;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.team-member-photo {
+  width: 100%;
+  height: 250px;
   position: relative;
   top: 0;
   right: 0;
@@ -1116,6 +1126,7 @@
   bottom: 0;
   left: 0;
   margin: auto;
+  margin-bottom: 4em;
   width: 100%;
 }
 
