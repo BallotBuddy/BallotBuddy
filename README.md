@@ -69,21 +69,37 @@ Youtube api
 YOU_TUBE
 
 ##Key Endpoints
+Note: Our endpoints use a mix of direct API calls (e.g. VoteSmart, Twitter) and data stored in our database. See the Source information for more details on a specific endpoint.
+
 **Local Candidates (zip code search)**
-Route: `/candzip?zip=`
-Example: `//http://localhost:8080/candzip?zip=78701`
-Response format: 
-Source: VoteSmart API
+<br>Route: `/candzip?zip=`
+<br>Example: `http://www.ballotbuddy.co/candzip?zip=78701`
+<br>Response format: 
+<br>Source: VoteSmart API
 
-**Candidate Bio**
-Route: `/candbio?candId=`
-Example: `http://localhost:8080/candbio?candId=15723`
-Response format: 
-Source: VoteSmart API
+**Candidate Bio (experience)**
+<br>Route: `/candbio?candId=`
+<br>Example: `http://www.ballotbuddy.co/candbio?candId=15723`
+<br>Response format: 
+<br>Source: VoteSmart API
 
+**Sector Funding**
+<br>Route: `/candSectorFunding?candId=`
+<br>Example: `http://www.ballotbuddy.co/candSectorFunding?candId=N00000019`
+<br>Response format: [ {industry: 'agriculture', funding: 123456}, ... ]
+<br>Source: Stored in database, which is populated by OpenSecrets API
 
-##Future Readme additions
-* Data mixed between database and api calls
-* Contribution guidelines (fork and make a pull request if you want to contribute)
-* Team workflow
-* List contributors and roles
+**Key Issues (i.e. Courage Survey)**
+<br>Route: `/candCourageScore?candId=`
+<br>Example: `http://www.ballotbuddy.co/candCourageScore?candId=N00000019`
+<br>Response format: 
+<br>Source: VoteSmart API
+
+##Contribution Guidelines
+Got an idea? Great! Create a new issue describing your update. Fork the repo and create a branch named 'feat#', where # is the issue number. When ready, put in a pull request to [master in this repo](https://github.com/BallotBuddy/BallotBuddy).
+
+##Contributors
+* Matt DuBose ([mjdubose](https://github.com/mjdubose)) - Back end and database
+* James Lee ([JimmyLee87](https://github.com/JimmyLee87)) - Front end and styling
+* Jack Hall ([jackjhall22](https://github.com/jackjhall22)) - Full Stack
+* Ryan Newton ([ryannewton](https://github.com/ryannewton)) - Full Stack
