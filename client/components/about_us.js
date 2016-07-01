@@ -37,7 +37,7 @@ export default class AboutUs extends Component {
 							<img className="team-member-photo" src="https://c6.staticflickr.com/8/7354/27786959261_924e6e9214.jpg" alt="James Lee" />
 						</div>
 						<h3>James Lee</h3>
-						<div className="team-member-blurb">James is a student at Makersquare in Austin. James currently has control of all styling <em>(as evidenced by his colleague's descriptions...)</em>.</div>
+						<div className="team-member-blurb">James is a former account manager turned full stack web developer, and a recent graduate of MakerSquare in Austin, TX. His passion for meaningful communication and user-centric design inspire him to strive for an elegant architecture, both in form and function. James led the BallotBuddy team’s front-end execution.</div>
 						<ul className="contact_info list-unstyled list-inline">
 							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/james-lee-atx">LinkedIn</a></li>

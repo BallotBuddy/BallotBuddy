@@ -28,7 +28,7 @@
   margin: auto;
   margin-top: 10%;
   width: 400px;
-  height: 300px;
+  height: 276px;
   overflow: hidden;
 }
 
@@ -81,11 +81,8 @@
   bottom: 0;
   margin: auto;
   margin-top: 1em;
-  width: 144px;
-  height: 32px;
-  border-radius: 20px;
-  background-color: rgba(255,255,255,.2);
-  padding-top: 2px;
+  width: 70px;
+  background-color: rgba(255,255,255,.1);
 }
 
 .search-by-location:hover {
@@ -112,21 +109,25 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-bottom: 1em;
+  margin-bottom: 0;
   height: 32px;
-  width: 175px;
+  width: 120px;
   background-color: #012148;
 }
 
 .search-input {
-  height: 30px;
-  width: 144px;
-  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-bottom: 0em;
+  height: 32px;
+  width: 120px;
+  background-color: #012148;
   text-align: center;
-  background-color: rgba(255,255,255,.2);
-  border: 1px solid white;
-  margin:auto;
-  margin-bottom: 1em;
+  color: white;
 }
 
 /* --------------------------- */
