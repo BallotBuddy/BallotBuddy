@@ -10,21 +10,23 @@ var config = configuration.configuration();
 var env = config.database;
 console.log('database environment', env);
 var knex = require('knex')(env);
+  
 
 module.exports = knex;
 
 knex.deleteEverything = function () {
+    "use strict";
   //return knex('candidate').truncate()
-  return knex.schema.dropTableIfExists('funding')
+    return knex.schema.dropTableIfExists('funding')
          .then(function () {
             knex.schema.dropTableIfExists('candidate')
                 .then(function () {
-                    console.log("Deleted candidate db tables")
+                    console.log("Deleted candidate db tables");
                 });
         });
 };
 
-knex.ensureSchema = ensureSchema = function () {
+knex.ensureSchema = function () {
   return Promise.all([
         knex.schema.hasTable('candidate').then(function (exists) {
             if (!exists) {
@@ -100,20 +102,20 @@ knex.queryByVoteSmartId = function (id) {
 //
 knex.insertEverything = function (candArr, table) {
   return Promise.all(_.map(candArr, function (candidate) {
-    return knex(table).insert(candidate)
-      .then(function (res) {
-        console.log("Added entry to " + table + " table: ", res);
-      })
-      .catch(function (err) {
-        console.log("Error inserting into " + table + " table: ", err);
-      })
-  })).then(function () {
-    return candArr;
+        return knex(table).insert(candidate)
+            .then(function (res) {
+                console.log("Added entry to " + table + " table: ", res);
+            })
+            .catch(function (err) {
+                console.log("Error inserting into " + table + " table: ", err);
+            });
+    })).then(function () {
+        return candArr;
     });
 };
 // Get all funding where candidate id matches
 knex.queryFunding = function (id) {
-  return knex('funding').where({ candidate_id: id }).select();
+    return knex('funding').where({ candidate_id: id }).select();
 };
 
 knex.insertFundingRow = function(row){
@@ -123,6 +125,6 @@ knex.insertFundingRow = function(row){
 //close database connection
 knex.closeDb = function () {
   knex.destroy().then(function () {
-    console.log("Closed db connection");
-  })
+        console.log("Closed db connection");
+    });
 };
