@@ -14,8 +14,11 @@ class CandidateCourage extends Component {
     }
     const response = this.props.courage;
     const questions = response.section;
+    let surveyMessage = response.surveyMessage;
+    surveyMessage = surveyMessage.split("<");
+    surveyMessage = surveyMessage[0];
     if (!questions) {
-      return <div className="courage-topic">{response.surveyMessage}</div>
+      return <div className="courage-topic">{surveyMessage}</div>
     }
       return questions.map((topic) => {
         return (() => {
