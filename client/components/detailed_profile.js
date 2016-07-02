@@ -18,7 +18,10 @@ class DetailedProfile extends Component {
   }
 
   componentWillMount(){
-    this.props.fetchVoteSmartBio(this.props.params.cid);
+    this.props.fetchVoteSmartBio(this.props.params.cid)
+    .then((data) =>{
+        this.props.fetchCandidate(this.props.voteSmartBio.candidate.candidateId)
+      })
   }
 
   componentWillUnmount(){
@@ -103,7 +106,7 @@ class DetailedProfile extends Component {
           {this.renderSingleProfile()}
           <div className="social-media">
             <Twitter candId = { voteSmartBio.candidate.candidateId } />
-            <CandidateVideo candInfo = {voteSmartBio.election}
+            <CandidateVideo candInfo = {voteSmartBio.candidate.candidateId}
                             ballotName={voteSmartBio.election.ballotName}
                             office={voteSmartBio.election.office}/>
           </div>
