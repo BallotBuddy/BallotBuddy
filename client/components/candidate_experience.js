@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 export default class CandidateExperience extends Component {
 
 	renderCandidateExperience() {
-		const expObjs = [
-			{category: 'Education',			data:this.props.candInfo.Education			},
-			{category: 'Professional',	data:this.props.candInfo.Professional		},
-			{category: 'Political',			data:this.props.candInfo.Political			},
-			{category: 'Congressional',	data:this.props.candInfo.congMembership	},
-			{category: 'Other',					data:this.props.candInfo.orgMembership	}
-		];
+		const candInfo = this.props.candInfo;
+		const expObjs = [];
+		expObjs.push({category: "Education",			data: candInfo.education			});
+		expObjs.push({category: "Professional",		data: candInfo.profession			});
+		expObjs.push({category: "Political",			data: candInfo.political			});
+		expObjs.push({category: "Congressional",	data: candInfo.congMembership	});
+		expObjs.push({category: "Other", 					data: candInfo.orgMembership	});
 
 		return (
 			<table className="candidate-experience-table">
