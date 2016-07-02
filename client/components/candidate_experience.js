@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class CandidateExperience extends Component {
 
+	// Builds a component showing the candidate's experience. Used on the detailed_profile page
 	renderCandidateExperience() {
 		const expObjs = [
 			{category: 'Education',			data:this.props.candInfo.Education			},
