@@ -1,10 +1,10 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchByZip } from '../actions/index';
 import { Link } from 'react-router';
 import { showList } from '../actions/index';
 
+// primary search component:
 class SearchBar extends Component {
 	constructor(props) {
 		super(props);
@@ -13,7 +13,6 @@ class SearchBar extends Component {
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
-		this.onButtonClick = this.onButtonClick.bind(this);
 	}
 
 	// two-way binds the search input value to this.state.searchTerm
@@ -27,12 +26,6 @@ class SearchBar extends Component {
 		this.props.fetchByZip( this.state.searchTerm );
 		this.props.showList();
 		this.setState( { searchTerm: '' } );
-	}
-
-	//this button click will eventually allow a user to see candidates
-	// by current location (won't need to enter a zip)
-	onButtonClick(event) {
-		this.props.showList();
 	}
 
 	// builds search bar elements

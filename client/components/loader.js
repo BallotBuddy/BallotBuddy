@@ -3,6 +3,7 @@ import { showSearch } from '../actions/index';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+// component created to render while waiting for API responses.
 class Loader extends Component {
 
   constructor(props) {
@@ -16,9 +17,9 @@ class Loader extends Component {
   }
 
   render(){
-      const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
-      const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
-      const vote = 'http://www.clydetownshipscc.org/uploads/4/4/0/0/4400048/__9117737_orig.png';
+    const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
+    const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
+    const vote = 'http://www.clydetownshipscc.org/uploads/4/4/0/0/4400048/__9117737_orig.png';
 
     return (
       <div className="search-results">

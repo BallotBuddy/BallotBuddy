@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -18,6 +17,7 @@ class ProfilesList extends Component {
     this.props.showSearch();
   }
 
+  // ensures that candidates for future elections on rendered
   filterByDate(data){
     let today = new Date();
     let dd = today.getDate();
@@ -112,6 +112,10 @@ class ProfilesList extends Component {
       }
       if (party === 'N') {
         logo = none;
+      }
+      // keeps board of education candidates from rendering.
+      if (profile.electionOffice === "State Board of Education") {
+        return;
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
