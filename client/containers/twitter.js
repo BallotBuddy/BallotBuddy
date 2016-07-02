@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { fetchTwitter, fetchCandidate } from '../actions/index';
 import { connect } from 'react-redux';
@@ -7,10 +7,12 @@ import { bindActionCreators } from 'redux';
 class Twitter extends Component { 
 
   componentWillMount() {
+    // fetch open secrets data using candidate ID
     this.props.fetchCandidate(this.props.candId)
-    .then ((data) => {
-      this.props.fetchTwitter(data.payload.data['0'].twitter_id)
-    })
+      .then ((data) => {
+        // fetch tweets
+        this.props.fetchTwitter(data.payload.data['0'].twitter_id)
+      })
   }
 
   renderTwitterComponent(){
@@ -47,7 +49,7 @@ class Twitter extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchTwitter, fetchCandidate }, dispatch);
+  return bindActionCreators({ fetchTwitter, fetchCandidate }, dispatch); // <= DO WE  NEED THIS?
 }
 
 function mapStateToProps(state){

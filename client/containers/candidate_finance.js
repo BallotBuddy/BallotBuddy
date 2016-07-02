@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCandidateSectorFunding } from '../actions/index';
@@ -6,6 +6,9 @@ import { fetchCandidateSectorFunding } from '../actions/index';
 class CandidateFinance extends Component {
 
   componentWillMount() {
+    // 
+    // this.props.id COULD BE MORE SPECIFIC
+    // 
     this.props.fetchCandidateSectorFunding(this.props.id);
   }
 
@@ -26,7 +29,7 @@ class CandidateFinance extends Component {
           </div>
           <div className="donation-amounts">
             {/* Note: the logic formats the number (e.g. 1000000 --> $1,000,000) */}
-            <div className="total-amount">{"$"+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+            <div className="total-amount">{'$'+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           </div>
         </div>
       )

@@ -57,7 +57,6 @@ export function fetchProfile(term) {
   };
 }
 
-//http://localhost:8080/candVoteSmartId?votesmart_id=...
 // fetch single candidate's information
 export function fetchCandidate(cid) {
   const route = 'VoteSmartId?votesmart_id=';
@@ -69,7 +68,9 @@ export function fetchCandidate(cid) {
     payload: request
   };
 }
-
+// 
+// I think we should add routes to all these like below
+// 
 // Fetch candidates via zip code:
 export function fetchByZip(zip) {
   const route = 'zip?zip=';
@@ -82,7 +83,7 @@ export function fetchByZip(zip) {
   }
 }
 
-//http://localhost:8080/candbio?candId=15723
+// fetch single candidate's information
 export function fetchVoteSmartBio(cid) {
   const route = 'bio?candId=';
   const url = `${URL}${route}${cid}`;
@@ -102,6 +103,7 @@ export function clearVoteSmartBio() {
     payload: ''
   }
 }
+
 // clears the Video state when the back button is clicked
 export function clearVideo() {
 
@@ -136,7 +138,7 @@ export function clearProfiles() {
   }
 }
 
-//http://localhost:8080/candCourageScore?candId=....
+//http://localhost:8080/candCourageScore?candId=.... // <= like these.......
 export function fetchCourageScore(cid) {
   const route = 'CourageScore?candId=';
   const url = `${URL}${route}${cid}`;
@@ -148,7 +150,7 @@ export function fetchCourageScore(cid) {
   }
 }
 
-//http://localhost:8080/candyoutube?term=Clinton
+// http://localhost:8080/candyoutube?term=Clinton
 export function fetchCandidateVideo(name) {
   const route = 'youtube?term=';
   const url = `${URL}${route}${name}`;

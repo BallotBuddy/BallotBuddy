@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -61,7 +61,7 @@ class ProfilesList extends Component {
     return this.filterByDate(this.props.zipResponse).map((profile) => {
       let logo = '';
       let state = profile.officeStateId;
-      const name = profile.firstName + " " + profile.lastName;
+      const name = profile.firstName + ' ' + profile.lastName;
       const picture = profile.picture;
       const rep = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/2000px-Republicanlogo.svg.png';
       const dem = 'http://d3n8a8pro7vhmx.cloudfront.net/dplac/sites/1/meta_images/original/dem-donkey-right-copy.png?1413244000';
@@ -75,16 +75,16 @@ class ProfilesList extends Component {
       const electionState = profile.electionStateId;
       let selectOffice = function(electionOffice) {
         switch(electionOffice) {
-          case "President":
-            return "U.S. Presidential Candidate"
-          case "U.S. House":
-            return "U.S. Congressional Candidate"
-          case "U.S. Senate":
-            return "U.S. Senatorial Candidate"
-          case "State House":
-            return "State Congressional Candidate"
-          case "State Senate":
-            return "State Senatorial Candidate"
+          case 'President':
+            return 'U.S. Presidential Candidate'
+          case 'U.S. House':
+            return 'U.S. Congressional Candidate'
+          case 'U.S. Senate':
+            return 'U.S. Senatorial Candidate'
+          case 'State House':
+            return 'State Congressional Candidate'
+          case 'State Senate':
+            return 'State Senatorial Candidate'
           default:
             return `Candidate for: ${electionOffice}`;
         }
@@ -115,7 +115,7 @@ class ProfilesList extends Component {
       }
       return (
         <div className={`profile-tile profile-tile-${party}`} key={profile.candidateId} style={partyStyle}>
-        <Link className="profile-link" to={"profile/" + id}>
+        <Link className="profile-link" to={'profile/' + id}>
           <div className="profile-picture-box">
             <img className="profile-picture" src={picture} />
           </div>

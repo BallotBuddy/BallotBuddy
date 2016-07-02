@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash'; // <= DO WE  NEED THIS?
 import React, { Component } from 'react';
 import LandingPage from '../components/landing_page';
 
