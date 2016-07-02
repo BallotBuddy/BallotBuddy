@@ -23,7 +23,7 @@ export default class AboutUs extends Component {
 							<img className="team-member-photo" src="https://c4.staticflickr.com/8/7641/27786959651_c378e65eb3_m.jpg" alt="Matt Dubose" />
 						</div>
 						<h3>Matt DuBose</h3>
-						<div className="team-member-blurb">Matt is a student at Makersquare in Austin. Matt enjoys long walks on the beach and time with his cat "Sofia Puffkins".</div>
+						<div className="team-member-blurb">Matt is a student at Makersquare in Austin. Matt enjoys building software and spending time with family.</div>
 						<ul className="contact_info list-unstyled list-inline">
 							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/matthew-dubose-732029b">LinkedIn</a></li>
