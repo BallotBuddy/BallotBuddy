@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  { connect } from 'react-redux';
 import { fetchCourageScore } from '../actions/index';
 
+// component responsible for displaying a candidates courage score results.
 class CandidateCourage extends Component {
 
   componentWillMount() {
