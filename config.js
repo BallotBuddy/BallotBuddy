@@ -1,9 +1,8 @@
-
-var path = require('path')
+var path = require('path');
 
 exports.configuration = function () {
     // p for production, d for development
-    var switcher = 'd'; 
+    var switcher = 'd';
 
     if (switcher === 'd') {
 
@@ -15,7 +14,7 @@ exports.configuration = function () {
                     filename: path.join(__dirname, '/server/database/database/database.db')
                 }
             }
-        }
+        };
 
         return config;
     }
@@ -28,12 +27,12 @@ exports.configuration = function () {
                 client: 'pg',
                 connection: process.env.DATABASE_URL
             }
-        }
+        };
 
         return config;
     }
 
-}
+};
 
 
 
