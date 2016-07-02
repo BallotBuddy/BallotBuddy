@@ -72,7 +72,7 @@ class DetailedProfile extends Component {
     return (
       <div className="single-profile-info">
         <div className="single-pic-box">
-          <img className="single-pic" src={pic} />
+          <img className="single-pic" src={pic!== '' ? pic : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUJwKOmAFsBQJdt7ohopn5GJ4s6SXft9ovC-fhU9QuRZABGNwt'} />
         </div>
         <div className="single-profile-text">
           <div className="info-name">{name}</div>
