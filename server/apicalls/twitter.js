@@ -11,7 +11,7 @@ var twit = module.exports;
 
 
 twit.gettweets = function (tweetnickname) {
-    var month = new Array();
+    var month = [];
     month[0] = "January";
     month[1] = "February";
     month[2] = "March";
@@ -28,10 +28,9 @@ twit.gettweets = function (tweetnickname) {
     return new Promise(function (fulfill, reject) {
 
         if (tweetnickname === '') {
-            var err = "Twitter nickname does not exist";
             throw "Twitter nickname does not exist";
         }
-        var twitter = OAuth({
+        var twitter = new OAuth({
             consumer: {
                 public: consumer_public,
                 secret: consumer_secret
@@ -50,30 +49,28 @@ twit.gettweets = function (tweetnickname) {
             },
             json: true
         }, function (err, res, tweets) {
-            if (err) { reject(err) }
-            else {
-                var returnedtweets = tweets.map(function (element) {
+            if (err) { reject(err);
+                } else {
+                var returnedTweets = tweets.map(function (element) {
                     moment.tz.setDefault("America/Chicago");
 
                     var datetime = moment(new Date(element.created_at));
-                 //   var datetime = new Date(element.created_at);  //element.created_at
-                
                     var day = datetime.date();
                     var monthdigit = datetime.month();
                     var year = datetime.year();
                     var hours = datetime.hour();
                     var am = 'AM';
-                    if (hours > 12 ){
+                    if (hours > 12) {
                         am = 'PM';
-                        hours = hours-12;
+                        hours = hours - 12;
                     }
                     var minutes = datetime.minute().toString();
-                    if (minutes.length < 2){
-                        minutes = '0' + minutes; 
+                    if (minutes.length < 2) {
+                        minutes = '0' + minutes;
                     }
 
                     var obj = {};
-                    obj.created_at = hours +':'+minutes+ am + ' - ' + day + ' ' + month[monthdigit] + ' ' + year;
+                    obj.created_at = hours + ':' + minutes + am + ' - ' + day + ' ' + month[monthdigit] + ' ' + year;
                     obj.text = element.text;
                     obj.user = element.user.name;
                     obj.location = element.user.location;
@@ -81,10 +78,10 @@ twit.gettweets = function (tweetnickname) {
                     obj.url = element.user.url;
                     return obj;
                 });
-                fulfill(returnedtweets)
-            };
-        })
-    })
+                fulfill(returnedTweets);
+            }
+        });
+    });
 
 };
 
