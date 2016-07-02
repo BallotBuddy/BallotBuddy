@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 export default class AboutUs extends Component {
 
 	render() {
+		const liIcon = 'http://www.apkdad.com/wp-content/uploads/2013/05/LinkedIn-Icon1.png';
+		const ghIcon = 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png';
 		return (
 			<div className="about_us">
 				<Link to={"/"} className="about-back-link">Back</Link>
@@ -18,49 +20,57 @@ export default class AboutUs extends Component {
 					<div className="team-box">
 					<div className="team-tile">
 						<div className="team-photo-box">
-							<img src="https://c4.staticflickr.com/8/7641/27786959651_c378e65eb3_m.jpg" alt="Matt Dubose" />
+							<img className="team-member-photo" src="https://c4.staticflickr.com/8/7641/27786959651_c378e65eb3_m.jpg" alt="Matt Dubose" />
 						</div>
 						<h3>Matt DuBose</h3>
 						<div className="team-member-blurb">Matt is a student at Makersquare in Austin. Matt enjoys long walks on the beach and time with his cat "Sofia Puffkins".</div>
 						<ul className="contact_info list-unstyled list-inline">
+							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/matthew-dubose-732029b">LinkedIn</a></li>
 							<li className="mid-li">|</li>
+							<img className="link-icon" src={ghIcon}/>
 							<li className="outer-li"><a href="https://github.com/mjdubose/">Github</a></li>
 						</ul>
 					</div>
 					<div className="team-tile">
 						<div className="team-photo-box">
-							<img src="https://c6.staticflickr.com/8/7354/27786959261_924e6e9214.jpg" alt="James Lee" />
+							<img className="team-member-photo" src="https://c6.staticflickr.com/8/7354/27786959261_924e6e9214.jpg" alt="James Lee" />
 						</div>
 						<h3>James Lee</h3>
-						<div className="team-member-blurb">James is a student at Makersquare in Austin. James currently has control of all styling <em>(as evidenced by his colleague's descriptions...)</em>.</div>
+						<div className="team-member-blurb">James is a former account manager turned full stack web developer, and a recent graduate of MakerSquare in Austin, TX. His passion for meaningful communication and user-centric design inspire him to strive for an elegant architecture, both in form and function. James led the BallotBuddy team’s front-end execution.</div>
 						<ul className="contact_info list-unstyled list-inline">
+							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/james-lee-atx">LinkedIn</a></li>
 							<li className="mid-li">|</li>
+							<img className="link-icon" src={ghIcon} />
 							<li className="outer-li"><a href="https://github.com/JimmyLee87/">Github</a></li>
 						</ul>
 					</div>
 					<div className="team-tile">
 						<div className="team-photo-box">
-							<img src="https://c8.staticflickr.com/8/7406/27786958311_ec67890a0f_m.jpg" alt="Jack Hall" />
+							<img className="team-member-photo" src="https://c8.staticflickr.com/8/7406/27786958311_ec67890a0f_m.jpg" alt="Jack Hall" />
 						</div>
 						<h3>Jack Hall</h3>
 						<div className="team-member-blurb">Jack is a student at Makersquare in Austin. Jack is <em>literally</em> a ninja.</div>
 						<ul className="contact_info list-unstyled list-inline">
+							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/jackjhall">LinkedIn</a></li>
 							<li className="mid-li">|</li>
+							<img className="link-icon" src={ghIcon} />
 							<li className="outer-li"><a href="https://github.com/jackjhall22/">Github</a></li>
 						</ul>
 					</div>
 					<div className="team-tile">
 						<div className="team-photo-box">
-							<img src="https://c4.staticflickr.com/8/7056/27786958611_00789dc993_z.jpg" alt="Ryan Newton" />
+							<img className="team-member-photo" src="https://c4.staticflickr.com/8/7056/27786958611_00789dc993_z.jpg" alt="Ryan Newton" />
 						</div>
 						<h3>Ryan Newton</h3>
 						<div className="team-member-blurb">Ryan is a student at Makersquare in Austin. Ryan lives for happy hours and kimchi.</div>
 						<ul className="contact_info list-unstyled list-inline">
+							<img className="link-icon" src={liIcon}/>
 							<li className="outer-li"><a href="https://www.linkedin.com/in/rynewton">LinkedIn</a></li>
 							<li className="mid-li">|</li>
+							<img className="link-icon" src={ghIcon} />
 							<li className="outer-li"><a href="https://github.com/ryannewton/">Github</a></li>
 						</ul>
 					</div>

@@ -1,6 +1,4 @@
 #app {
-  /*font-family: 'Open Sans', sans-serif;*/
-  /*font-family: 'Montserrat', sans-serif;*/
   font-family: 'Source Sans Pro', sans-serif;
   position: relative;
   top: 0;
@@ -20,19 +18,19 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px 0px #464242;
+  box-shadow: 0 1px 3px 0 #464242;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
+  margin: 10% auto auto;
   width: 400px;
-  height: 300px;
+  height: 276px;
   overflow: hidden;
 }
 
 .ballot-buddy-logo {
-  font-family: Courier;
+  font-family: "Courier New", Courier, monospace;
   text-align: center;
   color: white;
   font-size: 3em;
@@ -61,6 +59,15 @@
   justify-content: space-around;
 }
 
+.main-header {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
 .search-by-location {
   color: white;
   border: 1px solid white;
@@ -69,15 +76,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
-  margin-bottom: 0%;
-  padding: auto;
-  padding: 2px;
-  width: 144px;
-  height: 32px;
-  border-radius: 20px;
-  background-color: rgba(255,255,255,.2);
-  margin-bottom: 15px;
+  margin: 1em auto auto;
+  width: 70px;
+  background-color: rgba(255,255,255,.1);
 }
 
 .search-by-location:hover {
@@ -86,15 +87,13 @@
 }
 
 .search-choice {
-  color: whitesmoke;
+  color: rgb(200,200,200);
   position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 auto;
 }
 
 .zip-option {
@@ -103,19 +102,24 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
+  margin: auto auto 0;
   height: 32px;
-  width: 175px;
+  width: 120px;
   background-color: #012148;
 }
 
 .search-input {
-  height: 30px;
-  width: 144px;
-  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto auto 0;
+  height: 32px;
+  width: 120px;
+  background-color: #012148;
   text-align: center;
-  background-color: rgba(255,255,255,.2);
-  border: 1px solid white;
+  color: white;
 }
 
 /* --------------------------- */
@@ -146,7 +150,7 @@
   width: 100%;
   height: 50px;
   background-color: rgb(1,33,72);
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
   z-index: 1;
 }
 
@@ -157,13 +161,10 @@
   right: 0;
   left: 0;
   bottom: 0;
-  margin: auto;
-  font-size: 1em;
-  margin-bottom: 100%;
-  margin-top: 12%;
+  margin: 12% auto 100%;
   font-size: 2em;
   padding: 1em;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
   z-index: 2;
 }
 
@@ -178,7 +179,7 @@
   height: 50px;
   text-align: center;
   color: white;
-  font-family: Courier;
+  font-family: "Courier New", Courier, monospace;
   font-size: 25px;
 }
 
@@ -190,6 +191,27 @@
   left: 0;
   bottom: 0;
   margin: auto;
+}
+
+.about-us-button-other {
+  position: absolute;
+  text-align: center;
+  color: white;
+  border: 1px solid;
+  background-color: rgba(255,255,255,.2);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 25px;
+  cursor: pointer;
+  margin: auto 1em auto 91%;
+}
+
+.about-us-button-other:hover {
+  background-color: rgba(175,175,175,1);
+  text-decoration: none;
+  color: white;
 }
 
 .go-back-button {
@@ -258,6 +280,12 @@
   box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
   transition: all .2s ease-in-out;
   border-bottom: 1em solid;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .profile-picture-box {
@@ -288,8 +316,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  margin-left: .5em;
+  margin: auto auto auto .5em;
   padding: 0.2em;
   text-align: center;
 }
@@ -345,9 +372,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
-    margin-top: .5em;
-    width: 2em;
+  margin: .5em auto auto;
+  width: 2em;
 }
 
 .profile-tile-R:hover {
@@ -405,7 +431,7 @@
   justify-content: space-around;
   background-color: rgba(1,33,72,1);
   height: 7em;
-  box-shadow: 0 4px 20px 0px #464242;
+  box-shadow: 0 4px 20px 0 #464242;
   border-bottom: 7px solid rgba(208,0,53,1);
   z-index: 2;
 }
@@ -413,8 +439,7 @@
 
 .back-button {
   background-color: rgba(208,0,53,.8);
-  border: solid 2px;
-  border-color: white;
+  border: 2px solid white;
   border-radius: .3em;
   color: white;
   padding: 1%;
@@ -442,6 +467,7 @@
   width: 80%;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
   background-color: white;
+  animation: fadein 1s;
 }
 
 .single-profile-info {
@@ -455,7 +481,7 @@
   width: 90%;
   height: 10em;
   background-color: rgb(1,33,72);
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
   z-index: 1;
 }
 
@@ -506,8 +532,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-right: 1em;
+  margin: auto 1em auto auto;
 }
 
 .info-party-logo {
@@ -525,11 +550,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-top: 2.5%;
-  margin-left: 2.5%;
+  margin: 2.5% auto auto 2.5%;
   width: 6em;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
 }
 
 .single-pic {
@@ -558,13 +581,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   display: flex;
   flex-direction: column;
   width: 90%;
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 30px;
   background-color: rgb(245,245,245);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  margin: auto auto 1em;
 }
 
 .twitter-box {
@@ -576,6 +600,7 @@
   left: 0;
   margin: auto;
   width: 95%;
+  animation: fadein 1s;
 }
 
 .twitter-box-title {
@@ -606,7 +631,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   padding: 1%;
   display: flex;
   flex-direction: column;
@@ -662,10 +686,10 @@
   right: 0;
   left: 0;
   bottom: 0;
-  margin: auto;
   width: 40em;
   height: 22em;
-  margin-top: 2em;
+  margin: 2em auto auto;
+  animation: fadein 1s;
 }
 
 .experience-component-box {
@@ -674,13 +698,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   width: 90%;
   display: flex;
   background-color: rgb(245,245,245);
   flex-direction: column;
   padding-top: 15px;
   padding-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  margin: auto auto 1em;
 }
 
 .candidate-experience-title {
@@ -698,8 +723,7 @@
 
 .candidate-experience-table {
   width: 80%;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto auto;
 }
 
 .candidate-table-body {
@@ -717,10 +741,9 @@
 }
 
 .experience-category {
-   position: relative; 
-   margin: auto; 
-   margin-top: 0; 
-   padding-top: 0;
+   position: relative;
+  margin: 0 auto auto;
+  padding-top: 0;
    font-size: 20px;
 }
 
@@ -732,7 +755,6 @@
 }
 
 .list-unstyled {
-  padding-left: 0;
   list-style: none;
   margin: auto;
   padding: 10px;
@@ -753,13 +775,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: rgb(240,240,240);
   padding-top: 15px;
   padding-bottom: 15px;
+  animation: fadein 4s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  margin: auto auto 1em;
 }
 
 .candidate-finance-title {
@@ -810,14 +834,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   margin: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   width: 30%;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
   background-color: white;
 }
 
@@ -869,12 +892,11 @@
 }
 
 .about-back-link {
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  padding: 10px;
+  margin: 20px auto auto 50px;
 }
 
 .about_us {
@@ -887,6 +909,7 @@
   letter-spacing: 0;
   margin: auto;
   text-align: center;
+  animation: fadein 1s;
 }
 
 .about_us h1 {
@@ -896,7 +919,6 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  margin-top: 1em;
   width: 100%;
 }
 
@@ -906,16 +928,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-top: 1em;
+  margin: 1em auto auto;
   width: 100%;
 }
 
 .about_us h3 {
-  margin-top: 5px;
-  margin-top: 5px;
   position: relative;
-  top: .3em;
+  top: 0;
+  margin: 1em auto auto;
 }
 
 .team-line {
@@ -924,9 +944,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   width: 15%;
-  margin-bottom: 10px;
+  margin: auto auto 2em;
   padding-top: 1px;
   background: linear-gradient(-90deg, white, gray, white);
 }
@@ -937,9 +956,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-bottom: 10px;
-  width: 17%;
+  margin: auto auto 2em;
+  width: 25%;
   padding-top: 1px;
   background: linear-gradient(-90deg, white, gray, white);
 }
@@ -950,15 +968,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  width: 19%;
+  margin: auto auto 2em;
   padding-top: 1px;
+  width: 19%;
   background: linear-gradient(-90deg, white, gray, white);
 }
 
 .about_project {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: auto auto 4em;
 }
 
 .about_team {
@@ -969,7 +986,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
+  margin: auto auto 4em;
 }
 
 .team-box{
@@ -993,11 +1010,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   margin: 1em;
   width: 250px;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
-  height: 475px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  height: 625px;
 }
 
 .team-photo-box {
@@ -1006,10 +1022,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  height: 225px;
+  margin: 0 auto;
+  height: 250px;
   width: 100%;
   display: flex;
   background-color: rgb(240,240,240);
@@ -1024,9 +1038,9 @@
   left: 0;
   flex-direction: row;
   height: 30px;
-  margin: auto;
+  padding: 0;
+  margin: auto auto .5em;
 }
-
 
 .outer-li {
   position: relative;
@@ -1034,10 +1048,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-left: 0;
-  margin-right: 0;
-  width: 4em;
+  margin: auto auto auto .2em;
 }
 
 .mid-li {
@@ -1050,9 +1061,19 @@
   margin: auto;
 }
 
-.about_team img {
-  width: 180px;
-  height: 180px;
+.link-icon {
+  width: 1em;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.team-member-photo {
+  width: 100%;
+  height: 250px;
   position: relative;
   top: 0;
   right: 0;
@@ -1068,10 +1089,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-top: 10px;
+  margin: 10px auto auto;
   padding: 8px;
-  height: 30%;
+  height: 50%;
 }
 
 .about_sources {
@@ -1080,7 +1100,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
+  margin: auto auto 4em;
   width: 100%;
 }
 
@@ -1103,23 +1123,19 @@
 }
 
 .about-us-button {
-  position: relative;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  background-color: rgb(200,200,200);
-  border-radius: 20em;
-  color: black;
-  padding: .3%;
+  color: rgb(200,200,200);
+  margin: 1em auto auto;
+  background-color: rgb(1,33,72);
+  height: 25px;
+  cursor: pointer;
+  width: 5em;
   text-align: center;
-  font-size: 1em;
-  height: 2em;
-  width: 6em;
-  margin-top: .1em;
-  margin-bottom: .1em;
-  box-shadow: inset 0 0 5px #000000;
+  box-shadow: 0 1px 3px 0 #464242;
 }
 
 .about-us-button:hover {
@@ -1137,14 +1153,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   width: 90%;
   display: flex;
   background-color: rgb(240,240,240);
   flex-direction: column;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-bottom: 3em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  margin: auto auto 1em;
 }
 
 .courage-topic {
@@ -1153,13 +1169,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto auto;
   font-size: 20px;
   width: 80%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.4);
   padding: 5px;
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.4);
-  padding-top: 5px;
   background-color: white;
 }
 
@@ -1192,8 +1206,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
-  margin-top: 15%;
+  margin: 15% auto auto;
   width: 100%;
 }
 
@@ -1217,8 +1230,7 @@
   height: 1.5em;
   opacity: 0;
   display:inline-block;
-  margin: auto;
-  margin-left: 1em;
+  margin: auto auto auto 1em;
 }
 
 @keyframes dotLoader {

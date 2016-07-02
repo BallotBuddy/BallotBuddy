@@ -38,7 +38,6 @@ class SearchBar extends Component {
 	// builds search bar elements
 	render() {
 		return(
-			<div>
 				<header	className="header">
 					<div className="ballot-buddy-logo">
 						<div>
@@ -48,21 +47,18 @@ class SearchBar extends Component {
 					</div>
 					<div className="search-bar">
 						<form className="zip-option" onSubmit={this.onFormSubmit}>
-						<span className="search-choice">enter zip code</span>
 							<input
 								className="search-input"
-								placeholder="e.g. 78701"
+								placeholder="enter zip code"
 								value={this.state.searchTerm}
 								onChange={this.onInputChange} />
 						</form>
+						<div className="search-by-location" onClick={this.onFormSubmit}>search</div>
 					</div>
-				<Link to="/aboutus" className="about-us-button">About Us</Link>
 				</header>
-			</div>
 		);
 	}
 }
 
 export default connect(null, { fetchByZip, showList })(SearchBar);
 
-						// <div className="search-by-location" onClick={this.onButtonClick}>find by location</div>
