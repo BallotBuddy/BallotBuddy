@@ -63,12 +63,12 @@ knex.ensureSchema = ensureSchema = function () {
     knex.schema.hasTable('funding').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('funding', function (table) {
-          table.increments('row_id').primary();
-          table.foreign('candidate_id').references('candidate_id').inTable('candidate');
-          table.string('candidate_id', 30);
-          table.string('sector', 50);
-          table.string('code',5);
-          table.decimal('total');
+             table.increments('row_id').primary();
+             table.string('candidate_id', 30);
+             table.string('sector_code',5); 
+             table.string('industry', 50);               
+             table.string('sector',50);    //   'candidate_id','sector_code','industry','sector','funding'
+             table.decimal('funding');
         }).then(function (table) {
           console.log('Created funding table.');
         })
@@ -120,8 +120,9 @@ knex.queryFunding = function (id) {
 };
 
 knex.insertFundingRow = function(row){
-  return knex('funding').returning('candidate_id','sector_code','industry','sector','funding').insert(row);
+  return knex('funding').insert(row);
 }
+  
 
 //close database connection
 knex.closeDb = function () {

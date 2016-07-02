@@ -10,7 +10,7 @@ let twit = require('./apicalls/twitter');
 let YTSearch = require('youtube-api-search')
 let api_keys = require('../api_keys.js')
 var Promise = require('bluebird');
-let api_key = api_keys.YOUTUBE_API;
+let api_key = api_keys.YOUTUBE_API  || process.env.YOU_TUBE;
 
 app.use('/', express.static(path.join(__dirname, "../dist")))
 
@@ -149,9 +149,9 @@ app.route('/candSectorFunding').get(function(req, res){
  return os.checkStashReturn(candId).then(function(results) {
    var obj = results.reduce((acc, elem) => {
 	if(acc[elem.sector] === undefined) {
-		acc[elem.sector] = elem.funding;
+		acc[elem.sector] = (elem.funding *1);
 	} else {
-		acc[elem.sector] += elem.funding;
+		acc[elem.sector] += (elem.funding *1);
 	}
 	return acc;
 }, {});
