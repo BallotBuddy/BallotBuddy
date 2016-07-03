@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 
+// Builds a component showing the candidate's experience. Used on the detailed_profile page
 export default class CandidateExperience extends Component {
 
 	renderCandidateExperience() {
-		const sectionObjs = [];
-		sectionObjs.push({category: "Education", data:this.props.candInfo.education});
-		sectionObjs.push({category: "Professional", data:this.props.candInfo.profession});
-		sectionObjs.push({category: "Political", data:this.props.candInfo.political});
-		sectionObjs.push({category: "Congressional", data:this.props.candInfo.congMembership});
-		sectionObjs.push({category: "Other", data:this.props.candInfo.orgMembership});
+		const candInfo = this.props.candInfo;
+		const expObjs = [];
+		expObjs.push({category: "Education",			data: candInfo.education			});
+		expObjs.push({category: "Professional",		data: candInfo.profession			});
+		expObjs.push({category: "Political",			data: candInfo.political			});
+		expObjs.push({category: "Congressional",	data: candInfo.congMembership	});
+		expObjs.push({category: "Other", 					data: candInfo.orgMembership	});
+
 		return (
 			<table className="candidate-experience-table">
 				<tbody className="candidate-table-body">
-					{ sectionObjs.map((obj) => {
+					{/* Maps through each experience category and builds a table row */}
+					{ expObjs.map((obj) => {
 						return (
 							<tr className="table-row-category" key={obj.category}>
 								<td className="experience-category">{obj.category}:</td>
 								<td className="experience-details">
 									<ul className="list-unstyled">
-										{/*Puts each newline on it's own bullet*/}
+										{/* Puts each newline on it's own bullet */}
 										{ obj.data.split('\n').map(line => { return <li className="experience-item" key={line}>{line}</li> }) }
 									</ul>
 								</td>

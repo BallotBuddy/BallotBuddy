@@ -1,11 +1,14 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCandidateSectorFunding } from '../actions/index';
 
+// Creates a component that displays the funding totals from the top 5 donating sectors
+// e.g. '$10M from transportation'
+// Note: sector is a broad category, like transportation, while industry is more specific, like automotive
 class CandidateFinance extends Component {
 
   componentWillMount() {
+    // Passes the OpenSecrets id to retrieve funding by sector
     this.props.fetchCandidateSectorFunding(this.props.id);
   }
 
@@ -26,7 +29,7 @@ class CandidateFinance extends Component {
           </div>
           <div className="donation-amounts">
             {/* Note: the logic formats the number (e.g. 1000000 --> $1,000,000) */}
-            <div className="total-amount">{"$"+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+            <div className="total-amount">{'$'+funding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           </div>
         </div>
       )
