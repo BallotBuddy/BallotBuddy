@@ -2,9 +2,22 @@ var path = require('path');
 
 exports.configuration = function () {
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV === 'production') {
 
-        var config = {
+        return {
+            client: 'www.ballotbuddy.co',
+            database: {
+                client: 'pg',
+                connection: process.env.DATABASE_URL
+            }
+        };
+
+
+    }
+
+    else {
+
+        return {
             client: 'localhost:8080',
             database: {
                 client: 'sqlite3',
@@ -14,20 +27,8 @@ exports.configuration = function () {
             }
         };
 
-        return config;
-    }
+        
 
-    else {
-
-        var config = {
-            client: 'www.ballotbuddy.co',
-            database: {
-                client: 'pg',
-                connection: process.env.DATABASE_URL
-            }
-        };
-
-        return config;
     }
 
 };
