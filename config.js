@@ -1,12 +1,8 @@
 var path = require('path');
 
 exports.configuration = function () {
-    // p for production, d for development
 
-    var switcher = 'd';
-
-
-    if (switcher === 'd') {
+    if (process.env.NODE_ENV !== 'production') {
 
         var config = {
             client: 'localhost:8080',
@@ -21,7 +17,7 @@ exports.configuration = function () {
         return config;
     }
 
-    if (switcher === 'p') {
+    else {
 
         var config = {
             client: 'www.ballotbuddy.co',
