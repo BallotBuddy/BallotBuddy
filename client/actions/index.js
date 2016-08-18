@@ -1,6 +1,6 @@
 import axios from 'axios';
 const config = require('../../config.js').configuration();
-const env = (process.env.NODE_ENV==="production"?'www.ballotbuddy.co':'localhost:8080')
+const env = 'www.ballotbuddy.co'
 const URL = 'http://' + env + '/cand';
 
 // API actions:
