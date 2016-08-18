@@ -11,7 +11,14 @@ var YTSearch = require('youtube-api-search');
 var api_keys = require('../api_keys.js');
 var api_key = api_keys.YOUTUBE_API  || process.env.YOU_TUBE;
 
-app.use('/', express.static(path.join(__dirname, "../dist")));
+app.use('/', express.static(path.join(__dirname, "..",'dist')));
+app.get('/profile/:candidateID',function(req,res){
+    res.status(200).sendFile(path.join(__dirname,'..','dist','index.html'));
+})
+
+app.get('/aboutus',function(req,res){
+    res.status(200).sendFile(path.join(__dirname,'..','dist','index.html'));
+})
 
 app.route('');
 
