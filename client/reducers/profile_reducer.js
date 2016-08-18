@@ -17,7 +17,7 @@ export default function( state = INITIAL_STATE, action) {
   case FETCH_VOTE_SMART_BIO:
     return {...state, voteSmartBio: action.payload.data };
   
-  // grab sectorFunding via opensecrets api
+  // grab sectorFunding via database (which is built using ~100 opensecrets API calls/candidate)
   case FETCH_CANDIDATE_SECTOR_FUNDING:
     return {...state, sectorFunding: action.payload.data || [] };
   

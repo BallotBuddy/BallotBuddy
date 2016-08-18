@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import ProfilesList from '../containers/profiles_list';
 import SearchBar from '../containers/search_bar';
 
+// This component controls the rendering for either the search function
+// or the results to be displayed following the search
 class LandingPage extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

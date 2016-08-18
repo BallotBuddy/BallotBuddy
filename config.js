@@ -2,7 +2,9 @@ var path = require('path');
 
 exports.configuration = function () {
     // p for production, d for development
+
     var switcher = 'd';
+
 
     if (switcher === 'd') {
 
