@@ -20,7 +20,11 @@ class CandidateVideo extends Component {
 					// if the candidate is Bernie use his presidental video
 					if(this.props.ballotName==="Bernie Sanders"){
 						this.props.fetchCandidateVideo("Bernie Sanders official campaign")
-					}else{						
+					} else if (this.props.ballotName ==="Donald Trump"){
+						this.props.fetchCandidateVideo("Life Changing Experience | Donald J. Trump For President")
+					}
+					
+					else{						
 					let URL = this.props.singleProfile.youtube_url;
 					URL = URL.split("/")
 					URL = URL[URL.length-1]
