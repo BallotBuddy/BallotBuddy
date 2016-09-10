@@ -20,9 +20,7 @@ class CandidateVideo extends Component {
 					// if the candidate is Bernie use his presidental video
 					if(this.props.ballotName==="Bernie Sanders"){
 						this.props.fetchCandidateVideo("Bernie Sanders official campaign")
-					} else if (this.props.ballotName ==="Donald Trump"){
-						this.props.fetchCandidateVideo("Life Changing Experience | Donald J. Trump For President")
-					}
+					} 
 					
 					else{						
 					let URL = this.props.singleProfile.youtube_url;
@@ -34,6 +32,10 @@ class CandidateVideo extends Component {
 
 				// if the candidate is not congressional
 			}).catch ((err) => {
+
+				 if (this.props.ballotName ==="Donald Trump"){
+						this.props.fetchCandidateVideo("Life Changing Experience | Donald J. Trump For President")
+					} else 
 				if(this.props.office==="President") {
 					this.props.fetchCandidateVideo(`${this.props.ballotName} official campaign`)				
 				}else{
