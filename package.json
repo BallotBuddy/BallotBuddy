@@ -26,7 +26,7 @@
     "express": "^4.13.4",
     "jquery": "^3.3.1",
     "knex": "^0.20.3",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.15",
     "moment-timezone": "^0.5.4",
     "nodemon": "^1.9.2",
     "oauth-request": "0.0.1",
